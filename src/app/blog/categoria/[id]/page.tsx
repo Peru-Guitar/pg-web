@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/layout/Container";
 
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const category = POST_CATEGORIES[id];
   return category
-    ? { title: category.name, description: category.description }
+    ? pageMetadata({ title: category.name, description: category.description, path: `/blog/categoria/${id}` })
     : {};
 }
 

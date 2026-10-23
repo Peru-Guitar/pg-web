@@ -1,15 +1,14 @@
-import { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 
 import { Container } from "@/components/layout/Container";
 import { Hero } from "@/components/layout/Hero";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Acerca de nosotros",
-  description:
-    "La primera comunidad de guitarristas en el Perú, desde 2003. Blog, apps, recursos, eventos y más para aprender y practicar guitarra.",
-  alternates: { canonical: "/acerca-de-nosotros" },
-};
+  description: "La primera comunidad de guitarristas en el Perú, desde 2003. Blog, apps, recursos, eventos y más para aprender y practicar guitarra.",
+  path: "/acerca-de-nosotros",
+});
 
 export default function AboutPage() {
   return (

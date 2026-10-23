@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { Play } from "lucide-react";
 
 import { PODCAST_EPISODES, VIDEOS } from "@/content/media";
@@ -7,12 +7,11 @@ import { youtubeUrl } from "@/content/settings.json";
 import { Container } from "@/components/layout/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Media",
-  description:
-    "Collabs de la comunidad, entrevistas y el podcast de Peru Guitar.",
-  alternates: { canonical: "/media" },
-};
+  description: "Collabs de la comunidad, entrevistas y el podcast de Peru Guitar.",
+  path: "/media",
+});
 
 export default function MediaPage() {
   return (

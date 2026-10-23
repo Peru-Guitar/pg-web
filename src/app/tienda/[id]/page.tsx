@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MessageCircle } from "lucide-react";
@@ -31,11 +32,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const product = getProduct(id);
   if (!product) return {};
 
-  return {
+  return pageMetadata({
     title: product.name,
     description: product.tagline,
-    ...(product.cover && { openGraph: { images: [product.cover] } }),
-  };
+    path: `/tienda/${product.id}`,
+    image: product.cover,
+  });
 }
 
 export default async function ProductPage({ params }: Props) {
