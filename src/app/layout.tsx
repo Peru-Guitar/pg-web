@@ -20,16 +20,20 @@ export const metadata: Metadata = {
     template: "%s | Peru Guitar",
   },
   description:
-    "La comunidad de guitarristas del Perú. Artículos, apps y recursos para mejorar en la guitarra.",
+    "La guitarra nos conecta. Descubre artículos, guías gratuitas, backing tracks y apps para practicar con la comunidad de guitarristas del Perú.",
   openGraph: {
     siteName: "Peru Guitar",
-    images: [{ url: "/og-peruguitar.jpg", width: 1200, height: 630 }],
+    title: "Peru Guitar · La guitarra nos conecta",
+    description: "La guitarra nos conecta. Descubre artículos, guías gratuitas, backing tracks y apps para practicar con la comunidad de guitarristas del Perú.",
+    images: [{ url: "/og-peruguitar-v2.jpg", width: 1200, height: 630, alt: "PeruGuitar: La guitarra nos conecta. Comunidad, educación y música." }],
     locale: "es_PE",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/og-peruguitar.jpg"],
+    title: "Peru Guitar · La guitarra nos conecta",
+    description: "La guitarra nos conecta. Descubre artículos, guías gratuitas, backing tracks y apps para practicar con la comunidad de guitarristas del Perú.",
+    images: ["/og-peruguitar-v2.jpg"],
   },
 };
 

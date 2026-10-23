@@ -1,0 +1,10 @@
+{
+  "tool": "image_gen (built-in)",
+  "prompt": "Use case: ads-marketing. Create a polished website Open Graph share card, landscape 1200:630 aspect ratio. Input image is the exact PeruGuitar logo; preserve this logo faithfully, legible at upper left, with its pale white wordmark and red white blue headstock symbol. Premium contemporary editorial design for a Peruvian guitarist community. Deep charcoal almost black background, subtle warm copper light, realistic close-up electric guitar neck and strings occupying the right 40 percent, fading naturally into dark empty space at left. Left aligned very large bold clean geometric sans typography in two lines, exact Spanish headline: 'La guitarra' then 'nos conecta.' Use white for 'La guitarra' and warm peach #f1c7a1 for 'nos conecta.'. Under headline small legible muted white text exactly 'Comunidad, educación y música.' Bottom left small warm orange text exactly 'peruguitar.com'. Keep all important content inside 75px safe margin. Strong legibility at thumbnail size, restrained elegance, no cards, no interface screenshot, no extra text, no watermarks. Brand palette charcoal #111111, terracotta #e0662f, warm peach #f1c7a1.",
+  "assets": [
+    "public/og-peruguitar-v2.jpg",
+    "public/og-peruguitar-v2.webp"
+  ],
+  "width": 1200,
+  "height": 630
+}
