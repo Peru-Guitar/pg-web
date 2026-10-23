@@ -1,0 +1,8 @@
+{
+  "tool": "image_gen (built-in)",
+  "prompt": "Use case: precise-object-edit. Edit target: the attached portrait photograph of a guitarist with Spanish cover text. Recreate this same guitarist and black electric guitar as a high resolution crisp photorealistic editorial photograph. Remove ALL typography, text, horizontal line, graphic overlays and any lettering/logos. Reframe camera closer toward the guitar neck and fretting hand: the fretboard, strings, frets and natural anatomically correct hand are the primary focus, tack sharp with realistic detail. Keep the guitarist's recognizable appearance, black shirt, dark intimate studio mood and soft warm background lights; face may be partially cropped in the upper left as the camera favors the neck. Portrait 3:4 composition, guitar neck runs diagonally from lower left to upper right, full useful fretting hand visible. No words, no watermark, no cover design. Natural photographic realism, not cartoon, no added instruments.",
+  "asset": "public/resources/arpegios-guitarrista.webp",
+  "width": 1086,
+  "height": 1448,
+  "bytes": 73942
+}

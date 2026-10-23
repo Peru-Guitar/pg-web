@@ -1,0 +1,69 @@
+{
+  "tool": "image_gen (built-in)",
+  "format": "WebP",
+  "width": 1600,
+  "height": 900,
+  "quality": 80,
+  "jobs": [
+    {
+      "key": "01",
+      "prompt": "Use case: photorealistic-natural. Asset: PeruGuitar article header, landscape 16:9. Cinematic editorial photograph, realistic instruments and hands, charcoal shadows, warm amber highlights, subtle film grain. Main subject in right half, darker uncluttered left third for HTML title overlay; meaningful subject remains within central crop. No text, logos, watermark, collage or borders. Close-up of a guitarist fretting the high frets of a six-string electric guitar on a fusion stage, violet and amber stage lighting, shallow depth of field.",
+      "output": "/content/pentatonic-fusion-lick-01/header.webp"
+    },
+    {
+      "key": "02",
+      "prompt": "Use case: photorealistic-natural. Asset: PeruGuitar article header, landscape 16:9. Cinematic editorial photograph, realistic instruments and hands, charcoal shadows, warm amber highlights, subtle film grain. Main subject in right half, darker uncluttered left third for HTML title overlay; meaningful subject remains within central crop. No text, logos, watermark, collage or borders. A young adult Peruvian guitarist seated in a modest practice bedroom looking thoughtfully frustrated at their electric guitar, a mechanical metronome and open practice notebook nearby.",
+      "output": "/content/por-que-no-mejoramos-en-la-guitarra/header.webp"
+    },
+    {
+      "key": "05",
+      "prompt": "Use case: photorealistic-natural. Asset: PeruGuitar article header, landscape 16:9. Cinematic editorial photograph, realistic instruments and hands, charcoal shadows, warm amber highlights, subtle film grain. Main subject in right half, darker uncluttered left third for HTML title overlay; meaningful subject remains within central crop. No text, logos, watermark, collage or borders. Three adult guitarists with distinct metal, blues and jazz styles sharing a rehearsal room, their electric guitars central to the story, natural relaxed interaction, wide editorial photograph.",
+      "output": "/content/tipos-de-guitarristas-y-rivalidades/header.webp"
+    },
+    {
+      "key": "06",
+      "prompt": "Use case: photorealistic-natural. Asset: PeruGuitar article header, landscape 16:9. Cinematic editorial photograph, realistic instruments and hands, charcoal shadows, warm amber highlights, subtle film grain. Main subject in right half, darker uncluttered left third for HTML title overlay; meaningful subject remains within central crop. No text, logos, watermark, collage or borders. A Peruvian adult guitar teacher giving an adult student a private electric guitar lesson, teacher pointing to a position on the student's fretboard, intimate modest music studio, subtle Peruvian textile detail.",
+      "output": "/content/con-quien-estudiar-guitarra-en-peru/header.webp"
+    },
+    {
+      "key": "07",
+      "prompt": "Use case: photorealistic-natural. Asset: PeruGuitar article header, landscape 16:9. Cinematic editorial photograph, realistic instruments and hands, charcoal shadows, warm amber highlights, subtle film grain. Main subject in right half, darker uncluttered left third for HTML title overlay; meaningful subject remains within central crop. No text, logos, watermark, collage or borders. A carefully arranged home recording studio, electric guitar in foreground beside an audio interface, computer showing abstract audio tracks softly out of focus behind it. No readable interface text.",
+      "output": "/content/recomendacion-para-grabar-guitarras/header.webp"
+    },
+    {
+      "key": "08",
+      "prompt": "Use case: photorealistic-natural. Asset: PeruGuitar article header, landscape 16:9. Cinematic editorial photograph, realistic instruments and hands, charcoal shadows, warm amber highlights, subtle film grain. Main subject in right half, darker uncluttered left third for HTML title overlay; meaningful subject remains within central crop. No text, logos, watermark, collage or borders. Top-down editorial still life of an electric guitar, mechanical metronome, guitar picks and open notebook with simple hand-drawn fretboard diagrams, orderly warm wood practice desk.",
+      "output": "/content/haz-esto-cuando-no-sepas-que-practicar/header.webp"
+    },
+    {
+      "key": "09",
+      "prompt": "Use case: photorealistic-natural. Asset: PeruGuitar article header, landscape 16:9. Cinematic editorial photograph, realistic instruments and hands, charcoal shadows, warm amber highlights, subtle film grain. Main subject in right half, darker uncluttered left third for HTML title overlay; meaningful subject remains within central crop. No text, logos, watermark, collage or borders. Adult guitarist listening critically at a home recording desk, picking hand paused above guitar strings, monitor with several abstract waveform takes, reflective mood, no readable screen text.",
+      "output": "/content/por-que-componemos-malos-solos/header.webp"
+    },
+    {
+      "key": "10",
+      "prompt": "Use case: photorealistic-natural. Asset: PeruGuitar article header, landscape 16:9. Cinematic editorial photograph, realistic instruments and hands, charcoal shadows, warm amber highlights, subtle film grain. Main subject in right half, darker uncluttered left third for HTML title overlay; meaningful subject remains within central crop. No text, logos, watermark, collage or borders. An adult modern electric guitarist filming a performance using a smartphone on a tripod, phone foreground and musician behind surrounded by pedals and recording gear, subtle sense of performance pressure.",
+      "output": "/content/el-problema-del-guitarrista-moderno/header.webp"
+    },
+    {
+      "key": "11",
+      "prompt": "Use case: photorealistic-natural. Asset: PeruGuitar article header, landscape 16:9. Cinematic editorial photograph, realistic instruments and hands, charcoal shadows, warm amber highlights, subtle film grain. Main subject in right half, darker uncluttered left third for HTML title overlay; meaningful subject remains within central crop. No text, logos, watermark, collage or borders. A Peruvian electric guitarist seen from behind standing backstage looking toward a vast illuminated concert stage, small red-white-red Peruvian flag patch on guitar strap, aspirational atmosphere.",
+      "output": "/content/por-que-peru-no-tiene-guitarristas-de-talla-mundial/header.webp"
+    },
+    {
+      "key": "12",
+      "prompt": "Use case: photorealistic-natural. Asset: PeruGuitar article header, landscape 16:9. Cinematic editorial photograph, realistic instruments and hands, charcoal shadows, warm amber highlights, subtle film grain. Main subject in right half, darker uncluttered left third for HTML title overlay; meaningful subject remains within central crop. No text, logos, watermark, collage or borders. Close-up of a real six-string electric guitar neck with projected amber and violet light paths: a luminous path departs from a regular geometric grid and returns, poetic visual metaphor for outside phrasing, photographic materials.",
+      "output": "/content/como-tocar-fraseos-outside-y-que-suenen-bien/header.webp"
+    },
+    {
+      "key": "13",
+      "prompt": "Use case: photorealistic-natural. Asset: PeruGuitar article header, landscape 16:9. Cinematic editorial photograph, realistic instruments and hands, charcoal shadows, warm amber highlights, subtle film grain. Main subject in right half, darker uncluttered left third for HTML title overlay; meaningful subject remains within central crop. No text, logos, watermark, collage or borders. An adult musician composing with electric guitar and computer in a warm home studio, abstract layered waveforms and musical shapes on screen suggesting AI collaboration, human musician remains the focus. No robots or readable text.",
+      "output": "/content/como-mejorar-composiciones-con-ia/header.webp"
+    },
+    {
+      "key": "14",
+      "prompt": "Use case: photorealistic-natural. Asset: PeruGuitar article header, landscape 16:9. Cinematic editorial photograph, realistic instruments and hands, charcoal shadows, warm amber highlights, subtle film grain. Main subject in right half, darker uncluttered left third for HTML title overlay; meaningful subject remains within central crop. No text, logos, watermark, collage or borders. Editorial still life of an electric guitar beside a simple elegant gold trophy under a concert spotlight, blurred audience bokeh behind, celebratory music competition atmosphere. Conceptual image, no identifiable real contestants, no text.",
+      "output": "/content/primer-concurso-peru-guitar-resultados/header.webp"
+    }
+  ]
+}

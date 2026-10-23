@@ -48,19 +48,19 @@ button:disabled {
 }
 .quest-feature {
   background:
-    radial-gradient(ellipse at 85% 10%, #7542ad66, transparent 65%),
-    linear-gradient(145deg, #111e38, #18132e);
+    radial-gradient(ellipse at 85% 10%, #e0662f33, transparent 65%),
+    linear-gradient(145deg, #24201c, #151413);
 }
 .fretboard {
   position: relative;
   height: 150px;
-  border-inline: 3px solid #a69ac044;
+  border-inline: 3px solid #f1c7a144;
   background: repeating-linear-gradient(
     90deg,
     transparent 0,
     transparent calc(20% - 2px),
-    #c3b9e140 calc(20% - 2px),
-    #c3b9e140 20%
+    #f1c7a133 calc(20% - 2px),
+    #f1c7a133 20%
   );
   transform: perspective(600px) rotateY(-12deg) rotateZ(-5deg);
 }
@@ -69,7 +69,7 @@ button:disabled {
   left: 0;
   right: 0;
   height: 1px;
-  background: #b6bdd779;
+  background: #d7c8b879;
 }
 .fretboard i:nth-child(1) {
   top: 10%;
@@ -98,9 +98,9 @@ button:disabled {
   border-radius: 50%;
   font-size: 12px;
   font-weight: 700;
-  box-shadow: 0 0 25px #a78bfa55;
-  background: #b69af5;
-  color: #1f1638;
+  box-shadow: 0 0 25px #e0662f33;
+  background: #e7a470;
+  color: #24170f;
 }
 .note-one {
   left: 9%;
@@ -113,7 +113,7 @@ button:disabled {
 .note-three {
   left: 69%;
   top: calc(10% - 16px);
-  background: #e1d4fc;
+  background: #f1c7a1;
 }
 .resource-feature,
 .resource-track {

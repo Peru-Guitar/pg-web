@@ -1,0 +1,23 @@
+{
+  "tool": "image_gen (built-in)",
+  "format": "webp",
+  "width": 1200,
+  "height": 675,
+  "jobs": [
+    {
+      "key": "ebook",
+      "prompt": "Use case: photorealistic-natural. Website resource card background, landscape 16:9 cinematic editorial photograph. Electric guitar resting beside an open notebook of guitar tablature on a dark wooden music desk. Main objects in right half, left half uncluttered charcoal shadows for HTML copy. Warm amber studio light, tactile wood and paper, premium understated music editorial. No words, logos, watermark, borders or collage.",
+      "output": "/resources/ebook.webp"
+    },
+    {
+      "key": "two-worlds",
+      "prompt": "Use case: photorealistic-natural. Landscape 16:9 website backing track card background. Modern metal recording studio in deep petrol blue and teal shadows, an electric guitar neck and recording equipment on the right, subtle abstract luminous audio waveform traces in background. Left half dark and uncluttered for HTML copy. Cinematic editorial photograph, refined atmospheric lighting, realistic materials. No text, logos, watermark, borders or collage.",
+      "output": "/resources/two-worlds.webp"
+    },
+    {
+      "key": "alone",
+      "prompt": "Use case: photorealistic-natural. Landscape 16:9 website backing track card background. A solitary electric guitar on a stand in a quiet music studio, dim narrow warm spotlight from above, deep burgundy and wine-red shadows, melancholic introspective mood. Instrument in right half, left half dark uncluttered negative space for HTML copy. Cinematic editorial photograph, realistic materials and subtle film grain. No text, logos, watermark, borders or collage.",
+      "output": "/resources/alone.webp"
+    }
+  ]
+}
