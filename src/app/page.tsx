@@ -90,7 +90,7 @@ export default function Home() {
             </span>
           </a>
           <a
-            href="https://game.peruguitar.com"
+            href="https://fighters.peruguitar.com"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-4 flex items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm text-zinc-400 transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"

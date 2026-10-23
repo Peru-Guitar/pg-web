@@ -20,7 +20,7 @@ const columns = [
     links: [
       { label: "Acerca de nosotros", href: "/acerca-de-nosotros" },
       { label: "Fret Quest", href: "https://app.peruguitar.com" },
-      { label: "PG Fighters", href: "https://game.peruguitar.com" },
+      { label: "PG Fighters", href: "https://fighters.peruguitar.com" },
       { label: "Tienda", href: "/tienda" },
     ],
   },

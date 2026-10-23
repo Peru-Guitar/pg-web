@@ -56,7 +56,7 @@ export default function AboutPage() {
             </li>
             <li>
               <strong>
-                <a href="https://game.peruguitar.com">PG Fighters</a>:
+                <a href="https://fighters.peruguitar.com">PG Fighters</a>:
               </strong>{" "}
               el juego de la comunidad.
             </li>

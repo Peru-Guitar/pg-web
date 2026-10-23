@@ -20,7 +20,7 @@ export const HUB_APPS: HubApp[] = [
     id: "pg-fighters",
     name: "PG Fighters",
     description: "El juego de la comunidad Peru Guitar.",
-    href: "https://game.peruguitar.com",
+    href: "https://fighters.peruguitar.com",
     external: true,
     tags: ["Juego", "Ranking"],
   },
