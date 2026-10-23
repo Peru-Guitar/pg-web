@@ -1,0 +1,255 @@
+@import "tailwindcss";
+@import "../styles/theme.css";
+@plugin "@tailwindcss/typography";
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+::selection {
+  background: #ffccaa;
+  color: #191512;
+}
+:focus-visible {
+  outline: 3px solid var(--color-brand);
+  outline-offset: 5px;
+}
+button,
+summary,
+select {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: default;
+  opacity: 0.35;
+}
+.home-hero {
+  background:
+    radial-gradient(ellipse at 90% 0%, #4c291c55, transparent 55%), #0d1013;
+}
+.hero-strings {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.17;
+  transform: rotate(-24deg) scale(1.6);
+}
+.hero-strings i {
+  display: block;
+  height: 1px;
+  margin-top: 48px;
+  background: linear-gradient(90deg, transparent, #d69359);
+}
+.quest-feature {
+  background:
+    radial-gradient(ellipse at 85% 10%, #7542ad66, transparent 65%),
+    linear-gradient(145deg, #111e38, #18132e);
+}
+.fretboard {
+  position: relative;
+  height: 150px;
+  border-inline: 3px solid #a69ac044;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0,
+    transparent calc(20% - 2px),
+    #c3b9e140 calc(20% - 2px),
+    #c3b9e140 20%
+  );
+  transform: perspective(600px) rotateY(-12deg) rotateZ(-5deg);
+}
+.fretboard i {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #b6bdd779;
+}
+.fretboard i:nth-child(1) {
+  top: 10%;
+}
+.fretboard i:nth-child(2) {
+  top: 26%;
+}
+.fretboard i:nth-child(3) {
+  top: 42%;
+}
+.fretboard i:nth-child(4) {
+  top: 58%;
+}
+.fretboard i:nth-child(5) {
+  top: 74%;
+}
+.fretboard i:nth-child(6) {
+  top: 90%;
+}
+.note {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 0 0 25px #a78bfa55;
+  background: #b69af5;
+  color: #1f1638;
+}
+.note-one {
+  left: 9%;
+  top: calc(74% - 16px);
+}
+.note-two {
+  left: 49%;
+  top: calc(42% - 16px);
+}
+.note-three {
+  left: 69%;
+  top: calc(10% - 16px);
+  background: #e1d4fc;
+}
+.resource-feature,
+.resource-track {
+  background-size: cover;
+  background-position: center;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+.resource-feature {
+  background-image:
+    linear-gradient(90deg, rgb(17 17 17 / 96%) 0%, rgb(17 17 17 / 82%) 48%, rgb(17 17 17 / 35%) 100%),
+    url("/resources/arpegios-guitarrista.webp");
+  background-color: #211912;
+}
+.resource-track[data-track="two-worlds-backing-track"] {
+  background-image:
+    linear-gradient(90deg, rgb(8 27 34 / 96%) 0%, rgb(8 27 34 / 85%) 55%, rgb(8 27 34 / 40%) 100%),
+    url("/resources/two-worlds.webp");
+  background-color: #081b22;
+}
+.resource-track[data-track="alone-backing-track"] {
+  background-image:
+    linear-gradient(90deg, rgb(36 15 25 / 96%) 0%, rgb(36 15 25 / 85%) 55%, rgb(36 15 25 / 40%) 100%),
+    url("/resources/alone.webp");
+  background-color: #240f19;
+}
+.resource-feature:hover,
+.resource-track:hover {
+  border-color: var(--color-brand);
+  box-shadow: 0 8px 24px rgb(17 17 17 / 12%);
+}
+.resource-feature:focus-visible,
+.resource-track:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 4px;
+}
+.post-art {
+  background:
+    radial-gradient(ellipse at 80% 10%, #a3552d55, transparent 70%), #1c2024;
+}
+.post-art[data-category="theory"] {
+  background: linear-gradient(135deg, #eee4ce, #c8bfa8);
+  color: #6b5943;
+}
+.post-art[data-category="production"] {
+  background: linear-gradient(135deg, #162a37, #326975);
+  color: #8ec8cd;
+}
+.post-art[data-category="events"] {
+  background: linear-gradient(135deg, #35203e, #7a4867);
+  color: #d9a1d2;
+}
+.post-art[data-category="reflections"] {
+  background: linear-gradient(135deg, #252b32, #665341);
+  color: #d0b694;
+}
+.post-card {
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 35px #1b14100a;
+}
+.book-reader {
+  --reader-bg: #faf9f6;
+  --reader-ink: #262522;
+  --reader-line: #e5e1db;
+  background: var(--reader-bg);
+  color: var(--reader-ink);
+  min-height: 80vh;
+}
+.reader-sepia {
+  --reader-bg: #f2e7d1;
+  --reader-ink: #4d3e2c;
+  --reader-line: #daceb6;
+}
+.reader-dark {
+  --reader-bg: #16191e;
+  --reader-ink: #d4d7dc;
+  --reader-line: #353a44;
+  color-scheme: dark;
+}
+.reader-toolbar {
+  background: var(--reader-bg);
+  border-color: var(--reader-line);
+}
+.reader-content {
+  --tw-prose-body: var(--reader-ink);
+  --tw-prose-headings: var(--reader-ink);
+  --tw-prose-bold: var(--reader-ink);
+  --tw-prose-links: var(--color-brand);
+  --tw-prose-quotes: var(--reader-ink);
+  line-height: 1.9;
+  overflow-wrap: break-word;
+}
+.reader-content img {
+  height: auto;
+  max-width: 100%;
+}
+.reader-content .not-prose {
+  color: #18181b;
+}
+.reader-content h2 {
+  border-top: 1px solid var(--reader-line);
+  padding-top: 2em;
+  margin-top: 3em;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+body:has(.book-reader) > header,
+body:has(.book-reader) > footer {
+  display: none;
+}
+body:has(.book-reader) .reader-toolbar {
+  top: 0;
+}
+
+
+/* A panoramic community scene fades into the footer's reading surface. */
+.community-footer-art {
+  height: clamp(300px, 36vw, 660px);
+  background-image:
+    linear-gradient(to bottom, rgb(17 17 17 / 12%) 0%, rgb(17 17 17 / 8%) 25%, rgb(17 17 17 / 78%) 72%, var(--color-night) 100%),
+    url("/footer-community.webp");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}

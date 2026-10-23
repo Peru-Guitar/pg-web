@@ -3,11 +3,17 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: ["main"]
+  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
+
+# One deploy at a time; a newer push cancels the queued one.
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -19,14 +25,17 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: "npm"
 
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
 
       - name: Build with Next.js
         run: npm run build

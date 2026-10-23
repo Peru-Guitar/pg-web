@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# pg-web
 
-## Getting Started
+Main Peru Guitar website: blog and store.
 
-First, run the development server:
+## Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+  app/          routes (home, blog, store, legacy post redirects, sitemap)
+  components/   layout (Navbar, Footer) and ui building blocks
+  content/      posts and site data (navigation, apps, products, settings)
+  lib/          helpers
+  styles/       theme.css — design tokens
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Conventions
 
-## Learn More
+- Code, comments and docs are in English; user-facing content is in Spanish.
+- The visual identity lives in `src/styles/theme.css`. Components use its tokens (`bg-brand`, `text-ink`, ...) instead of raw colors.
+- Posts are TSX files in `src/content/posts/`, registered in `src/content/index.tsx`. Redesigns must not touch post content.
 
-To learn more about Next.js, take a look at the following resources:
+## Portal and reading experience
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `/` highlights Fret Quest, existing articles, free resources and podcasts.
+- `/recursos` lists the existing ebook and two backing tracks, keeping their original playback and download links.
+- `/recursos/no-mas-arpegios-aburridos` renders the original TSX book through `BookReader`. Chapters, musical tablature and images remain React content; no MDX compiler or CMS is needed.
+- Reader preferences and relative reading position use a versionable, per-book localStorage key (`peruguitar:reader:<bookId>`). Storage failures do not prevent reading.
+- `/tienda` presents the future digital store. The existing product data and detail route remain available; checkout is not implemented.
+- Fret Quest and PG Fighters remain independent external apps. This portal has no dependency on their source code, backend or deployments. Contest sites are untouched.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Validation and deployment
 
-## Deploy on Vercel
+```bash
+npm run lint
+npm run build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+All content pages are prerendered by Next.js. The current deployment uses Next.js redirects (including legacy article URLs); it is not configured as a raw `output: "export"` deployment. A future static-file host must supply equivalent redirects before enabling export.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Known source-data issue: both backing tracks currently reference the same Google Drive download URL. Confirm the intended files before replacing these links.
