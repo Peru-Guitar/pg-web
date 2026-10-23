@@ -56,14 +56,14 @@ export default function Home() {
             href="https://app.peruguitar.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="quest-feature group relative block overflow-hidden rounded-[1.75rem] border border-violet-400/30 p-7 shadow-2xl sm:p-9"
+            className="quest-feature group relative block overflow-hidden rounded-[1.75rem] border border-brand/30 p-7 shadow-2xl sm:p-9"
           >
             <div className="flex items-center justify-between">
-              <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-violet-200">
+              <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
                 <Sparkles size={16} /> Tu próxima sesión
               </span>
               <ArrowRight
-                className="text-violet-200 transition-transform group-hover:translate-x-1"
+                className="text-accent transition-transform group-hover:translate-x-1"
                 size={20}
               />
             </div>
@@ -75,17 +75,17 @@ export default function Home() {
               <span className="note note-two">A</span>
               <span className="note note-three">D</span>
             </div>
-            <p className="mb-3 text-xs font-bold uppercase tracking-[.2em] text-violet-300">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[.2em] text-accent">
               Entrena. Descubre. Repite.
             </p>
             <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
               Fret Quest
             </h2>
-            <p className="mt-4 max-w-sm leading-relaxed text-slate-300">
+            <p className="mt-4 max-w-sm leading-relaxed text-zinc-300">
               Haz de la práctica una parte de tu día. Entra y sigue explorando
               tu guitarra.
             </p>
-            <span className="mt-7 inline-flex items-center gap-2 rounded-full bg-violet-500 px-5 py-3 text-sm font-bold text-white">
+            <span className="mt-7 inline-flex items-center gap-2 rounded-full bg-brand px-5 py-3 text-sm font-bold text-white">
               <Play size={15} fill="currentColor" /> Abrir Fret Quest
             </span>
           </a>

@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  // The workspace folder above has its own lockfile; pin the root to this app.
+  turbopack: {
+    root: __dirname,
+  },
 };
 
 export default nextConfig;
