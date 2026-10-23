@@ -40,7 +40,7 @@ export default function Home() {
               guitarra. A tu ritmo, a tu manera.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Button href="https://app.peruguitar.com" external>
+              <Button href="https://fretquest.peruguitar.com" external>
                 Comienza a practicar <ArrowRight size={18} />
               </Button>
               <Button href="/blog" variant="outline">
@@ -53,7 +53,7 @@ export default function Home() {
           </div>
           <div className="min-w-0">
           <a
-            href="https://app.peruguitar.com"
+            href="https://fretquest.peruguitar.com"
             target="_blank"
             rel="noopener noreferrer"
             className="quest-feature group relative block overflow-hidden rounded-[1.75rem] border border-brand/30 p-7 shadow-2xl sm:p-9"

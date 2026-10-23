@@ -50,7 +50,7 @@ export default function AboutPage() {
             </li>
             <li>
               <strong>
-                <a href="https://app.peruguitar.com">Fret Quest</a>:
+                <a href="https://fretquest.peruguitar.com">Fret Quest</a>:
               </strong>{" "}
               tu plan para practicar guitarra y progresar cada día.
             </li>
