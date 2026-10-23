@@ -19,7 +19,7 @@ const columns = [
     title: "PeruGuitar",
     links: [
       { label: "Acerca de nosotros", href: "/acerca-de-nosotros" },
-      { label: "Fret Quest", href: "https://app.peruguitar.com" },
+      { label: "Fret Quest", href: "https://fretquest.peruguitar.com" },
       { label: "PG Fighters", href: "https://fighters.peruguitar.com" },
       { label: "Tienda", href: "/tienda" },
     ],

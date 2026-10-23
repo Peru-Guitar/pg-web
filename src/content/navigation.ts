@@ -7,7 +7,7 @@ export interface NavItem {
 export const NAV_ITEMS: NavItem[] = [
   { label: "Inicio", href: "/" },
   { label: "Blog", href: "/blog" },
-  { label: "Fret Quest", href: "https://app.peruguitar.com", external: true },
+  { label: "Fret Quest", href: "https://fretquest.peruguitar.com", external: true },
   { label: "Recursos", href: "/recursos" },
   { label: "Podcasts y videos", href: "/media" },
   { label: "Tienda", href: "/tienda" },

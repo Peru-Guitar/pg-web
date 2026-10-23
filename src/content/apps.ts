@@ -12,7 +12,7 @@ export const HUB_APPS: HubApp[] = [
     id: "fretquest",
     name: "Fret Quest",
     description: "Tu plan para practicar guitarra y progresar cada día.",
-    href: "https://app.peruguitar.com",
+    href: "https://fretquest.peruguitar.com",
     external: true,
     tags: ["Rutinas", "Progreso", "Retos"],
   },
