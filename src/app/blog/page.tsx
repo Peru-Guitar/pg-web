@@ -1,12 +1,13 @@
-import { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { POSTS } from "@/content";
 import { PostGrid } from "@/components/ui/PostGrid";
 import { Container } from "@/components/layout/Container";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Blog",
   description: "Artículos sobre guitarra, teoría, producción y más.",
-};
+  path: "/blog",
+});
 
 export default function BlogPage() {
   return (

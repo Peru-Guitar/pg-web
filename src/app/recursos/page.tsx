@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { BookOpen, Download } from "lucide-react";
-import { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 
 import { BOOKS, RESOURCES } from "@/content/resources";
 import { toDirectDownloadUrl } from "@/lib/drive";
@@ -9,12 +9,11 @@ import { Button } from "@/components/ui/Button";
 import { ResourceCard } from "@/components/ui/ResourceCard";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Recursos",
-  description:
-    "Ebooks y backing tracks gratuitos de Peru Guitar para practicar guitarra.",
-  alternates: { canonical: "/recursos" },
-};
+  description: "Ebooks y backing tracks gratuitos de Peru Guitar para practicar guitarra.",
+  path: "/recursos",
+});
 
 const GRID = "flex flex-col gap-6";
 

@@ -1,12 +1,13 @@
-import { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { PRODUCTS } from "@/content/products";
 import { Container } from "@/components/layout/Container";
 import { ProductCard } from "@/components/ui/ProductCard";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Tienda",
   description: "Púas y productos de Peru Guitar para guitarristas.",
-};
+  path: "/tienda",
+});
 
 export default function StorePage() {
   return (
