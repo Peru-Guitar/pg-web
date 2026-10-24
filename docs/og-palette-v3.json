@@ -1,0 +1,7 @@
+{
+  "tool": "image_gen (built-in)",
+  "palette": {"coral": "#e74c3e", "sky": "#5ab8ec", "charcoal": "#111111"},
+  "prompt": "Edit existing PeruGuitar OG. Preserve composition, exact Spanish text, typography, logo and natural warm guitar photograph. Change nos conecta. to sky blue #5ab8ec and peruguitar.com to coral #e74c3e. Preserve white text and dark background. No extra text.",
+  "assets": ["public/og-peruguitar-v3.jpg", "public/og-peruguitar-v3.webp"],
+  "dimensions": [1200, 630]
+}

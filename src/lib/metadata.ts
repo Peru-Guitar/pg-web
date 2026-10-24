@@ -8,7 +8,7 @@ interface PageMetadataOptions {
 }
 
 /** Keep search and social previews consistent for each page. */
-export function pageMetadata({ title, description, path, image = "/og-peruguitar-v2.jpg" }: PageMetadataOptions): Metadata {
+export function pageMetadata({ title, description, path, image = "/og-peruguitar-v3.jpg" }: PageMetadataOptions): Metadata {
   const socialTitle = `${title} | Peru Guitar`;
   return {
     title,

@@ -5,10 +5,10 @@
  */
 @theme inline {
   /* Brand */
-  --color-brand: #e0662f;
-  --color-brand-strong: #c4521f;
-  --color-brand-soft: #fbe6da;
-  --color-accent: #f1c7a1;
+  --color-brand: #e74c3e;
+  --color-brand-strong: #c4392b;
+  --color-brand-soft: #fde4e1;
+  --color-accent: #5ab8ec;
 
   /* Light surfaces (page body) */
   --color-bg: #f7f5f2;
