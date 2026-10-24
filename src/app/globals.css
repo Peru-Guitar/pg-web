@@ -12,7 +12,7 @@ html {
   scroll-padding-top: 6rem;
 }
 ::selection {
-  background: #ffccaa;
+  background: #fbd3ce;
   color: #191512;
 }
 :focus-visible {
@@ -30,7 +30,7 @@ button:disabled {
 }
 .home-hero {
   background:
-    radial-gradient(ellipse at 90% 0%, #4c291c55, transparent 55%), #0d1013;
+    radial-gradient(ellipse at 90% 0%, #5ab8ec1f, transparent 55%), #111111;
 }
 .hero-strings {
   position: absolute;
@@ -44,23 +44,23 @@ button:disabled {
   display: block;
   height: 1px;
   margin-top: 48px;
-  background: linear-gradient(90deg, transparent, #d69359);
+  background: linear-gradient(90deg, transparent, #5ab8ec);
 }
 .quest-feature {
   background:
-    radial-gradient(ellipse at 85% 10%, #e0662f33, transparent 65%),
-    linear-gradient(145deg, #24201c, #151413);
+    radial-gradient(ellipse at 85% 10%, #5ab8ec26, transparent 65%),
+    linear-gradient(145deg, #1c1c1c, #111111);
 }
 .fretboard {
   position: relative;
   height: 150px;
-  border-inline: 3px solid #f1c7a144;
+  border-inline: 3px solid #5ab8ec44;
   background: repeating-linear-gradient(
     90deg,
     transparent 0,
     transparent calc(20% - 2px),
-    #f1c7a133 calc(20% - 2px),
-    #f1c7a133 20%
+    #5ab8ec33 calc(20% - 2px),
+    #5ab8ec33 20%
   );
   transform: perspective(600px) rotateY(-12deg) rotateZ(-5deg);
 }
@@ -69,7 +69,7 @@ button:disabled {
   left: 0;
   right: 0;
   height: 1px;
-  background: #d7c8b879;
+  background: #f5f5f566;
 }
 .fretboard i:nth-child(1) {
   top: 10%;
@@ -98,9 +98,9 @@ button:disabled {
   border-radius: 50%;
   font-size: 12px;
   font-weight: 700;
-  box-shadow: 0 0 25px #e0662f33;
-  background: #e7a470;
-  color: #24170f;
+  box-shadow: 0 0 25px #e74c3e33;
+  background: #ec6f62;
+  color: #111111;
 }
 .note-one {
   left: 9%;
@@ -113,7 +113,7 @@ button:disabled {
 .note-three {
   left: 69%;
   top: calc(10% - 16px);
-  background: #f1c7a1;
+  background: #5ab8ec;
 }
 .resource-feature,
 .resource-track {
@@ -125,7 +125,7 @@ button:disabled {
   background-image:
     linear-gradient(90deg, rgb(17 17 17 / 96%) 0%, rgb(17 17 17 / 82%) 48%, rgb(17 17 17 / 35%) 100%),
     url("/resources/arpegios-guitarrista.webp");
-  background-color: #211912;
+  background-color: #111111;
 }
 .resource-track[data-track="two-worlds-backing-track"] {
   background-image:
@@ -145,8 +145,8 @@ button:disabled {
   background-image:
     linear-gradient(90deg, rgb(17 17 17 / 96%) 0%, rgb(17 17 17 / 80%) 45%, rgb(17 17 17 / 20%) 100%),
     url("/content/home/pg-fighters.webp"),
-    radial-gradient(ellipse at 85% 30%, #e0662f44, transparent 60%);
-  background-color: #151413;
+    radial-gradient(ellipse at 85% 30%, #e74c3e44, transparent 60%);
+  background-color: #111111;
   transition: border-color 180ms ease, box-shadow 180ms ease;
 }
 .resource-feature:hover,
@@ -163,7 +163,7 @@ button:disabled {
 }
 .post-art {
   background:
-    radial-gradient(ellipse at 80% 10%, #a3552d55, transparent 70%), #1c2024;
+    radial-gradient(ellipse at 80% 10%, #5ab8ec33, transparent 70%), #1c1c1c;
 }
 .post-art[data-category="theory"] {
   background: linear-gradient(135deg, #eee4ce, #c8bfa8);
@@ -178,8 +178,8 @@ button:disabled {
   color: #d9a1d2;
 }
 .post-art[data-category="reflections"] {
-  background: linear-gradient(135deg, #252b32, #665341);
-  color: #d0b694;
+  background: linear-gradient(135deg, #1c1c1c, #3a2320);
+  color: #f0a39b;
 }
 .post-card {
   transition:
@@ -188,7 +188,7 @@ button:disabled {
 }
 .post-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 14px 35px #1b14100a;
+  box-shadow: 0 14px 35px #1111110f;
 }
 .book-reader {
   --reader-bg: #faf9f6;

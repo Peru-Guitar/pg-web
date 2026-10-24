@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: "Peru Guitar",
     title: "Peru Guitar · La guitarra nos conecta",
     description: "La guitarra nos conecta. Descubre artículos, guías gratuitas, backing tracks y apps para practicar con la comunidad de guitarristas del Perú.",
-    images: [{ url: "/og-peruguitar-v2.jpg", width: 1200, height: 630, alt: "PeruGuitar: La guitarra nos conecta. Comunidad, educación y música." }],
+    images: [{ url: "/og-peruguitar-v3.jpg", width: 1200, height: 630, alt: "PeruGuitar: La guitarra nos conecta. Comunidad, educación y música." }],
     locale: "es_PE",
     type: "website",
   },
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Peru Guitar · La guitarra nos conecta",
     description: "La guitarra nos conecta. Descubre artículos, guías gratuitas, backing tracks y apps para practicar con la comunidad de guitarristas del Perú.",
-    images: ["/og-peruguitar-v2.jpg"],
+    images: ["/og-peruguitar-v3.jpg"],
   },
 };
 
