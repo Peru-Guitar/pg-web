@@ -148,7 +148,7 @@ export const NoMasArpegiosAburridos = () => (
     <p>
       La armonización consiste en construir los acordes sobre los grados que le
       corresponden a una escala. En nuestros ejemplos vamos a trabajar siempre
-      sobre la escala mayor de Do (C), por lo que es fundamental tener claro
+      sobre la escala mayor de C, por lo que es fundamental tener claro
       este concepto.
     </p>
 
