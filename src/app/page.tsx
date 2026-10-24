@@ -25,7 +25,7 @@ export default function Home() {
             <i key={n} />
           ))}
         </div>
-        <Container className="relative grid gap-12 py-16 md:py-24 lg:grid-cols-[1.15fr_1fr] lg:items-center">
+        <Container className="relative grid gap-12 pb-16 pt-32 md:pb-24 md:pt-40 lg:grid-cols-[1.15fr_1fr] lg:items-center">
           <div>
             <p className="mb-6 text-xs font-bold uppercase tracking-[.23em] text-accent">
               Comunidad · Educación · Música · Perú
@@ -88,16 +88,6 @@ export default function Home() {
             <span className="mt-7 inline-flex items-center gap-2 rounded-full bg-brand px-5 py-3 text-sm font-bold text-white">
               <Play size={15} fill="currentColor" /> Abrir Fret Quest
             </span>
-          </a>
-          <a
-            href="https://fighters.peruguitar.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 flex items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm text-zinc-400 transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
-          >
-            <Gamepad2 size={17} className="shrink-0" aria-hidden="true" />
-            <span>¿Una pausa? Juega PG Fighters</span>
-            <ArrowRight size={15} className="shrink-0" aria-hidden="true" />
           </a>
           </div>
         </Container>
@@ -196,6 +186,33 @@ export default function Home() {
             ))}
           </div>
         </div>
+      </Container>
+      <Container className="pt-16 md:pt-20">
+        <a
+          href="https://fighters.peruguitar.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fighters-feature group flex min-h-72 flex-col justify-end rounded-3xl border border-white/10 p-8 text-on-night sm:p-10"
+        >
+          <Gamepad2 className="mb-6 text-accent" size={30} />
+          <p className="text-xs font-bold uppercase tracking-widest text-accent">
+            PG Fighters · El rock peruano anda en peligro
+          </p>
+          <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+            Agárrate a guitarrazos.
+          </h2>
+          <p className="mt-3 max-w-md text-zinc-300">
+            ¿Podrás ganarle a Acople? Baja a El Sótano y salva el rock a punta
+            de riffs.
+          </p>
+          <span className="mt-7 flex items-center gap-2 text-sm font-bold text-accent">
+            Entrar a pelear{" "}
+            <ArrowRight
+              size={16}
+              className="transition-transform group-hover:translate-x-1"
+            />
+          </span>
+        </a>
       </Container>
       <Container className="pt-16 md:pt-20">
         <div className="grid gap-8 rounded-3xl bg-night p-8 text-on-night sm:p-12 lg:grid-cols-2">

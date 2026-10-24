@@ -28,7 +28,7 @@ export const Hero = ({
   >
     {image && <div className="absolute inset-0 bg-night/75" />}
 
-    <Container narrow={narrow} className="relative py-20 md:py-28">
+    <Container narrow={narrow} className="relative pb-20 pt-36 md:pb-28 md:pt-44">
       {eyebrow && (
         <div className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-brand">
           {eyebrow}

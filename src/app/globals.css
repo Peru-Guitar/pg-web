@@ -139,13 +139,25 @@ button:disabled {
     url("/resources/alone.webp");
   background-color: #240f19;
 }
+.fighters-feature {
+  background-size: cover;
+  background-position: center;
+  background-image:
+    linear-gradient(90deg, rgb(17 17 17 / 96%) 0%, rgb(17 17 17 / 80%) 45%, rgb(17 17 17 / 20%) 100%),
+    url("/content/home/pg-fighters.webp"),
+    radial-gradient(ellipse at 85% 30%, #e0662f44, transparent 60%);
+  background-color: #151413;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
 .resource-feature:hover,
-.resource-track:hover {
+.resource-track:hover,
+.fighters-feature:hover {
   border-color: var(--color-brand);
   box-shadow: 0 8px 24px rgb(17 17 17 / 12%);
 }
 .resource-feature:focus-visible,
-.resource-track:focus-visible {
+.resource-track:focus-visible,
+.fighters-feature:focus-visible {
   outline: 2px solid var(--color-brand);
   outline-offset: 4px;
 }
