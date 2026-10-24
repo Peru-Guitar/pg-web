@@ -26,17 +26,27 @@ const NavLink = ({
       aria-current={active ? "page" : undefined}
       target={item.external ? "_blank" : undefined}
       rel={item.external ? "noopener noreferrer" : undefined}
-      className={`block border-b-2 py-2 text-sm transition-colors ${active ? "border-brand text-on-night" : "border-transparent text-on-night-muted hover:text-on-night"}`}
+      className={`flex items-center gap-2 border-b-2 py-2 text-sm transition-colors ${active ? "border-brand text-on-night" : "border-transparent text-on-night-muted hover:text-on-night"}`}
     >
+      <item.icon size={16} aria-hidden="true" className="shrink-0" />
       {item.label}
     </Link>
   );
 };
 
+/** Pages that open with a full banner: the navbar floats over it. */
+const hasBanner = (pathname: string) =>
+  pathname === "/" ||
+  pathname === "/acerca-de-nosotros" ||
+  /^\/blog\/(?!categoria\/)[^/]+$/.test(pathname);
+
 export const Navbar = () => {
   const menu = useRef<HTMLDetailsElement>(null);
+  const overlay = hasBanner(usePathname());
   return (
-    <header className="relative z-50 border-b border-night-line bg-night text-on-night">
+    <header
+      className={`z-50 border-b text-on-night ${overlay ? "absolute inset-x-0 top-0 border-white/10 bg-transparent" : "relative border-night-line bg-night"}`}
+    >
       <nav>
         <Container className="flex items-center justify-between py-3">
           <Link href="/">
@@ -49,7 +59,7 @@ export const Navbar = () => {
             />
           </Link>
 
-          <ul className="hidden gap-6 md:flex">
+          <ul className="hidden gap-5 md:flex">
             {NAV_ITEMS.map((item) => (
               <li key={item.href}>
                 <NavLink item={item} />
@@ -61,7 +71,7 @@ export const Navbar = () => {
             <summary className="list-none cursor-pointer" aria-label="Menú">
               <Menu />
             </summary>
-            <ul className="absolute right-0 mt-3 w-48 rounded-card border border-night-line bg-night-surface p-3">
+            <ul className="absolute right-0 mt-3 w-56 rounded-card border border-night-line bg-night-surface p-3">
               {NAV_ITEMS.map((item) => (
                 <li key={item.href}>
                   <NavLink

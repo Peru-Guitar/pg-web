@@ -39,11 +39,11 @@ export const Footer = () => (
             className="inline-block"
           >
             <Image
-              src="/logo.png"
+              src="/logo-pg.webp"
               alt="PeruGuitar"
-              width={210}
-              height={40}
-              className="h-auto w-52"
+              width={273}
+              height={160}
+              className="h-20 w-auto"
             />
           </Link>
           <p className="mt-6 max-w-xs text-2xl font-bold leading-snug tracking-tight text-on-night">

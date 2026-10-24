@@ -1,0 +1,12 @@
+{
+  "tool": "image_gen (built-in)",
+  "prompt": "Use case: website section background. Wide cinematic banner, landscape 21:9. Use the attached PG Fighters character art and stage as reference and keep the characters recognizable. Two anime-style fighters facing each other in a fighting stance inside El Sótano, a dim underground rock bar in Lima with amp stacks, a small stage and warm neon. Place both fighters in the right 55 percent of the frame; the left 45 percent must fade into dark, nearly empty charcoal so white text stays legible over it. Arcade energy, dramatic warm copper and terracotta rim light, subtle smoke. No text, no logos, no UI, no health bars, no watermarks. Brand palette charcoal #111111, terracotta #e0662f, warm peach #f1c7a1.",
+  "references": [
+    "../pg-fighters/public/assets/edu-anime.png",
+    "../pg-fighters/public/assets/pata-anime.png",
+    "../pg-fighters/public/assets/stages"
+  ],
+  "assets": ["public/content/home/pg-fighters.webp"],
+  "width": 2100,
+  "height": 900
+}
