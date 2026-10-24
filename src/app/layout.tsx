@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Plus_Jakarta_Sans } from "next/font/google";
 
 import "./globals.css";
@@ -7,6 +8,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import GoogleAnalytics from "@/components/layout/GoogleAnalytics";
 import { SITE_URL } from "@/lib/posts";
+import { umamiWebsiteId } from "@/content/settings.json";
 
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
@@ -53,6 +55,7 @@ export default function RootLayout({
         <main id="contenido">{children}</main>
         <Footer />
         <GoogleAnalytics />
+        <Script src="https://cloud.umami.is/script.js" data-website-id={umamiWebsiteId} data-domains="peruguitar.com" strategy="afterInteractive" />
       </body>
     </html>
   );
