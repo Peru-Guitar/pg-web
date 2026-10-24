@@ -64,6 +64,11 @@
       "key": "14",
       "prompt": "Use case: photorealistic-natural. Asset: PeruGuitar article header, landscape 16:9. Cinematic editorial photograph, realistic instruments and hands, charcoal shadows, warm amber highlights, subtle film grain. Main subject in right half, darker uncluttered left third for HTML title overlay; meaningful subject remains within central crop. No text, logos, watermark, collage or borders. Editorial still life of an electric guitar beside a simple elegant gold trophy under a concert spotlight, blurred audience bokeh behind, celebratory music competition atmosphere. Conceptual image, no identifiable real contestants, no text.",
       "output": "/content/primer-concurso-peru-guitar-resultados/header.webp"
+    },
+    {
+      "key": "15",
+      "prompt": "Use case: photorealistic-natural. Asset: PeruGuitar article header, landscape 16:9. Cinematic editorial photograph, realistic instruments and hands, charcoal shadows, warm amber highlights, subtle film grain. Main subject in right half, darker uncluttered left third for HTML title overlay; meaningful subject remains within central crop. No text, logos, watermark, collage or borders. A guitarist seated at home with an electric guitar on their lap, glancing at a phone on a music stand that glows with a soft electric blue and violet game-like interface, a practice notebook nearby, cozy late-evening atmosphere.",
+      "output": "/content/fret-quest-el-duolingo-de-la-guitarra/header.webp"
     }
   ]
 }

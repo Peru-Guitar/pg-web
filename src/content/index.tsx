@@ -12,6 +12,7 @@ import { porQuePeruNoTieneGuitarristasQueDenLaTallaMundial } from "./posts/11-po
 import { comoTocarFraseosOutsideYQueSuenenBien } from "./posts/12-como-tocar-fraseos-outside";
 import { comoComponerUsandoIA } from "./posts/13-como-componer-con-usando-ia";
 import { concursoIResultados } from "./posts/14-concurso-i-resultados";
+import { fretQuest } from "./posts/15-fret-quest";
 
 export const POSTS: Post[] = [
   pentatonicFusionLick01,
@@ -26,4 +27,5 @@ export const POSTS: Post[] = [
   comoTocarFraseosOutsideYQueSuenenBien,
   comoComponerUsandoIA,
   concursoIResultados,
+  fretQuest,
 ].sort((a, b) => b.date.getTime() - a.date.getTime());
