@@ -145,7 +145,7 @@ export const porqQueComponemosMalosSolos: Post = {
       <p>
         Caer siempre en la tónica hace que todo suene muy obvio. En un{" "}
         <strong>Dm7</strong>, por ejemplo, intento buscar el{" "}
-        <strong>Fa (su tercera)</strong> o usar colores del{" "}
+        <strong>F (su tercera)</strong> o usar colores del{" "}
         <strong>Am (Frigio)</strong> para darle un matiz más oscuro.
       </p>
 
