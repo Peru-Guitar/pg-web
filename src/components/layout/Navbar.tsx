@@ -26,7 +26,7 @@ const NavLink = ({
       aria-current={active ? "page" : undefined}
       target={item.external ? "_blank" : undefined}
       rel={item.external ? "noopener noreferrer" : undefined}
-      className={`flex items-center gap-2 border-b-2 py-2 text-sm transition-colors ${active ? "border-brand text-on-night" : "border-transparent text-on-night-muted hover:text-on-night"}`}
+      className={`flex items-center gap-2 border-b-2 py-2 text-sm transition-colors ${item.highlight ? "border-transparent font-semibold text-amber-400 hover:text-amber-300" : active ? "border-brand text-on-night" : "border-transparent text-on-night-muted hover:text-on-night"}`}
     >
       <item.icon size={16} aria-hidden="true" className="shrink-0" />
       {item.label}
