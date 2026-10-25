@@ -68,7 +68,7 @@ export default function AboutPage() {
             </li>
             <li>
               <strong>
-                <Link href="/blog/categoria/events">Eventos</Link>:
+                <Link href="/blog/categoria/events">Comunidad</Link>:
               </strong>{" "}
               concursos como el primero de 2025, que reunió a 41 guitarristas de
               5 países.

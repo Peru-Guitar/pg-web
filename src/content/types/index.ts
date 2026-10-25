@@ -2,7 +2,6 @@ import { ComponentType } from "react";
 
 export enum PostCategory {
   Guitar = "guitar",
-  Theory = "theory",
   Reflections = "reflections",
   Production = "production",
   Events = "events",

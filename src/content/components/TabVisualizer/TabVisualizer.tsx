@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { TabVisualizerHeader } from "./components/TabVisualizerHeader";
 import { TabVisualizerNote } from "./components/TabVisualizerNote";
 import { TabVisualizerChordName } from "./components/TabVisualizerChordName";
 import { TabVisualizerControls } from "./components/TabVisualizerControls";
-import { TabStep, useTabPlayback } from "./useTabPlayback";
+import { TabStep, TabStepNote, useTabPlayback } from "./useTabPlayback";
 
 interface TabVisualizerProps {
   notes: string[];
@@ -42,17 +42,33 @@ export const TabVisualizer = ({
   const LINE_HEIGHT = 215;
 
   const allSystems = useMemo(() => {
-    const timeline: Record<
-      string,
-      { val: string; tech: string | null; chordName?: string | null }[]
-    > = { e: [], B: [], G: [], D: [], A: [], E: [] };
+    type Cell = { val: string; tech: string | null; chordName?: string | null };
+    const emptyTimeline = (): Record<string, Cell[]> => ({
+      e: [],
+      B: [],
+      G: [],
+      D: [],
+      A: [],
+      E: [],
+    });
+
+    // Each array item, and each blank line inside one, is a block that starts
+    // a new line (as in Fret Quest); long blocks still wrap at maxNotesPerLine.
+    const blocks: Record<string, Cell[]>[] = [];
+    let timeline = emptyTimeline();
+    const flush = () => {
+      if (timeline["e"].length) blocks.push(timeline);
+      timeline = emptyTimeline();
+    };
 
     notes.forEach((block) => {
+      flush();
       block
         .trim()
         .split("\n")
         .forEach((line) => {
           const trimmed = line.trim();
+          if (trimmed === "") return flush();
           if (trimmed.startsWith("[") && trimmed.endsWith("]")) {
             let content = trimmed.slice(1, -1).trim();
             let cName = null;
@@ -119,38 +135,89 @@ export const TabVisualizer = ({
         });
     });
 
-    const systems = [];
-    for (let i = 0; i < timeline["e"].length; i += maxNotesPerLine) {
-      const chunk: Record<string, any[]> = {
-        e: [],
-        B: [],
-        G: [],
-        D: [],
-        A: [],
-        E: [],
-      };
-      STRINGS.forEach(
-        (s) => (chunk[s] = timeline[s].slice(i, i + maxNotesPerLine)),
-      );
-      systems.push(chunk);
-    }
+    flush();
+
+    const systems: Record<string, any[]>[] = [];
+    blocks.forEach((block) => {
+      for (let i = 0; i < block["e"].length; i += maxNotesPerLine) {
+        const chunk = emptyTimeline();
+        STRINGS.forEach(
+          (s) => (chunk[s] = block[s].slice(i, i + maxNotesPerLine)),
+        );
+        systems.push(chunk);
+      }
+    });
     return systems;
   }, [notes, maxNotesPerLine]);
 
   // One playable step per column; a column can hold several strings (chords).
-  const steps = useMemo<TabStep[]>(
-    () =>
-      allSystems.flatMap((system) =>
-        system["e"].map((_: unknown, i: number) =>
-          STRINGS.flatMap((s, index) => {
-            const fret = parseInt(system[s][i].val, 10);
-            return Number.isNaN(fret) ? [] : [{ string: index + 1, fret }];
-          }),
+  // `<12>` is a natural harmonic; `/` and `\\` slide to the next note on that string.
+  const steps = useMemo<TabStep[]>(() => {
+    const columns = allSystems.flatMap((system) =>
+      system["e"].map((_: unknown, i: number) =>
+        STRINGS.map(
+          (s) => system[s][i] as { val: string; tech: string | null },
         ),
       ),
-    [allSystems],
-  );
+    );
+    const fretOf = (val: string) => parseInt(val.replace(/[<>]/g, ""), 10);
+    const result: TabStep[] = columns.map(() => []);
+    columns.forEach((column, c) =>
+      column.forEach((cell, index) => {
+        const fret = fretOf(cell.val);
+        if (Number.isNaN(fret)) return;
+        const note: TabStepNote = { string: index + 1, fret };
+        if (/^<\d+>$/.test(cell.val)) note.harmonic = true;
+        else if (cell.tech === "/" || cell.tech === "\\") {
+          const target = columns.findIndex(
+            (col, k) => k > c && !Number.isNaN(fretOf(col[index].val)),
+          );
+          if (target > 0 && !/^</.test(columns[target][index].val)) {
+            note.slideTo = fretOf(columns[target][index].val);
+            note.slideSteps = target - c;
+          }
+        }
+        result[c].push(note);
+      }),
+    );
+    result.forEach((step) =>
+      step.forEach((n) => {
+        if (n.slideTo === undefined) return;
+        const target = result[result.indexOf(step) + n.slideSteps!];
+        const landing = target.find((t) => t.string === n.string);
+        if (landing) landing.slid = true;
+      }),
+    );
+    return result;
+  }, [allSystems]);
   const playback = useTabPlayback(steps, bpm ?? 80, notesPerBeat);
+
+  // First step of each line: lines can have different lengths.
+  const offsets = useMemo(() => {
+    let total = 0;
+    return allSystems.map((system) => {
+      const start = total;
+      total += system["e"].length;
+      return start;
+    });
+  }, [allSystems]);
+
+  // Keeps the sounding line in view inside the tab, without moving the page.
+  const scrollRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (playback.step === null) return;
+    const line = offsets.findLastIndex((start) => start <= playback.step!);
+    const scroller = scrollRef.current;
+    const el = scroller?.querySelector<HTMLElement>(`[data-line="${line}"]`);
+    if (!scroller || !el) return;
+    const top = el.offsetTop;
+    if (
+      top < scroller.scrollTop ||
+      top + el.offsetHeight > scroller.scrollTop + scroller.clientHeight
+    ) {
+      scroller.scrollTop = top - 24;
+    }
+  }, [playback.step, offsets]);
 
   return (
     <div className="my-8 w-full border border-zinc-800 rounded-xl overflow-hidden">
@@ -164,12 +231,14 @@ export const TabVisualizer = ({
       )}
 
       <div
-        className="p-6 md:p-10 flex flex-col gap-10 bg-white overflow-x-auto overflow-y-auto scrollbar-thin scrollbar-thumb-zinc-200"
+        ref={scrollRef}
+        className="relative p-6 md:p-10 flex flex-col gap-10 bg-white overflow-x-auto overflow-y-auto scrollbar-thin scrollbar-thumb-zinc-200"
         style={{ maxHeight: `${maxVisibleLines * LINE_HEIGHT}px` }}
       >
         {allSystems.map((system, idx) => (
           <div
             key={idx}
+            data-line={idx}
             className="flex flex-col w-full min-w-200 md:min-w-full relative mt-4"
           >
             <div
@@ -216,7 +285,7 @@ export const TabVisualizer = ({
                         {item.val !== "-" ? (
                           <TabVisualizerNote
                             item={item}
-                            active={playback.step === idx * maxNotesPerLine + i}
+                            active={playback.step === offsets[idx] + i}
                           />
                         ) : (
                           <div className="h-6 w-6 invisible" />

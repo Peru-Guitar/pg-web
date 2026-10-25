@@ -1,13 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import { Guitar, AudioLines, Music2, Users, Lightbulb } from "lucide-react";
+import { Guitar, AudioLines, Users, Lightbulb } from "lucide-react";
 import { Post } from "@/content/types";
 import { formatDate } from "@/lib/posts";
 import { CategoryTag } from "./CategoryTag";
 
 const icons = {
   guitar: Guitar,
-  theory: Music2,
   reflections: Lightbulb,
   production: AudioLines,
   events: Users,

@@ -1,10 +1,29 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { play as playNote, prepare, silence } from "@/lib/audio/guitar";
+import {
+  harmonic,
+  play as playNote,
+  prepare,
+  silence,
+  slide,
+} from "@/lib/audio/guitar";
 
-/** Notes that sound together on one step: string (1-6) and fret. */
-export type TabStep = { string: number; fret: number }[];
+/** A note on one step: string (1-6) and fret. */
+export type TabStepNote = {
+  string: number;
+  fret: number;
+  /** Natural harmonic (`<12>`). */
+  harmonic?: boolean;
+  /** Slide: fret this note glides to, and how many steps later it lands. */
+  slideTo?: number;
+  slideSteps?: number;
+  /** Target of a slide: it sounds through the glide, without its own attack. */
+  slid?: boolean;
+};
+
+/** Notes that sound together on one step. */
+export type TabStep = TabStepNote[];
 
 export const MIN_BPM = 40;
 export const MAX_BPM = 240;
@@ -34,7 +53,15 @@ export function useTabPlayback(
 
   const stepDuration = () => 60 / bpmRef.current / notesPerBeat;
   const sound = (i: number) =>
-    steps[i]?.forEach((n) => playNote(n.string, n.fret, stepDuration()));
+    steps[i]?.forEach((n) => {
+      const d = stepDuration();
+      if (n.harmonic) harmonic(n.string, n.fret, d * 4);
+      else if (n.slideTo !== undefined) {
+        // The first note holds until the target; it glides at the end and the target rings one step.
+        const k = n.slideSteps ?? 1;
+        slide(n.string, n.fret, n.slideTo, k * d * 0.6, (k + 1) * d);
+      } else if (!n.slid) playNote(n.string, n.fret, d);
+    });
 
   function stop() {
     window.clearTimeout(timer.current);

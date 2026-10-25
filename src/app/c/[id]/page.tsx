@@ -7,7 +7,7 @@ interface Props {
 
 const LEGACY_CATEGORIES: Record<string, string> = {
   guitar: "/blog/categoria/guitar",
-  theory: "/blog/categoria/theory",
+  theory: "/blog/categoria/guitar",
   reflections: "/blog/categoria/reflections",
   production: "/blog/categoria/production",
   resources: "/recursos",
