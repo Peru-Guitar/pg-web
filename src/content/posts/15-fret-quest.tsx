@@ -6,7 +6,7 @@ export const fretQuest: Post = {
   title: "Fret Quest: por qué creamos un Duolingo para la guitarra",
   description:
     "Te sientas con la guitarra y no sabes qué practicar. Así nació Fret Quest, cómo usarlo y por qué la constancia vale más que la sesión perfecta.",
-  category: PostCategory.Guitar,
+  category: PostCategory.Events,
   date: new Date("2026-10-23T00:00:00"),
   author: PostAuthor.ErpProject,
   content: () => (

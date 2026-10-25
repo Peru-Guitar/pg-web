@@ -165,10 +165,6 @@ button:disabled {
   background:
     radial-gradient(ellipse at 80% 10%, #5ab8ec33, transparent 70%), #1c1c1c;
 }
-.post-art[data-category="theory"] {
-  background: linear-gradient(135deg, #eee4ce, #c8bfa8);
-  color: #6b5943;
-}
 .post-art[data-category="production"] {
   background: linear-gradient(135deg, #162a37, #326975);
   color: #8ec8cd;

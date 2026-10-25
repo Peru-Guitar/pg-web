@@ -5,27 +5,21 @@ export const POST_CATEGORIES: Record<
   { name: string; description: string }
 > = {
   guitar: {
-    name: "Guitarra",
-    description: "Técnicas, ejercicios y guías para dominar las seis cuerdas.",
-  },
-  theory: {
-    name: "Teoría Musical",
+    name: "Licks y Técnica",
     description:
-      "Conceptos fundamentales, armonía y análisis para entender la música.",
+      "Licks, rutinas y escalas para tocar hoy mismo. Teoría solo la necesaria, directo al diapasón.",
   },
   reflections: {
-    name: "Reflexiones",
+    name: "Mentalidad",
     description:
-      "Pensamientos, mentalidad y experiencias personales sobre el camino de la guitarra eléctrica.",
+      "Hábitos, motivación y la realidad de ser guitarrista. Lo que nadie te dice del camino.",
   },
   production: {
     name: "Producción",
-    description:
-      "Tips de mezcla, mastering y herramientas de software musical.",
+    description: "Graba, mezcla y suena profesional desde casa.",
   },
   events: {
-    name: "Eventos",
-    description:
-      "Concursos, encuentros y actividades de la comunidad Peru Guitar.",
+    name: "Comunidad",
+    description: "Concursos, proyectos y novedades de Peru Guitar.",
   },
 };
