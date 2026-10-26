@@ -86,7 +86,7 @@ export function prepare(): Promise<void> {
       baseUrl: SAMPLE_BASE,
       // No reverb and a short release: each note fades before the next one.
       release: 0.25,
-      volume: -10,
+      volume: -13,
     }).connect(drive);
     buffers = new tone.ToneAudioBuffers({
       urls: Object.fromEntries(
@@ -204,9 +204,9 @@ export function slide(
     rate(open + toFret),
     t + holdSec + glide,
   );
-  // Same level as the sampler (-10 dB, velocity 0.85) and a short fade, no click.
-  gain.gain.setValueAtTime(0.27, t);
-  gain.gain.setValueAtTime(0.27, end - 0.08);
+  // Same level as the sampler (-13 dB, velocity 0.85) and a short fade, no click.
+  gain.gain.setValueAtTime(0.19, t);
+  gain.gain.setValueAtTime(0.19, end - 0.08);
   gain.gain.linearRampToValueAtTime(0, end);
   src.start(t);
   src.stop(end);
