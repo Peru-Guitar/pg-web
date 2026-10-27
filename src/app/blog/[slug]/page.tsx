@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, CalendarDays, Clock } from "lucide-react";
+import { isValidElement, type ReactNode } from "react";
 import { PostCard } from "@/components/ui/PostCard";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -46,6 +47,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+const WORDS_PER_MINUTE = 200;
+
+const getText = (node: ReactNode): string => {
+  if (typeof node === "string" || typeof node === "number") return ` ${node} `;
+  if (Array.isArray(node)) return node.map(getText).join("");
+  if (isValidElement<{ children?: ReactNode }>(node))
+    return getText(node.props.children);
+  return "";
+};
+
+const getReadingMinutes = (Content: () => ReactNode) => {
+  const words = getText(Content()).split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / WORDS_PER_MINUTE));
+};
+
 export default async function PostPage({ params }: Props) {
   const { slug } = await params;
   const post = getPost(slug);
@@ -62,9 +78,18 @@ export default async function PostPage({ params }: Props) {
         image={post.cover}
         narrow
       >
-        <time className="text-sm text-on-night-muted">
-          {formatDate(post.date)}
-        </time>
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-on-night-muted">
+          <span className="inline-flex items-center gap-1.5">
+            <CalendarDays size={16} aria-hidden />
+            <time dateTime={post.date.toISOString()}>
+              {formatDate(post.date)}
+            </time>
+          </span>
+          <span className="inline-flex items-center gap-1.5">
+            <Clock size={16} aria-hidden />
+            {getReadingMinutes(post.content)} min de lectura
+          </span>
+        </div>
       </Hero>
 
       <Container narrow className="py-16">
