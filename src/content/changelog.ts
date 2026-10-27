@@ -1,0 +1,22 @@
+// Release notes per version, newest first. Short notes, in the reader's words (Spanish).
+// `date` is the release day (YYYY-MM-DD): the page groups versions released the same day.
+export const changelog: { version: string; date: string; notes: string[] }[] = [
+  {
+    version: "0.1.1",
+    date: "2026-10-26",
+    notes: [
+      "Puedes instalar Peru Guitar como app en tu celular.",
+      "Nueva página de Novedades: toca la versión al pie de página.",
+    ],
+  },
+  {
+    version: "0.1.0",
+    date: "2026-10-25",
+    notes: [
+      "Nuevo portal de Peru Guitar.",
+      "Secciones de Fret Quest y PG Fighters.",
+      "Los tabs del blog suenan con guitarra eléctrica distorsionada.",
+      "Categorías del blog más simples.",
+    ],
+  },
+];

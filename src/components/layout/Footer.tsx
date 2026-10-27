@@ -123,7 +123,13 @@ export const Footer = () => (
           La primera comunidad de guitarristas en el Perú desde el 2003.
         </p>
         <p className="shrink-0 text-xs">
-          © {new Date().getFullYear()} PeruGuitar.
+          © {new Date().getFullYear()} PeruGuitar.{" "}
+          <Link
+            href="/novedades"
+            className="font-mono transition-colors hover:text-on-night"
+          >
+            v{process.env.NEXT_PUBLIC_APP_VERSION}
+          </Link>
         </p>
       </div>
     </Container>

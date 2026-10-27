@@ -5,15 +5,18 @@ interface PageMetadataOptions {
   description: string;
   path: string;
   image?: string;
+  /** Keep the page out of search results (e.g. changelog). */
+  noindex?: boolean;
 }
 
 /** Keep search and social previews consistent for each page. */
-export function pageMetadata({ title, description, path, image = "/og-peruguitar-v3.jpg" }: PageMetadataOptions): Metadata {
+export function pageMetadata({ title, description, path, image = "/og-peruguitar-v3.jpg", noindex = false }: PageMetadataOptions): Metadata {
   const socialTitle = `${title} | Peru Guitar`;
   return {
     title,
     description,
     alternates: { canonical: path },
+    ...(noindex && { robots: { index: false, follow: false } }),
     openGraph: {
       title: socialTitle,
       description,

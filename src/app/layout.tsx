@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Plus_Jakarta_Sans } from "next/font/google";
 
@@ -7,6 +7,7 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import GoogleAnalytics from "@/components/layout/GoogleAnalytics";
+import ServiceWorker from "@/components/layout/ServiceWorker";
 import { SITE_URL } from "@/lib/posts";
 import { umamiWebsiteId } from "@/content/settings.json";
 
@@ -37,7 +38,13 @@ export const metadata: Metadata = {
     description: "La guitarra nos conecta. Descubre artículos, guías gratuitas, backing tracks y apps para practicar con la comunidad de guitarristas del Perú.",
     images: ["/og-peruguitar-v3.jpg"],
   },
+  applicationName: "Peru Guitar",
+  manifest: "/manifest.webmanifest",
+  icons: { apple: "/icons/apple-touch-icon.png" },
+  appleWebApp: { capable: true, title: "Peru Guitar" },
 };
+
+export const viewport: Viewport = { themeColor: "#111111" };
 
 export default function RootLayout({
   children,
@@ -55,6 +62,7 @@ export default function RootLayout({
         <main id="contenido">{children}</main>
         <Footer />
         <GoogleAnalytics />
+        <ServiceWorker />
         <Script src="https://cloud.umami.is/script.js" data-website-id={umamiWebsiteId} data-domains="peruguitar.com" strategy="afterInteractive" />
       </body>
     </html>
