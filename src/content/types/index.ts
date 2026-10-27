@@ -1,4 +1,4 @@
-import { ComponentType } from "react";
+import { ReactNode } from "react";
 
 export enum PostCategory {
   Guitar = "guitar",
@@ -16,7 +16,7 @@ export interface Post {
   category: PostCategory;
   title: string;
   description: string;
-  content: ComponentType;
+  content: () => ReactNode;
   date: Date;
   author: PostAuthor;
   /** Optimized WebP header image (path under /public). */
