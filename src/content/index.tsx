@@ -13,6 +13,7 @@ import { comoTocarFraseosOutsideYQueSuenenBien } from "./posts/12-como-tocar-fra
 import { comoComponerUsandoIA } from "./posts/13-como-componer-con-usando-ia";
 import { concursoIResultados } from "./posts/14-concurso-i-resultados";
 import { fretQuest } from "./posts/15-fret-quest";
+import { losEjerciciosAburridosTeHacenCrecer } from "./posts/16-los-ejercicios-aburridos-te-hacen-crecer";
 
 export const POSTS: Post[] = [
   pentatonicFusionLick01,
@@ -28,4 +29,5 @@ export const POSTS: Post[] = [
   comoComponerUsandoIA,
   concursoIResultados,
   fretQuest,
+  losEjerciciosAburridosTeHacenCrecer,
 ].sort((a, b) => b.date.getTime() - a.date.getTime());
