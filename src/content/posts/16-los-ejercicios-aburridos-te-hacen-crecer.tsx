@@ -122,6 +122,38 @@ export const losEjerciciosAburridosTeHacenCrecer: Post = {
         aplicar cuando realmente estés tocando música.
       </p>
 
+      <h3>Tu mínimo, no tu límite</h3>
+
+      <p>
+        Esos 15 o 30 minutos son <strong>el mínimo que debes cumplir</strong>{" "}
+        dentro de la rutina que estableciste. No significa que no puedas tocar
+        otras cosas: hazlo, e incluso vuelve al mismo ejercicio más tarde si
+        te provoca.
+      </p>
+
+      <p>
+        Eso sí, cuida la coherencia. Si esta semana trabajas alternate picking,{" "}
+        <strong>todo lo demás que toques también va con alternate</strong>.
+        Si saltas de una técnica a otra, rompes lo que estás construyendo y tu
+        cerebro se vuelve a bloquear.
+      </p>
+
+      <h3>Mata dos pájaros de un tiro</h3>
+
+      <p>
+        Si necesitas mejorar tu digitación, del cromático 1-2-3-4{" "}
+        <strong>no te escapas</strong>. Pero cuando ya llevas un tiempo con él,
+        puedes usarlo de forma más inteligente.
+      </p>
+
+      <p>
+        Por ejemplo, si buscas dominar los modos de la escala mayor, toca cada
+        posición completa desde la sexta cuerda hasta la primera y de regreso.
+        También puedes probar con patrones horizontales a lo largo del mástil.
+        Así <strong>trabajas la digitación y memorizas las escalas</strong> al
+        mismo tiempo.
+      </p>
+
       <h2>Fret Quest: convierte tu práctica en una rutina</h2>
 
       <p>
