@@ -69,6 +69,11 @@
       "key": "15",
       "prompt": "Use case: photorealistic-natural. Asset: PeruGuitar article header, landscape 16:9. Cinematic editorial photograph, realistic instruments and hands, charcoal shadows, warm amber highlights, subtle film grain. Main subject in right half, darker uncluttered left third for HTML title overlay; meaningful subject remains within central crop. No text, logos, watermark, collage or borders. A guitarist seated at home with an electric guitar on their lap, glancing at a phone on a music stand that glows with a soft electric blue and violet game-like interface, a practice notebook nearby, cozy late-evening atmosphere.",
       "output": "/content/fret-quest-el-duolingo-de-la-guitarra/header.webp"
+    },
+    {
+      "key": "16",
+      "prompt": "Use case: photorealistic-natural. Asset type: PeruGuitar editorial article cover, horizontal 16:9. Cinematic editorial photograph of an adult guitarist's hands slowly practicing a precise picking exercise on a six-string electric guitar in a modest home practice room. Close-up with anatomically natural fretting fingers and picking hand, realistic strings and fretboard. A mechanical metronome beside the guitarist, and a practice notebook softly out of focus in the background. Focused, disciplined late-evening mood, warm amber desk lamp illumination, charcoal shadows, subtle film grain and natural material textures. Composition: guitar and hands in the center-right, metronome visible nearby, dark uncluttered left third available for HTML title overlay. Keep important subjects within a central crop that works on mobile. No embedded text, readable writing, logos, watermarks, collage or borders.",
+      "output": "/content/los-ejercicios-aburridos-de-guitarra-te-hacen-crecer/header.webp"
     }
   ]
 }
