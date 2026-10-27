@@ -5,7 +5,7 @@ export const losEjerciciosAburridosTeHacenCrecer: Post = {
   cover: "/content/los-ejercicios-aburridos-de-guitarra-te-hacen-crecer/header.webp",
   title: "Los ejercicios aburridos de guitarra son los que te hacen crecer",
   description:
-    "Conocer las notas de un solo no significa poder tocarlo. Por qué la práctica técnica funciona y una rutina simple de un ejercicio por semana.",
+    "Los ejercicios repetitivos son los que más te hacen crecer. No los ignores: vuélvelos un hábito, sin que se conviertan en un castigo que te haga dejar la guitarra.",
   category: PostCategory.Reflections,
   date: new Date("2026-10-27T00:00:00"),
   author: PostAuthor.ErpProject,
@@ -132,26 +132,41 @@ export const losEjerciciosAburridosTeHacenCrecer: Post = {
       </p>
 
       <p>
-        Eso sí, cuida la coherencia. Si esta semana trabajas alternate picking,{" "}
-        <strong>todo lo demás que toques también va con alternate</strong>.
-        Si saltas de una técnica a otra, rompes lo que estás construyendo y tu
-        cerebro se vuelve a bloquear.
+        Eso sí, cuida cómo tocas lo demás. Si esta semana trabajas alternate
+        picking y tocas algo que también lo requiere,{" "}
+        <strong>hazlo con el mismo criterio de práctica</strong>: limpio, a
+        conciencia y más lento si hace falta. Es muy fácil acostumbrar al
+        cerebro a los errores, así que entrénalo para que siempre lo toque como
+        debería sonar.
       </p>
 
       <h3>Mata dos pájaros de un tiro</h3>
 
       <p>
-        Si necesitas mejorar tu digitación, del cromático 1-2-3-4{" "}
-        <strong>no te escapas</strong>. Pero cuando ya llevas un tiempo con él,
-        puedes usarlo de forma más inteligente.
+        Si ya llevas un tiempo tocando y tu objetivo es mejorar la digitación o
+        una técnica específica, puedes enfocar la práctica en algo{" "}
+        <strong>más productivo</strong>. Si recién comienzas, primero quédate
+        con los ejercicios básicos hasta que te salgan limpios.
       </p>
 
       <p>
-        Por ejemplo, si buscas dominar los modos de la escala mayor, toca cada
-        posición completa desde la sexta cuerda hasta la primera y de regreso.
-        También puedes probar con patrones horizontales a lo largo del mástil.
-        Así <strong>trabajas la digitación y memorizas las escalas</strong> al
-        mismo tiempo.
+        Por ejemplo, si ya dominas el típico ejercicio cromático 1-2-3-4, usa
+        ese mismo
+        concepto de subir y bajar por las cuerdas para{" "}
+        <strong>dominar cada modo de la escala mayor</strong>: toca la posición
+        completa desde la sexta cuerda hasta la primera y de regreso, o prueba
+        con patrones horizontales a lo largo del mástil.
+      </p>
+
+      <p>
+        Lo mismo con los arpegios: apréndelos sabiendo{" "}
+        <strong>qué arpegio le corresponde a cada grado de la escala</strong>.
+      </p>
+
+      <p>
+        Así no solo entrenas los dedos: también llevas la técnica a un{" "}
+        <strong>concepto más musical</strong>. Eso es practicar de forma
+        eficiente.
       </p>
 
       <h2>Fret Quest: convierte tu práctica en una rutina</h2>
