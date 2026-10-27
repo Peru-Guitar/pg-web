@@ -62,4 +62,4 @@ Si el texto lleva comillas o apóstrofos sin escapar, agrega `/* eslint-disable 
 
 - Ejecuta `npx tsc --noEmit` y `npm run lint`.
 - Entrega al usuario: título, descripción, categoría y fecha propuestos, y una lista de lo que añadiste tú (ejemplos, secciones) para que lo revise.
-- No hagas commit ni push si no te lo piden.
+- No hagas commit si no te lo piden. **Nunca hagas push**: eso solo pasa con la skill `push` y un pedido explícito.
