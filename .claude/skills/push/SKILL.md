@@ -26,6 +26,8 @@ Antes de subir, revisa lo que se va a publicar (`git log origin/main..HEAD`, `gi
 | **minor** | Algo nuevo: sección, página, recurso o función nueva; o un cambio grande (rediseño) | `0.1.0 → 0.2.0` |
 | **patch** | Arreglos, posts nuevos o editados, ajustes de textos, retoques visuales | `0.1.0 → 0.1.1` |
 
+Los **artículos nuevos siempre son patch**. Igual propón la versión y espera la confirmación: el usuario decide.
+
 Formato de la respuesta:
 
 > Cambios: <resumen corto>
