@@ -8,6 +8,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import GoogleAnalytics from "@/components/layout/GoogleAnalytics";
 import ServiceWorker from "@/components/layout/ServiceWorker";
+import CopyGuard from "@/components/layout/CopyGuard";
 import { SITE_URL } from "@/lib/posts";
 import { umamiWebsiteId } from "@/content/settings.json";
 
@@ -62,6 +63,7 @@ export default function RootLayout({
         <main id="contenido">{children}</main>
         <Footer />
         <GoogleAnalytics />
+        <CopyGuard />
         <ServiceWorker />
         <Script src="https://cloud.umami.is/script.js" data-website-id={umamiWebsiteId} data-domains="peruguitar.com" strategy="afterInteractive" />
       </body>
