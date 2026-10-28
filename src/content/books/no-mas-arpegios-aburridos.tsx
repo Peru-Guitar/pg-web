@@ -18,7 +18,6 @@ const Example = ({ chord, tab }: { chord: string; tab: string }) => (
       title={chord}
       notes={[tab]}
       maxNotesPerLine={16}
-      maxNotesPerBar={8}
       bpm={160}
       notesPerBeat={2}
     />

@@ -34,7 +34,7 @@ export const TabVisualizer = ({
   notes,
   title = "Lick",
   maxNotesPerLine = 12,
-  maxNotesPerBar = 4,
+  maxNotesPerBar = null,
   maxVisibleLines = 4,
   bpm,
   notesPerBeat = 2,

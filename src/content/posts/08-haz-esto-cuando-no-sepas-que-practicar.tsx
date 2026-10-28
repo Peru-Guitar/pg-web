@@ -56,7 +56,6 @@ export const hazEstoCuandoNoSepasQuePracticar: Post = {
       </p>
 
       <TabVisualizer
-        maxNotesPerBar={12}
         maxVisibleLines={3}
         title="F# Menor Natural - Secuencia Aditiva"
         notes={[
