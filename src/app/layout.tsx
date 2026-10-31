@@ -6,11 +6,10 @@ import "./globals.css";
 
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import GoogleAnalytics from "@/components/layout/GoogleAnalytics";
 import ServiceWorker from "@/components/layout/ServiceWorker";
 import CopyGuard from "@/components/layout/CopyGuard";
 import { SITE_URL } from "@/lib/posts";
-import { umamiWebsiteId } from "@/content/settings.json";
+import { cloudflareAnalyticsToken } from "@/content/settings.json";
 
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
@@ -62,10 +61,9 @@ export default function RootLayout({
         <Navbar />
         <main id="contenido">{children}</main>
         <Footer />
-        <GoogleAnalytics />
         <CopyGuard />
         <ServiceWorker />
-        <Script src="https://cloud.umami.is/script.js" data-website-id={umamiWebsiteId} data-domains="peruguitar.com" strategy="afterInteractive" />
+        <Script src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: cloudflareAnalyticsToken })} strategy="afterInteractive" />
       </body>
     </html>
   );
