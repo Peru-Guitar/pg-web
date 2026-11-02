@@ -1,34 +1,34 @@
 ---
 name: blog-post
-description: Crea o edita un artículo del blog de peruguitar.com a partir de las ideas del usuario. Úsalo cuando pida "nuevo artículo", "nuevo post", "escribe una entrada", "agrega al blog" o comparta ideas sueltas para publicar.
+description: Creates or edits a peruguitar.com blog article from the user's ideas. Use when the user asks for "nuevo artículo", "nuevo post", "escribe una entrada", "agrega al blog", or shares loose ideas to publish.
 ---
 
-# Artículo del blog de Peru Guitar
+# Peru Guitar blog article
 
-El usuario da las ideas (a veces sueltas, en notas o audio transcrito). Tú las ordenas, completas lo que falta y las llevas al formato del blog sin cambiar su opinión ni su voz.
+The user provides the ideas (sometimes loose, in notes or transcribed audio). You organize them, fill in what's missing and bring them to the blog format without changing their opinion or voice.
 
-## 1. Antes de escribir
+## 1. Before writing
 
-- Lee 1 o 2 artículos de `src/content/posts/` de la misma categoría para copiar el tono.
-- Si falta algo que no puedes inventar, pregúntalo en un solo mensaje: video de YouTube (id), tablatura, audios, fecha de publicación. Lo demás (título, descripción, estructura) lo propones tú.
-- No inventes datos, anécdotas, nombres ni cifras. Si una idea necesita un ejemplo, usa uno musical genérico y márcalo para que el usuario lo revise.
+- Read 1 or 2 articles in the same category from `src/content/posts/` to match the tone.
+- If something is missing that you can't make up, ask for it in a single message: YouTube video (id), tab, audio, publication date. You propose the rest (title, description, structure).
+- Don't make up data, anecdotes, names or figures. If an idea needs an example, use a generic musical one and mark it for the user to review.
 
-## 2. Archivos
+## 2. Files
 
-1. `src/content/posts/NN-slug.tsx`: `NN` es el siguiente número libre (mira el último del directorio).
-2. Registrarlo en `src/content/index.tsx`: import + agregarlo al array `POSTS` (se ordena solo por fecha).
-3. Portada: `public/content/<id>/header.webp`, 1600×900. Si no existe, agrega un job a `docs/header-image-prompts.json` copiando el prefijo de estilo de los demás prompts y describe solo la escena. No generes la imagen sin que te lo pidan.
+1. `src/content/posts/NN-slug.tsx`: `NN` is the next free number (check the last one in the directory).
+2. Register it in `src/content/index.tsx`: import it and add it to the `POSTS` array (sorted automatically by date).
+3. Cover: `public/content/<id>/header.webp`, 1600×900. If it doesn't exist, add a job to `docs/header-image-prompts.json`, copying the style prefix from the other prompts and describing only the scene. Don't generate the image unless asked.
 
 ```tsx
 import { Post, PostAuthor, PostCategory } from "../types";
 
-export const nombreEnCamelCase: Post = {
-  id: "slug-en-kebab-case",            // es la URL: /blog/<id>
-  cover: "/content/slug-en-kebab-case/header.webp",
-  title: "Título claro, como lo buscaría alguien",
-  description: "Una o dos frases (~150 caracteres). Se usa en tarjetas y SEO.",
+export const nameInCamelCase: Post = {
+  id: "slug-in-kebab-case",            // this is the URL: /blog/<id>
+  cover: "/content/slug-in-kebab-case/header.webp",
+  title: "Clear title, the way someone would search for it",
+  description: "One or two sentences (~150 characters). Used in cards and SEO.",
   category: PostCategory.Guitar,       // Guitar | Theory | Reflections | Production | Events
-  date: new Date("AAAA-MM-DDT00:00:00"),
+  date: new Date("YYYY-MM-DDT00:00:00"),
   author: PostAuthor.ErpProject,
   content: () => (
     <>
@@ -39,27 +39,29 @@ export const nombreEnCamelCase: Post = {
 };
 ```
 
-## 3. Componentes disponibles (`src/content/components/`)
+## 3. Available components (`src/content/components/`)
 
 - `<YouTubePlayer id="KV6t7g96EbA" />`
 - `<AudioPlayer title="..." source="/content/<id>/audio.mp3" />`
 - `<ImageVisualizer src="..." alt="..." caption="..." />`
-- `<TabVisualizer title="..." notes={[`...`]} />`: una línea por grupo, `cuerda:trastes` (`1:10-14-12`), con `h` hammer, `p` pull-off y `\\` slide. Ver `01-pentatonic-fusion-lick.tsx`.
+- `<TabVisualizer title="..." notes={[`...`]} />`: one line per group, `string:frets` (`1:10-14-12`), with `h` hammer, `p` pull-off and `\\` slide. See `01-pentatonic-fusion-lick.tsx`.
 - `<DownloadLinks files={[{ name, url, extension, size }]} />`
 
-Si el texto lleva comillas o apóstrofos sin escapar, agrega `/* eslint-disable react/no-unescaped-entities */` arriba, como en el post 01.
+If the text has unescaped quotes or apostrophes, add `/* eslint-disable react/no-unescaped-entities */` at the top, as in post 01.
 
-## 4. Estilo
+## 4. Style
 
-- Español, tuteo, directo. Habla un guitarrista a otro, no un manual.
-- Párrafos cortos (2–4 líneas). Secciones con `<h2>` y, si hace falta, `<h3>`.
-- `<strong>` para la idea clave de cada párrafo, no para frases enteras.
-- Empieza con el problema o la idea central en el primer párrafo, sin introducciones genéricas.
-- Termina con algo aplicable (qué practicar, cómo empezar), no con un resumen.
-- Nada de relleno típico de IA ("en el mundo de la guitarra…", "en conclusión…", listas de 10 tips vacíos).
+The article itself is written in Spanish.
 
-## 5. Al terminar
+- Spanish, informal "tú", direct. One guitarist talking to another, not a manual.
+- Short paragraphs (2–4 lines). Sections with `<h2>` and, if needed, `<h3>`.
+- `<strong>` for the key idea of each paragraph, not for whole sentences.
+- Open with the problem or central idea in the first paragraph, with no generic intro.
+- End with something actionable (what to practice, how to start), not a summary.
+- No typical AI filler ("en el mundo de la guitarra…", "en conclusión…", lists of 10 empty tips).
 
-- Ejecuta `npx tsc --noEmit` y `npm run lint`.
-- Entrega al usuario: título, descripción, categoría y fecha propuestos, y una lista de lo que añadiste tú (ejemplos, secciones) para que lo revise.
-- No hagas commit si no te lo piden. **Nunca hagas push**: eso solo pasa con la skill `push` y un pedido explícito.
+## 5. When finished
+
+- Run `npx tsc --noEmit` and `npm run lint`.
+- Give the user the proposed title, description, category and date, plus a list of what you added (examples, sections) for review.
+- Don't commit unless asked. **Never push**: that only happens with the `push` skill and an explicit request.
