@@ -64,7 +64,8 @@ export default function AboutPage() {
               <strong>
                 <Link href="/recursos">Recursos</Link>:
               </strong>{" "}
-              guías y backing tracks gratuitos para practicar.
+              guías y backing tracks gratuitos para practicar, además de collabs
+              entre miembros de la comunidad y nuestro podcast.
             </li>
             <li>
               <strong>
@@ -72,12 +73,6 @@ export default function AboutPage() {
               </strong>{" "}
               concursos como el primero de 2025, que reunió a 41 guitarristas de
               5 países.
-            </li>
-            <li>
-              <strong>
-                <Link href="/media">Media</Link>:
-              </strong>{" "}
-              collabs entre miembros de la comunidad y nuestro podcast.
             </li>
             <li>
               <strong>

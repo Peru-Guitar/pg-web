@@ -229,7 +229,7 @@ export default function Home() {
               cuerdas.
             </p>
             <Link
-              href="/media#podcasts"
+              href="/recursos#podcasts"
               className="mt-7 inline-flex items-center gap-2 font-semibold text-accent"
             >
               Escuchar el podcast <ArrowRight size={16} />
