@@ -41,6 +41,7 @@ Add the entry anywhere in `ARTIST_LIST`. `ARTISTS` sorts it alphabetically by na
 | `tagline` | One line under the name: what they play and what they do. `Guitarrista de rock, metal y fusión, y profesor de guitarra eléctrica` |
 | `bio` | One string per paragraph. `bio[0]` is the intro, max 250 characters: a factual summary of who the artist is and what they do, starting with their name ("<Name> es ..."). It opens the story directly, so no poetic or quote-like lines. It is shown first on the page and used as the meta description. Every detail goes in the following paragraphs, so nothing from the original bio is lost. |
 | `location` | Optional. All artists are Peruvian: the header shows "Perú" by default. Set it only to add the city: `Lima, Perú` |
+| `birthDate` | Optional. `"YYYY-MM-DD"`. Shown in the header as "10 de julio de 1996". Leave it out if the user doesn't give it. |
 | `styles` | 2 to 4 short tags: `["Rock", "Metal", "Fusión"]` |
 | `photo` | Optional, see step 3 |
 | `cover` | Optional, see step 3 |

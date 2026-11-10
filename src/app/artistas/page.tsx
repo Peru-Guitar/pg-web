@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ARTISTS, ARTISTS_HERO } from "@/content/artists";
 import { Container } from "@/components/layout/Container";
 import { ArtistRow } from "@/components/ui/ArtistRow";
+import { ArtistJoin } from "@/components/ui/ArtistJoin";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
@@ -103,6 +104,7 @@ export default function ArtistsPage() {
               </div>
             </section>
           ))}
+        <ArtistJoin />
       </Container>
     </div>
   );

@@ -6,6 +6,9 @@ export type ArtistSocial =
   | "facebook"
   | "website";
 
+/** Google Form to apply to Artistas PG. */
+export const ARTISTS_FORM_URL = "https://forms.gle/jndRQNKtH4mt61ZM7";
+
 export const ARTISTS_HERO = "/content/artistas/hero.webp";
 
 export interface Artist {
@@ -17,6 +20,8 @@ export interface Artist {
   bio: string[];
   /** City, shown in the header. All artists are Peruvian, so it defaults to "Perú". */
   location?: string;
+  /** Optional birth date, "YYYY-MM-DD". Shown in the header when present. */
+  birthDate?: string;
   styles: string[];
   /** Square portrait (~800×800): /content/artistas/<slug>/photo.webp. Falls back to initials. */
   photo?: string;
@@ -46,6 +51,7 @@ const ARTIST_LIST: Artist[] = [
       "Entre sus principales influencias están John Petrucci, Marty Friedman, Per Nilsson, John 5, Robin Finck y Buckethead. También disfruta reinterpretar música de videojuegos íntegramente en la guitarra.",
       "Su competitividad también lo llevó a los videojuegos: entre 2016 y 2022 fue jugador profesional de Street Fighter V bajo el seudónimo BlackLava, con destacadas posiciones en torneos como la Liga Pro Gaming de Movistar, Collision 2017 y Lima Salty 4.",
     ],
+    birthDate: "1996-07-10",
     styles: ["Metal", "Darkwave", "Metal industrial"],
     photo: "/content/artistas/brandon-murga/photo.webp",
     socials: {
@@ -68,6 +74,7 @@ const ARTIST_LIST: Artist[] = [
       "Actualmente trabaja en composiciones propias, con la intención de presentarlas en vivo en un futuro.",
     ],
     location: "Perú",
+    birthDate: "1989-02-11",
     styles: ["Fusión", "Rock instrumental", "Videojuegos"],
     photo: "/content/artistas/erp-project/photo.webp",
     socials: {
@@ -96,12 +103,44 @@ const ARTIST_LIST: Artist[] = [
     spotifyEmbeds: ["track/6kZcojf7bYazjl0Gs218BS"],
     youtubeVideos: [{ id: "bgttYMrqR68", title: "Boogie Songs" }],
   },
+  {
+    slug: "luis-fernando",
+    name: "Luis Fernando",
+    tagline: "Guitarrista y compositor de fusión",
+    bio: [
+      "Luis Fernando es un guitarrista y compositor de fusión que pasó por la música clásica, el rock, el blues y el metal antes de encontrar su sonido. Combina la guitarra con su carrera como ingeniero de sistemas.",
+      "Empezó a tocar a los 13 años con una guitarra Falcón que era de su padre. Arrancó con la música clásica; a los 17 lo atraparon el rock y el blues, y en sus 20 se fue a lo pesado con el metal y el hard rock.",
+      "En paralelo se formó como ingeniero de sistemas y terminó especializándose en bases de datos, relacionales y no relacionales. Últimamente explora la automatización con IA.",
+      "Ya en sus 30, sus gustos evolucionaron de forma natural hacia la fusión, el género que hoy escucha y compone, donde caben un poco de todas las etapas por las que pasó. Su banda favorita es T-Square, de Japón.",
+      "Entre sus logros, culminó su formación instrumental, es partner de Moises App y quedó en el top 10 del primer concurso de Peru Guitar.",
+    ],
+    birthDate: "1990-05-26",
+    styles: ["Fusión", "Rock", "Blues", "Metal"],
+    photo: "/content/artistas/luis-fernando/photo.webp",
+    socials: {
+      instagram: "https://www.instagram.com/luis.ormachea.music",
+      youtube: "https://www.youtube.com/@fernando9026",
+    },
+    youtubeVideos: [
+      { id: "uYECvVuIBQw", title: "Ole Borud - Make a Change (solo guitar cover)" },
+      { id: "E-A6GGdTjSQ", title: "City pop improv solo" },
+    ],
+  },
 ];
 
 /** Peruvian guitarists featured on Peru Guitar, sorted alphabetically by name. Order = directory order. */
 export const ARTISTS = [...ARTIST_LIST].sort((a, b) =>
   a.name.localeCompare(b.name, "es", { sensitivity: "base" }),
 );
+
+/** Birth date in Spanish: "10 de julio de 1996". */
+export const formatBirthDate = (date: string) =>
+  new Date(`${date}T12:00:00Z`).toLocaleDateString("es-PE", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  });
 
 export const getArtist = (slug: string) =>
   ARTISTS.find((artist) => artist.slug === slug);

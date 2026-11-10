@@ -2,7 +2,6 @@ import {
   BookOpen,
   House,
   Guitar,
-  Library,
   LucideIcon,
   ShoppingBag,
   Sparkles,
@@ -23,7 +22,6 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Artistas", href: "/artistas", icon: Guitar },
   { label: "Blog", href: "/blog", icon: BookOpen },
   { label: "Comunidad", href: "/comunidad", icon: Users },
-  { label: "Recursos", href: "/recursos", icon: Library },
   { label: "Tienda", href: "/tienda", icon: ShoppingBag },
   { label: "Fret Quest", href: "https://fretquest.peruguitar.com", icon: Sparkles, external: true, highlight: true },
 ];

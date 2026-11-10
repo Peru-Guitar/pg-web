@@ -2,6 +2,18 @@
 // `date` is the release day (YYYY-MM-DD): the page groups versions released the same day.
 export const changelog: { version: string; date: string; notes: string[] }[] = [
   {
+    version: "0.4.3",
+    date: "2026-11-10",
+    notes: [
+      "Nuevo artista: Luis Fernando.",
+      "Los perfiles de artistas muestran su fecha de nacimiento.",
+      "Ahora puedes postular a Artistas PG desde un formulario.",
+      "Los recursos gratuitos ahora están dentro de Comunidad.",
+      "La página de inicio tiene un diseño más compacto, con artistas al azar.",
+      "La comunidad tiene un nuevo diseño.",
+    ],
+  },
+  {
     version: "0.4.2",
     date: "2026-11-10",
     notes: ["Los videos en los perfiles de artistas se ven más limpios."],

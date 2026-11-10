@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import { ArrowRight, MessageCircle, Play } from "lucide-react";
+import { ArrowRight, MessageCircle, Play, Users } from "lucide-react";
 import { pageMetadata } from "@/lib/metadata";
 import { CHALLENGES, getChallengeCover } from "@/content/challenges";
 import { PODCAST_EPISODES, VIDEOS } from "@/content/media";
@@ -9,20 +9,22 @@ import { WHATSAPP_URL } from "@/content/community";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { ResourcesList } from "@/components/ui/ResourcesList";
 
 export const metadata = pageMetadata({
   title: "Comunidad",
   description:
-    "Retos, collabs, podcast y el grupo de Peru Guitar: la comunidad guitarrística peruana.",
+    "Retos, collabs, podcast, recursos gratuitos y el grupo de Peru Guitar: la comunidad guitarrística peruana.",
   path: "/comunidad",
 });
 
 
 const SECTIONS = [
   { id: "retos", label: "Retos" },
-  { id: "grupo", label: "Grupo" },
   { id: "collabs", label: "Collabs" },
   { id: "podcast", label: "Podcast" },
+  { id: "recursos", label: "Recursos" },
+  { id: "grupo", label: "Grupo" },
 ];
 
 export default function CommunityPage() {
@@ -82,23 +84,6 @@ export default function CommunityPage() {
             </div>
           </Link>
         ))}
-      </div>
-
-      <div
-        id="grupo"
-        className="mb-16 scroll-mt-24 flex flex-col items-start gap-5 rounded-3xl bg-night p-8 text-on-night sm:flex-row sm:items-center sm:justify-between sm:p-10"
-      >
-        <div>
-          <MessageCircle className="mb-4 text-accent" size={28} />
-          <h2 className="text-2xl font-extrabold">Únete al grupo de Peru Guitar</h2>
-          <p className="mt-2 max-w-md text-on-night-muted">
-            El grupo de WhatsApp de la comunidad: retos, dudas, música y
-            novedades.
-          </p>
-        </div>
-        <Button href={WHATSAPP_URL} external>
-          Entrar al grupo <ArrowRight size={18} />
-        </Button>
       </div>
 
       <div id="collabs" className="scroll-mt-24">
@@ -162,6 +147,43 @@ export default function CommunityPage() {
         ))}
       </div>
 
+      <div id="recursos" className="mt-16 scroll-mt-24">
+        <SectionHeader
+          title="Recursos gratuitos"
+          subtitle="Material gratuito para poner las manos en las cuerdas."
+        />
+      </div>
+      <ResourcesList />
+
+      <div
+        id="grupo"
+        className="community-feature relative isolate mt-16 flex scroll-mt-24 flex-col items-start gap-6 overflow-hidden rounded-3xl p-8 text-white sm:flex-row sm:items-center sm:justify-between sm:p-12"
+      >
+        <div className="community-strings" aria-hidden="true">
+          {Array.from({ length: 14 }, (_, n) => (
+            <i key={n} />
+          ))}
+        </div>
+        <Users
+          aria-hidden="true"
+          size={260}
+          strokeWidth={1}
+          className="absolute -bottom-20 -right-10 -z-10 text-white/5"
+        />
+        <div>
+          <MessageCircle className="mb-4 text-brand" size={30} />
+          <h2 className="text-3xl font-extrabold tracking-tight">
+            Únete al grupo de Peru Guitar
+          </h2>
+          <p className="mt-3 max-w-md text-white/80">
+            El grupo de WhatsApp de la comunidad: retos, dudas, música y
+            novedades.
+          </p>
+        </div>
+        <Button href={WHATSAPP_URL} external>
+          Entrar al grupo <ArrowRight size={18} />
+        </Button>
+      </div>
     </Container>
   );
 }

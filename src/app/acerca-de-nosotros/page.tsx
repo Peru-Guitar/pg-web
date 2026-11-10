@@ -62,7 +62,7 @@ export default function AboutPage() {
             </li>
             <li>
               <strong>
-                <Link href="/recursos">Recursos</Link>:
+                <Link href="/comunidad#recursos">Recursos</Link>:
               </strong>{" "}
               guías y backing tracks gratuitos para practicar, además de collabs
               entre miembros de la comunidad y nuestro podcast.

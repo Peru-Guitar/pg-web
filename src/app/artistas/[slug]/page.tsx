@@ -5,22 +5,28 @@ import Link from "next/link";
 import {
   ArrowLeft,
   ArrowRight,
+  Cake,
   Facebook,
   Globe,
   Instagram,
   LucideIcon,
   MapPin,
-  MessageCircle,
   Music,
   Play,
   Youtube,
 } from "lucide-react";
-import { ARTISTS, ARTISTS_HERO, ArtistSocial, getArtist } from "@/content/artists";
+import {
+  ARTISTS,
+  ARTISTS_HERO,
+  ArtistSocial,
+  formatBirthDate,
+  getArtist,
+} from "@/content/artists";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { ArtistAvatar } from "@/components/ui/ArtistAvatar";
 import { ArtistRow } from "@/components/ui/ArtistRow";
-import { WHATSAPP_URL } from "@/content/community";
+import { ArtistJoin } from "@/components/ui/ArtistJoin";
 import { pageMetadata } from "@/lib/metadata";
 
 interface PageProps {
@@ -119,6 +125,11 @@ export default async function ArtistPage({ params }: PageProps) {
               <span className="ml-3 inline-flex items-center gap-1 text-on-night-muted">
                 <MapPin size={12} /> {artist.location ?? "Perú"}
               </span>
+              {artist.birthDate && (
+                <span className="ml-3 inline-flex items-center gap-1 text-on-night-muted">
+                  <Cake size={12} /> {formatBirthDate(artist.birthDate)}
+                </span>
+              )}
             </p>
             <h1 className="text-6xl font-extrabold leading-[.95] tracking-[-.055em] sm:text-8xl">
               {artist.name}
@@ -276,29 +287,7 @@ export default async function ArtistPage({ params }: PageProps) {
 
       {/* Join */}
       <Container className="pb-16 md:pb-24">
-        <div className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-white/[.03] p-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-          <div className="flex items-center gap-4">
-            <span className="hidden size-10 shrink-0 items-center justify-center rounded-full bg-brand/15 text-accent sm:flex">
-              <Music size={18} />
-            </span>
-            <div>
-              <p className="font-bold text-on-night">
-                ¿Eres guitarrista peruano? Queremos conocerte.
-              </p>
-              <p className="text-sm text-on-night-muted">
-                Escríbenos en el grupo de la comunidad y comparte tu música.
-              </p>
-            </div>
-          </div>
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-white/15 px-4 py-2 text-sm font-semibold text-on-night transition-colors hover:border-accent hover:text-accent"
-          >
-            <MessageCircle size={16} /> Entrar al grupo
-          </a>
-        </div>
+        <ArtistJoin />
       </Container>
 
       {/* More */}

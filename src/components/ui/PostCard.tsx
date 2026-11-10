@@ -12,22 +12,32 @@ const icons = {
   events: Users,
 };
 
-export const PostCard = ({ post }: { post: Post }) => {
+/** `row` puts the cover on the left and the text on the right. */
+export const PostCard = ({
+  post,
+  layout = "card",
+}: {
+  post: Post;
+  layout?: "card" | "row";
+}) => {
+  const row = layout === "row";
   const Icon = icons[post.category];
   return (
-    <article className="post-card flex flex-col overflow-hidden rounded-card border border-line bg-surface">
+    <article
+      className={`post-card flex overflow-hidden rounded-card border border-line bg-surface ${row ? "flex-row" : "flex-col"}`}
+    >
       <Link
         href={`/blog/${post.id}`}
         aria-label={`Leer ${post.title}`}
-        className="relative block aspect-video overflow-hidden bg-night"
+        className={`relative block shrink-0 overflow-hidden bg-night ${row ? "w-2/5 self-stretch" : "aspect-video"}`}
       >
         {!post.cover && (
           <div
             data-category={post.category}
             className="post-art flex h-full items-center justify-center text-accent"
           >
-            <Icon size={58} strokeWidth={1} aria-hidden="true" />
-            <span className="absolute bottom-4 left-4 text-[10px] font-bold uppercase tracking-[.2em] opacity-60">
+            <Icon size={row ? 40 : 58} strokeWidth={1} aria-hidden="true" />
+            <span className="absolute bottom-4 left-4 hidden sm:block text-[10px] font-bold uppercase tracking-[.2em] opacity-60">
               PeruGuitar / Editorial
             </span>
           </div>
@@ -45,7 +55,7 @@ export const PostCard = ({ post }: { post: Post }) => {
         )}
       </Link>
 
-      <div className="flex flex-1 flex-col gap-2 p-4">
+      <div className="flex min-w-0 flex-1 flex-col gap-2 p-4">
         <div>
           <CategoryTag category={post.category} />
         </div>

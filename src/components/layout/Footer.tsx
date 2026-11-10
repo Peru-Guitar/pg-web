@@ -11,7 +11,6 @@ const columns = [
     links: [
       { label: "Inicio", href: "/" },
       { label: "Blog", href: "/blog" },
-      { label: "Recursos gratuitos", href: "/recursos" },
       { label: "Artistas PG", href: "/artistas" },
       { label: "Comunidad", href: "/comunidad" },
       { label: "Retos", href: "/retos" },

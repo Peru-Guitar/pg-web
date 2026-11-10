@@ -7,16 +7,18 @@ import {
   Music2,
   Play,
   MessageCircle,
+  Mic,
+  Trophy,
+  Video,
   Sparkles,
-  Users,
 } from "lucide-react";
 import { getLatestPosts } from "@/lib/posts";
 import { BOOKS, RESOURCES } from "@/content/resources";
 import { RandomCollab } from "@/components/ui/RandomCollab";
+import { PODCAST_EPISODES, VIDEOS } from "@/content/media";
 import { CHALLENGES, getChallengeCover } from "@/content/challenges";
 import { WHATSAPP_URL } from "@/content/community";
-import { ARTISTS } from "@/content/artists";
-import { ArtistRow } from "@/components/ui/ArtistRow";
+import { RandomArtists } from "@/components/ui/RandomArtists";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -176,143 +178,133 @@ export default function Home() {
           subtitle="Escena, ideas y todo lo que pasa alrededor de la guitarra."
           link={{ label: "Explorar el blog", href: "/blog" }}
         />
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {getLatestPosts(8).map((post) => (
-            <PostCard key={post.id} post={post} />
+        <div className="grid gap-4 md:grid-cols-2">
+          {getLatestPosts(6).map((post) => (
+            <PostCard key={post.id} post={post} layout="row" />
           ))}
         </div>
       </Container>
-      <Container className="pt-16 md:pt-20">
-        <SectionHeader
-          title="Menos buscar. Más tocar."
-          subtitle="Recursos gratuitos para poner las manos en las cuerdas."
-          link={{ label: "Todos los recursos", href: "/recursos" }}
-        />
-        <div className="grid gap-6 lg:grid-cols-[1.15fr_1fr]">
-          <Link
-            href={`/recursos/${BOOKS[0].id}`}
-            className="resource-feature group rounded-3xl border border-white/10 p-8 text-on-night sm:p-10"
-          >
-            <BookOpen className="mb-8 text-accent" size={32} />
-            <p className="text-xs font-bold uppercase tracking-widest text-accent">
-              Ebook gratuito · 7 capítulos
-            </p>
-            <h3 className="mt-3 max-w-sm text-3xl font-extrabold tracking-tight">
-              {BOOKS[0].name}
-            </h3>
-            <p className="mt-4 max-w-md text-zinc-300">
-              {BOOKS[0].description}
-            </p>
-            <span className="mt-8 flex items-center gap-2 text-sm font-bold text-accent">
-              Abre el libro <ArrowRight size={16} />
-            </span>
-          </Link>
-          <div className="grid gap-4">
-            {RESOURCES.map((track, index) => (
-              <Link
-                key={track.id}
-                href={`/recursos#${track.id}`}
-                className="resource-track group flex items-center gap-5 rounded-3xl border border-white/10 p-6 text-on-night sm:p-8"
-                data-track={track.id}
-              >
-                <span className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-accent">
-                  <Music2 size={25} />
-                </span>
-                <div className="flex-1">
-                  <p className="text-xs uppercase tracking-widest text-zinc-300">
-                    Backing track / 0{index + 1}
-                  </p>
-                  <h3 className="my-2 text-2xl font-bold">{track.name}</h3>
-                  <p className="text-sm text-zinc-300">
-                    {track.key} · {track.bpm} BPM
-                  </p>
-                </div>
-                <ArrowRight size={20} className="shrink-0 text-accent transition-transform group-hover:translate-x-1" />
-              </Link>
-            ))}
-          </div>
-        </div>
-      </Container>
-      <Container className="pt-16 md:pt-20">
-        <div className="relative isolate grid gap-8 community-feature overflow-hidden rounded-3xl p-8 text-white sm:p-12 lg:grid-cols-2 lg:items-center">
-          <div className="community-strings" aria-hidden="true">
-            {Array.from({ length: 14 }, (_, n) => (
-              <i key={n} />
-            ))}
-          </div>
-          <Users
-            aria-hidden="true"
-            size={300}
-            strokeWidth={1}
-            className="absolute -bottom-24 -right-16 -z-10 text-white/5"
+      <section>
+        <Container className="pt-16 md:pt-20">
+          <SectionHeader
+            title="Comunidad"
+            subtitle="Guitarristas que tocan, comparten y crean juntos."
+            link={{ label: "Ver la comunidad", href: "/comunidad" }}
           />
-          <div>
-            <MessageCircle className="mb-5 text-brand" size={30} />
-            <p className="text-xs font-bold uppercase tracking-widest text-white/80">
-              Comunidad
-            </p>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
-              Guitarristas que tocan juntos.
-            </h2>
-            <p className="mt-4 text-white/85">
-              Únete al grupo de WhatsApp de Peru Guitar: retos, dudas, música
-              y novedades.
-            </p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg bg-brand px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-brand-strong"
-              >
-                Entrar al grupo <ArrowRight size={18} />
-              </a>
-              <Button href="/comunidad" variant="outline">
-                Ver la comunidad
-              </Button>
+          {/* Community + resources */}
+          <div className="grid gap-6 rounded-3xl bg-night p-4 text-on-night sm:p-6 lg:grid-cols-[1.6fr_1fr] lg:items-center">
+            <RandomCollab />
+            <div className="flex flex-col gap-6 lg:pr-2">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-widest text-accent">
+                  Comunidad
+                </p>
+                <p className="mt-2 text-sm text-on-night-muted">
+                  Retos, collabs, podcast y recursos gratis. Todo lo que hacemos juntos.
+                </p>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-lg bg-brand px-4 py-2.5 text-sm font-bold text-white transition-colors hover:bg-brand-strong"
+                  >
+                    <MessageCircle size={16} /> Entrar al grupo
+                  </a>
+                  <Link
+                    href="/comunidad"
+                    className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-4 py-2.5 text-sm font-semibold transition-colors hover:border-white"
+                  >
+                    Ver la comunidad <ArrowRight size={16} />
+                  </Link>
+                </div>
+                <ul className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-3">
+                  {[
+                    {
+                      href: "/comunidad#retos",
+                      icon: Trophy,
+                      name: "Retos",
+                      meta: `${CHALLENGES.length} ${CHALLENGES.length === 1 ? "reto" : "retos"}`,
+                    },
+                    {
+                      href: "/comunidad#collabs",
+                      icon: Video,
+                      name: "Collabs",
+                      meta: `${VIDEOS.length} videos`,
+                    },
+                    {
+                      href: "/comunidad#podcast",
+                      icon: Mic,
+                      name: "Podcast",
+                      meta: `${PODCAST_EPISODES.length} episodios`,
+                    },
+                    {
+                      href: `/recursos/${BOOKS[0].id}`,
+                      icon: BookOpen,
+                      name: BOOKS[0].name,
+                      meta: "Ebook",
+                    },
+                    ...RESOURCES.map((track) => ({
+                      href: `/comunidad#${track.id}`,
+                      icon: Music2,
+                      name: track.name,
+                      meta: "Backing track",
+                    })),
+                  ].map(({ href, icon: Icon, name, meta }) => (
+                    <li key={href}>
+                      <Link
+                        href={href}
+                        className="flex h-full flex-col gap-2 rounded-xl border border-white/10 bg-white/5 p-3 transition-colors hover:border-accent hover:bg-white/10"
+                      >
+                        <Icon size={18} className="text-accent" />
+                        <span className="line-clamp-2 text-sm font-semibold leading-snug">
+                          {name}
+                        </span>
+                        <span className="mt-auto text-xs text-on-night-muted">
+                          {meta}
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
-          <RandomCollab />
-        </div>
-      </Container>
+          {/* PG Fighters */}
+          <a
+            href="https://fighters.peruguitar.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="fighters-feature group mt-4 flex min-h-64 flex-col justify-end rounded-3xl border border-white/10 p-6 text-on-night sm:p-8"
+          >
+            <Gamepad2 className="mb-5 text-accent" size={28} />
+            <p className="text-xs font-bold uppercase tracking-widest text-accent">
+              PG Fighters · El rock peruano anda en peligro
+            </p>
+            <h3 className="mt-2 text-2xl font-extrabold tracking-tight">
+              Agárrate a guitarrazos.
+            </h3>
+            <p className="mt-2 text-sm text-zinc-300">
+              ¿Podrás ganarle a Acople? Baja a El Sótano y salva el rock a
+              punta de riffs.
+            </p>
+            <span className="mt-6 flex items-center gap-2 text-sm font-bold text-accent">
+              Entrar a pelear{" "}
+              <ArrowRight
+                size={16}
+                className="transition-transform group-hover:translate-x-1"
+              />
+            </span>
+          </a>
+        </Container>
+      </section>
       <Container className="pt-16 md:pt-20">
         <SectionHeader
           title="Artistas PG"
           subtitle="Guitarristas peruanos que tienes que conocer."
           link={{ label: "Ver todos", href: "/artistas" }}
         />
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {ARTISTS.slice(0, 6).map((artist) => (
-            <ArtistRow key={artist.slug} artist={artist} />
-          ))}
-        </div>
-      </Container>
-      <Container className="pt-16 md:pt-20">
-        <a
-          href="https://fighters.peruguitar.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="fighters-feature group flex min-h-72 flex-col justify-end rounded-3xl border border-white/10 p-8 text-on-night sm:p-10"
-        >
-          <Gamepad2 className="mb-6 text-accent" size={30} />
-          <p className="text-xs font-bold uppercase tracking-widest text-accent">
-            PG Fighters · El rock peruano anda en peligro
-          </p>
-          <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
-            Agárrate a guitarrazos.
-          </h2>
-          <p className="mt-3 max-w-md text-zinc-300">
-            ¿Podrás ganarle a Acople? Baja a El Sótano y salva el rock a punta
-            de riffs.
-          </p>
-          <span className="mt-7 flex items-center gap-2 text-sm font-bold text-accent">
-            Entrar a pelear{" "}
-            <ArrowRight
-              size={16}
-              className="transition-transform group-hover:translate-x-1"
-            />
-          </span>
-        </a>
+        <RandomArtists />
       </Container>
     </>
   );

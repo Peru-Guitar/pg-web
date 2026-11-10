@@ -19,6 +19,6 @@ export function generateStaticParams() {
 export default async function LegacyPostRedirect({ params }: Props) {
   const { slug } = await params;
   if (["alone-backing-track", "two-worlds-backing-track"].includes(slug))
-    return <LegacyRedirect to={`/recursos#${slug}`} />;
+    return <LegacyRedirect to={`/comunidad#${slug}`} />;
   return <LegacyRedirect to={`/blog/${slug}`} />;
 }

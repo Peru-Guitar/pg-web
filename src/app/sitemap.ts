@@ -17,7 +17,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...ARTISTS.map(({ slug }) => ({ url: `${SITE_URL}/artistas/${slug}` })),
     { url: `${SITE_URL}/retos`, lastModified: new Date() },
     { url: `${SITE_URL}/tienda`, lastModified: new Date() },
-    { url: `${SITE_URL}/recursos`, lastModified: new Date() },
     { url: `${SITE_URL}/acerca-de-nosotros` },
     { url: `${SITE_URL}/recursos/no-mas-arpegios-aburridos` },
     ...CHALLENGES.map(({ slug }) => ({ url: `${SITE_URL}/retos/${slug}` })),

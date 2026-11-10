@@ -10,7 +10,7 @@ const LEGACY_CATEGORIES: Record<string, string> = {
   theory: "/blog/categoria/guitar",
   reflections: "/blog/categoria/reflections",
   production: "/blog/categoria/production",
-  resources: "/recursos",
+  resources: "/comunidad#recursos",
 };
 
 export const dynamicParams = false;
