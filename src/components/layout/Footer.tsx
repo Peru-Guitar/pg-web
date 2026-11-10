@@ -12,7 +12,9 @@ const columns = [
       { label: "Inicio", href: "/" },
       { label: "Blog", href: "/blog" },
       { label: "Recursos gratuitos", href: "/recursos" },
-      { label: "Podcasts y videos", href: "/recursos#collabs" },
+      { label: "Artistas PG", href: "/artistas" },
+      { label: "Comunidad", href: "/comunidad" },
+      { label: "Retos", href: "/retos" },
     ],
   },
   {

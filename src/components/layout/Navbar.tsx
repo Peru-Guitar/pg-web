@@ -38,14 +38,18 @@ const NavLink = ({
 const hasBanner = (pathname: string) =>
   pathname === "/" ||
   pathname === "/acerca-de-nosotros" ||
+  pathname.startsWith("/artistas") ||
   /^\/blog\/(?!categoria\/)[^/]+$/.test(pathname);
 
 export const Navbar = () => {
   const menu = useRef<HTMLDetailsElement>(null);
-  const overlay = hasBanner(usePathname());
+  const pathname = usePathname();
+  const overlay = hasBanner(pathname);
+  // Artist pages blend the navbar into the hero: no divider line.
+  const seamless = pathname.startsWith("/artistas");
   return (
     <header
-      className={`z-50 border-b text-on-night ${overlay ? "absolute inset-x-0 top-0 border-white/10 bg-transparent" : "relative border-night-line bg-night"}`}
+      className={`z-50 border-b text-on-night ${overlay ? `absolute inset-x-0 top-0 bg-transparent ${seamless ? "border-transparent" : "border-white/10"}` : "relative border-night-line bg-night"}`}
     >
       <nav>
         <Container className="flex items-center justify-between py-3">

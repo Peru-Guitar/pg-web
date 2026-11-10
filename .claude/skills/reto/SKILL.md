@@ -49,8 +49,10 @@ Add it at the **start** of `CHALLENGES` in `src/content/challenges.ts`. The list
 Caption format:
 
 ```
-Aquí mi participación para el reto #N de @peruguitar: el intro de <Canción> de <Artista> 🎸 #RetoPeruGuitar
+Aquí mi participación para el reto de @peruguitar: el intro de <Canción> de <Artista> 🎸 #PGRetoN
 ```
+
+Never write `#N` loose (like "reto #1"): Instagram reads it as a hashtag. The only number goes in the `#PGRetoN` hashtag (for example `#PGReto1`).
 
 ## 3. Header image
 

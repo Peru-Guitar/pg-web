@@ -1,22 +1,30 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import {
   ArrowRight,
   BookOpen,
-  Headphones,
   Gamepad2,
   Music2,
   Play,
+  MessageCircle,
   Sparkles,
+  Users,
 } from "lucide-react";
 import { getLatestPosts } from "@/lib/posts";
 import { BOOKS, RESOURCES } from "@/content/resources";
-import { PODCAST_EPISODES } from "@/content/media";
+import { VIDEOS } from "@/content/media";
+import { CHALLENGES, getChallengeCover } from "@/content/challenges";
+import { WHATSAPP_URL } from "@/content/community";
+import { ARTISTS } from "@/content/artists";
+import { ArtistCard } from "@/components/ui/ArtistCard";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { PostCard } from "@/components/ui/PostCard";
 
 export default function Home() {
+  const [challenge] = CHALLENGES;
+  const [collab] = VIDEOS;
   return (
     <>
       <section className="home-hero relative isolate overflow-hidden bg-night text-on-night">
@@ -28,7 +36,7 @@ export default function Home() {
         <Container className="relative grid gap-12 pb-16 pt-32 md:pb-24 md:pt-40 lg:grid-cols-[1.15fr_1fr] lg:items-center">
           <div>
             <p className="mb-6 text-xs font-bold uppercase tracking-[.23em] text-accent">
-              Comunidad · Educación · Música · Perú
+              Cultura · Artistas · Comunidad · Perú
             </p>
             <h1 className="max-w-2xl text-5xl font-extrabold leading-[1.04] tracking-[-.055em] sm:text-7xl lg:text-8xl">
               La guitarra
@@ -36,15 +44,15 @@ export default function Home() {
               nos <span className="ml-2 text-accent">conecta.</span>
             </h1>
             <p className="mt-7 max-w-lg text-lg leading-relaxed text-zinc-300">
-              Un lugar para tocar más, descubrir nuevas ideas y disfrutar la
-              guitarra. A tu ritmo, a tu manera.
+              El punto de encuentro de la guitarra peruana: su escena, sus
+              artistas y una comunidad que toca, comparte y crea junta.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Button href="https://fretquest.peruguitar.com" external>
-                Comienza a practicar <ArrowRight size={18} />
+                Entrena en Fret Quest <ArrowRight size={18} />
               </Button>
-              <Button href="/blog" variant="outline">
-                Explora el contenido
+              <Button href="/comunidad" variant="outline">
+                Únete a la comunidad
               </Button>
             </div>
             <p className="mt-6 text-xs text-zinc-400">
@@ -95,19 +103,19 @@ export default function Home() {
           <div className="grid grid-cols-1 divide-y divide-white/10 border-t border-white/10 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
             {[
               {
-                icon: Music2,
-                title: "Practica a tu ritmo",
+                icon: Sparkles,
+                title: "Entrena a tu ritmo",
                 text: "Fret Quest y backing tracks",
               },
               {
-                icon: BookOpen,
-                title: "Siempre algo que aprender",
-                text: "Artículos y guías gratuitas",
+                icon: Music2,
+                title: "Reto del mes",
+                text: "Grábate y compártelo",
               },
               {
-                icon: Headphones,
-                title: "Conecta con la comunidad",
-                text: "Podcasts y colaboraciones",
+                icon: BookOpen,
+                title: "Cultura guitarrística",
+                text: "Escena, opinión y producción",
               },
             ].map(({ icon: Icon, title, text }) => (
               <div
@@ -126,8 +134,47 @@ export default function Home() {
       </section>
       <Container className="pt-16 md:pt-20">
         <SectionHeader
-          title="Ideas para tu próxima sesión"
-          subtitle="Lecturas que también se llevan a la guitarra."
+          title="Reto del mes"
+          subtitle={`Saca la parte, grábate y compártela con #PGReto${challenge.number}.`}
+          link={{ label: "Todos los retos", href: "/retos" }}
+        />
+        <Link
+          href={`/retos/${challenge.slug}`}
+          className="group flex flex-col overflow-hidden rounded-3xl border border-night-line bg-night text-on-night transition-colors hover:border-brand md:flex-row"
+        >
+          <img
+            src={getChallengeCover(challenge)}
+            alt=""
+            width={1600}
+            height={900}
+            loading="lazy"
+            className="aspect-video w-full object-cover md:w-1/2"
+          />
+          <div className="flex flex-1 flex-col justify-center gap-2 p-8 sm:p-10">
+            <p className="text-xs font-bold uppercase tracking-widest text-accent">
+              Reto #{challenge.number} · {challenge.section}
+            </p>
+            <h3 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+              {challenge.title}
+            </h3>
+            <p className="text-on-night-muted">{challenge.artist}</p>
+            <p className="mt-2 max-w-md text-sm text-zinc-300">
+              {challenge.description}
+            </p>
+            <span className="mt-4 flex items-center gap-2 text-sm font-bold text-accent">
+              Ver el reto{" "}
+              <ArrowRight
+                size={16}
+                className="transition-transform group-hover:translate-x-1"
+              />
+            </span>
+          </div>
+        </Link>
+      </Container>
+      <Container className="pt-16 md:pt-20">
+        <SectionHeader
+          title="Lo último en el blog"
+          subtitle="Escena, ideas y todo lo que pasa alrededor de la guitarra."
           link={{ label: "Explorar el blog", href: "/blog" }}
         />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -188,6 +235,83 @@ export default function Home() {
         </div>
       </Container>
       <Container className="pt-16 md:pt-20">
+        <div className="relative isolate grid gap-8 community-feature overflow-hidden rounded-3xl p-8 text-white sm:p-12 lg:grid-cols-2 lg:items-center">
+          <div className="community-strings" aria-hidden="true">
+            {Array.from({ length: 14 }, (_, n) => (
+              <i key={n} />
+            ))}
+          </div>
+          <Users
+            aria-hidden="true"
+            size={300}
+            strokeWidth={1}
+            className="absolute -bottom-24 -right-16 -z-10 text-white/5"
+          />
+          <div>
+            <MessageCircle className="mb-5 text-brand" size={30} />
+            <p className="text-xs font-bold uppercase tracking-widest text-white/80">
+              Comunidad
+            </p>
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+              Guitarristas que tocan juntos.
+            </h2>
+            <p className="mt-4 text-white/85">
+              Únete al grupo de WhatsApp de Peru Guitar: retos, dudas, música
+              y novedades.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg bg-brand px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-brand-strong"
+              >
+                Entrar al grupo <ArrowRight size={18} />
+              </a>
+              <Button href="/comunidad" variant="outline">
+                Ver la comunidad
+              </Button>
+            </div>
+          </div>
+          <a
+            href={`https://www.youtube.com/watch?v=${collab.id}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block overflow-hidden rounded-card bg-gradient-to-br from-brand to-brand-strong text-white shadow-2xl ring-1 ring-black/10 transition-transform hover:-translate-y-1"
+          >
+            <div className="relative aspect-video">
+              <img
+                src={`https://img.youtube.com/vi/${collab.id}/hqdefault.jpg`}
+                alt=""
+                loading="lazy"
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 flex items-center justify-center bg-night/30 transition-colors group-hover:bg-night/50">
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-brand">
+                  <Play size={20} fill="currentColor" />
+                </span>
+              </div>
+            </div>
+            <p className="px-5 py-4 text-sm">
+              <span className="font-bold">Último collab:</span>{" "}
+              {collab.title}
+            </p>
+          </a>
+        </div>
+      </Container>
+      <Container className="pt-16 md:pt-20">
+        <SectionHeader
+          title="Artistas PG"
+          subtitle="Guitarristas peruanos que tienes que conocer."
+          link={{ label: "Ver todos", href: "/artistas" }}
+        />
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {ARTISTS.slice(0, 4).map((artist) => (
+            <ArtistCard key={artist.slug} artist={artist} />
+          ))}
+        </div>
+      </Container>
+      <Container className="pt-16 md:pt-20">
         <a
           href="https://fighters.peruguitar.com"
           target="_blank"
@@ -213,46 +337,6 @@ export default function Home() {
             />
           </span>
         </a>
-      </Container>
-      <Container className="pt-16 md:pt-20">
-        <div className="grid gap-8 rounded-3xl bg-night p-8 text-on-night sm:p-12 lg:grid-cols-2">
-          <div>
-            <Headphones className="mb-5 text-brand" size={30} />
-            <p className="text-xs uppercase tracking-widest text-accent">
-              La comunidad se escucha
-            </p>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight">
-              Conversaciones entre guitarristas.
-            </h2>
-            <p className="mt-4 text-on-night-muted">
-              Música, experiencias y todo lo que pasa más allá de las seis
-              cuerdas.
-            </p>
-            <Link
-              href="/recursos#podcasts"
-              className="mt-7 inline-flex items-center gap-2 font-semibold text-accent"
-            >
-              Escuchar el podcast <ArrowRight size={16} />
-            </Link>
-          </div>
-          <div className="divide-y divide-white/10">
-            {PODCAST_EPISODES.slice(0, 3).map((episode, i) => (
-              <a
-                key={episode.id}
-                href={`https://open.spotify.com/episode/${episode.id}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-5 py-5"
-              >
-                <span className="font-mono text-sm text-zinc-500">
-                  0{i + 1}
-                </span>
-                <span className="flex-1 font-semibold">{episode.title}</span>
-                <Play size={17} className="text-brand" />
-              </a>
-            ))}
-          </div>
-        </div>
       </Container>
     </>
   );

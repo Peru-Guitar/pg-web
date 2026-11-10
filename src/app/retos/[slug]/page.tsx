@@ -10,7 +10,7 @@ import { ChallengeVideo } from "@/components/ui/ChallengeVideo";
 import { CopyButton } from "@/components/ui/CopyButton";
 import { pageMetadata } from "@/lib/metadata";
 
-const WHATSAPP_URL = "https://chat.whatsapp.com/BqVeyGhXMGO2XkdD424Z7o?mode=gi_t";
+import { WHATSAPP_URL } from "@/content/community";
 
 interface PageProps {
   params: Promise<{ slug: string }>;

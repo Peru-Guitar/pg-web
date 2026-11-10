@@ -36,7 +36,7 @@ export const CHALLENGES: Challenge[] = [
       "Baja la velocidad hasta que cada frase salga limpia y luego vuelve a subirla.",
     ],
     caption:
-      "Aquí mi participación para el reto #1 de @peruguitar: el intro de Little Wing de Jimi Hendrix 🎸 #RetoPeruGuitar",
+      "Aquí mi participación para el reto de @peruguitar: el intro de Little Wing de Jimi Hendrix 🎸 #PGReto1",
   },
 ];
 

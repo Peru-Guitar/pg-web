@@ -1,3 +1,4 @@
+import { ARTISTS } from "@/content/artists";
 import { MetadataRoute } from "next";
 import { POSTS } from "@/content";
 import { CHALLENGES } from "@/content/challenges";
@@ -11,6 +12,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: SITE_URL, lastModified: new Date() },
     { url: `${SITE_URL}/blog`, lastModified: new Date() },
+    { url: `${SITE_URL}/comunidad`, lastModified: new Date() },
+    { url: `${SITE_URL}/artistas`, lastModified: new Date() },
+    ...ARTISTS.map(({ slug }) => ({ url: `${SITE_URL}/artistas/${slug}` })),
     { url: `${SITE_URL}/retos`, lastModified: new Date() },
     { url: `${SITE_URL}/tienda`, lastModified: new Date() },
     { url: `${SITE_URL}/recursos`, lastModified: new Date() },
