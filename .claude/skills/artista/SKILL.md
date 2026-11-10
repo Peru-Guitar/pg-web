@@ -24,7 +24,7 @@ Ask in a single message for anything you can't infer:
 - Background for the bio: bands, projects, releases, teaching, collaborations.
 - Styles.
 - Socials: Instagram, YouTube, Spotify, TikTok, Facebook, website.
-- Music to feature: Spotify artist id or specific tracks/albums, and YouTube videos (featured first).
+- Music to feature: Spotify artist profile and one YouTube video.
 - Photo, and optional cover image.
 - Optional contact CTA (classes, bookings) and its link.
 
@@ -46,9 +46,8 @@ Add the entry anywhere in `ARTIST_LIST`. `ARTISTS` sorts it alphabetically by na
 | `photo` | Optional, see step 3 |
 | `cover` | Optional, see step 3 |
 | `socials` | Only the networks that exist, as full URLs |
-| `spotifyArtistId` | Optional. Id only, from `open.spotify.com/artist/<id>`. Shows the artist player. |
-| `spotifyEmbeds` | Optional. `"track/<id>"`, `"album/<id>"` or `"playlist/<id>"`. Use when there is no artist profile, or to highlight a specific release. |
-| `youtubeVideos` | Optional. `{ id, title }`, id only (not the URL), featured first. Title as published. |
+| `spotifyArtistId` | Optional. Id only, from `open.spotify.com/artist/<id>`. The artist player is the only Spotify embed we use. If the user gives a track or album link, find the artist id from it and use the artist URL in `socials.spotify` too. |
+| `youtubeVideo` | Optional. One video only: `{ id, title }`, id only (not the URL, also for Shorts), title as published. |
 | `contact` | Optional. `{ label: "Clases de guitarra", href: "https://wa.me/..." }` |
 
 Strip tracking params (`?si=...`) from Spotify and YouTube links.

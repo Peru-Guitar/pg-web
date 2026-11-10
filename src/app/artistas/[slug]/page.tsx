@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -77,20 +76,11 @@ export default async function ArtistPage({ params }: PageProps) {
   if (!artist) notFound();
 
   const socials = Object.entries(artist.socials) as [ArtistSocial, string][];
-  const [featured, ...videos] = artist.youtubeVideos ?? [];
-  const spotifyEmbeds = [
-    ...(artist.spotifyArtistId ? [`artist/${artist.spotifyArtistId}`] : []),
-    ...(artist.spotifyEmbeds ?? []),
-  ];
+  const featured = artist.youtubeVideo;
+  const spotifyArtist = artist.spotifyArtistId;
   const listen = artist.socials.spotify;
   const others = ARTISTS.filter((other) => other.slug !== artist.slug);
   const [lead, ...rest] = artist.bio;
-  // Without Spotify, the featured video fills the right column next to the bio.
-  const sideVideo = spotifyEmbeds.length ? undefined : featured;
-  // The big player below only shows when the featured video isn't already beside the bio.
-  const mainVideo = sideVideo ? undefined : featured;
-  const gridVideos = videos;
-  const hasSide = spotifyEmbeds.length > 0 || Boolean(sideVideo);
 
   return (
     <article className="-mb-10 overflow-x-clip bg-night pb-10 text-on-night">
@@ -186,102 +176,56 @@ export default async function ArtistPage({ params }: PageProps) {
         </Container>
       </section>
 
-      {/* Bio + listen */}
+      {/* Bio */}
       <Container className="pb-16 pt-6 md:pb-24 md:pt-8">
-        <div
-          className={`grid gap-12 ${hasSide ? "lg:grid-cols-[1.1fr_1fr]" : "max-w-3xl"}`}
-        >
-          <div>
-            <Heading eyebrow="Sobre el artista" title="Su historia" />
-            <p className="text-xl leading-relaxed text-on-night">
-              {lead}
-            </p>
-            <div className="mt-6 flex flex-col gap-4 text-lg leading-relaxed text-on-night-muted">
-              {rest.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
+        <div>
+          <Heading eyebrow="Sobre el artista" title="Su historia" />
+          <p className="text-xl leading-relaxed text-on-night">{lead}</p>
+          <div className="mt-6 flex flex-col gap-4 text-lg leading-relaxed text-on-night-muted">
+            {rest.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
           </div>
-          {spotifyEmbeds.length > 0 && (
-            <div>
-              <Heading eyebrow="Spotify" title="Escúchalo" />
-              <div className="flex flex-col gap-4">
-                {spotifyEmbeds.map((embed) => (
-                  <iframe
-                    key={embed}
-                    src={`https://open.spotify.com/embed/${embed}?theme=0`}
-                    title={`${artist.name} en Spotify`}
-                    height={embed.startsWith("track/") ? 152 : 380}
-                    loading="lazy"
-                    allow={SPOTIFY_ALLOW}
-                    className="w-full rounded-card border-0"
-                  />
-                ))}
-              </div>
-            </div>
-          )}
-          {sideVideo && (
-            <div>
-              <Heading eyebrow="YouTube" title="Míralo en video" />
-              <div className="aspect-video overflow-hidden rounded-card border border-night-line bg-night-surface shadow-2xl">
-                <iframe
-                  src={`https://www.youtube-nocookie.com/embed/${sideVideo.id}`}
-                  title={sideVideo.title}
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="h-full w-full border-0"
-                />
-              </div>
-            </div>
-          )}
         </div>
       </Container>
 
-      {/* Video */}
-      {(mainVideo || gridVideos.length > 0) && (
+      {/* YouTube + Spotify: two columns when both exist, full width otherwise */}
+      {(spotifyArtist || featured) && (
         <Container className="pb-16 md:pb-24">
-          <Heading
-            eyebrow="YouTube"
-            title={mainVideo ? "Míralo en video" : "Más videos"}
-          />
-          {mainVideo && (
-            <div className="aspect-video overflow-hidden rounded-3xl border border-night-line bg-night-surface shadow-2xl">
-              <iframe
-                src={`https://www.youtube-nocookie.com/embed/${mainVideo.id}`}
-                title={mainVideo.title}
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="h-full w-full border-0"
-              />
-            </div>
-          )}
-          {gridVideos.length > 0 && (
-            <div
-              className={`grid gap-6 sm:grid-cols-2 lg:grid-cols-3 ${mainVideo ? "mt-8" : ""}`}
-            >
-              {gridVideos.map((video) => (
-                <a
-                  key={video.id}
-                  href={`https://www.youtube.com/watch?v=${video.id}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group overflow-hidden rounded-card border border-night-line bg-night-surface"
+          <div
+            className={`grid gap-12 ${spotifyArtist && featured ? "lg:grid-cols-2" : ""}`}
+          >
+            {featured && (
+              <div>
+                <Heading eyebrow="YouTube" title="Míralo en video" />
+                <div
+                  className="aspect-video overflow-hidden rounded-3xl border border-night-line bg-night-surface shadow-2xl"
                 >
-                  <img
-                    src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
-                    alt=""
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${featured.id}`}
+                    title={featured.title}
                     loading="lazy"
-                    className="aspect-video w-full object-cover"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="h-full w-full border-0"
                   />
-                  <p className="p-4 font-semibold group-hover:text-accent">
-                    {video.title}
-                  </p>
-                </a>
-              ))}
-            </div>
-          )}
+                </div>
+              </div>
+            )}
+            {spotifyArtist && (
+              <div>
+                <Heading eyebrow="Spotify" title="Escúchalo" />
+                <iframe
+                  src={`https://open.spotify.com/embed/artist/${spotifyArtist}?theme=0`}
+                  title={`${artist.name} en Spotify`}
+                  height={352}
+                  loading="lazy"
+                  allow={SPOTIFY_ALLOW}
+                  className="w-full rounded-card border-0"
+                />
+              </div>
+            )}
+          </div>
         </Container>
       )}
 

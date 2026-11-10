@@ -2,6 +2,14 @@
 // `date` is the release day (YYYY-MM-DD): the page groups versions released the same day.
 export const changelog: { version: string; date: string; notes: string[] }[] = [
   {
+    version: "0.4.4",
+    date: "2026-11-10",
+    notes: [
+      "Los perfiles de artistas tienen un orden más claro: historia, video y Spotify.",
+      "Cada artista muestra un video destacado y su perfil de Spotify.",
+    ],
+  },
+  {
     version: "0.4.3",
     date: "2026-11-10",
     notes: [

@@ -28,12 +28,10 @@ export interface Artist {
   /** Wide hero image (1600×900): /content/artistas/<slug>/cover.webp. */
   cover?: string;
   socials: Partial<Record<ArtistSocial, string>>;
-  /** Spotify artist id: shows the artist player. */
+  /** Spotify artist id: the only Spotify embed we use (artist player). */
   spotifyArtistId?: string;
-  /** Spotify album, track or playlist embeds, as "album/<id>", "track/<id>" or "playlist/<id>". */
-  spotifyEmbeds?: string[];
-  /** YouTube video ids, featured first. */
-  youtubeVideos?: { id: string; title: string }[];
+  /** One featured YouTube video. */
+  youtubeVideo?: { id: string; title: string };
   /** Optional contact CTA (classes, bookings). */
   contact?: { label: string; href: string };
 }
@@ -58,9 +56,7 @@ const ARTIST_LIST: Artist[] = [
       instagram: "https://www.instagram.com/brandonmurga73/",
       youtube: "https://www.youtube.com/@BrandonMurga",
     },
-    youtubeVideos: [
-      { id: "DjwPu1w_zqw", title: "Neuromancers (Scar Symmetry Cover Solo)" },
-    ],
+    youtubeVideo: { id: "DjwPu1w_zqw", title: "Neuromancers (Scar Symmetry Cover Solo)" },
   },
   {
     slug: "erp-project",
@@ -82,7 +78,7 @@ const ARTIST_LIST: Artist[] = [
       spotify: "https://open.spotify.com/artist/6xR1HRj6SzReee9R2EkOUo",
     },
     spotifyArtistId: "6xR1HRj6SzReee9R2EkOUo",
-    youtubeVideos: [{ id: "xymcs9DrXk4", title: "Two Worlds (Definitive Edition)" }],
+    youtubeVideo: { id: "xymcs9DrXk4", title: "Two Worlds (Definitive Edition)" },
   },
   {
     slug: "koko-rengifo",
@@ -98,10 +94,10 @@ const ARTIST_LIST: Artist[] = [
     photo: "/content/artistas/koko-rengifo/photo.webp",
     socials: {
       youtube: "https://www.youtube.com/watch?v=bgttYMrqR68",
-      spotify: "https://open.spotify.com/track/6kZcojf7bYazjl0Gs218BS",
+      spotify: "https://open.spotify.com/artist/1bdgUTe0Rs6y3C3BzhUKqr",
     },
-    spotifyEmbeds: ["track/6kZcojf7bYazjl0Gs218BS"],
-    youtubeVideos: [{ id: "bgttYMrqR68", title: "Boogie Songs" }],
+    spotifyArtistId: "1bdgUTe0Rs6y3C3BzhUKqr",
+    youtubeVideo: { id: "bgttYMrqR68", title: "Boogie Songs" },
   },
   {
     slug: "luis-fernando",
@@ -121,10 +117,7 @@ const ARTIST_LIST: Artist[] = [
       instagram: "https://www.instagram.com/luis.ormachea.music",
       youtube: "https://www.youtube.com/@fernando9026",
     },
-    youtubeVideos: [
-      { id: "uYECvVuIBQw", title: "Ole Borud - Make a Change (solo guitar cover)" },
-      { id: "E-A6GGdTjSQ", title: "City pop improv solo" },
-    ],
+    youtubeVideo: { id: "E-A6GGdTjSQ", title: "City pop improv solo" },
   },
 ];
 
