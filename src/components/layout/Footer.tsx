@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Instagram, Youtube } from "lucide-react";
+import { ArrowUpRight, Instagram, Mail, Youtube } from "lucide-react";
 import { Container } from "./Container";
 import { CommunitySupport } from "./CommunitySupport";
-import { instagramUrl, youtubeUrl } from "@/content/settings.json";
+import { contactEmail, instagramUrl, youtubeUrl } from "@/content/settings.json";
 
 const columns = [
   {
@@ -18,7 +18,7 @@ const columns = [
     ],
   },
   {
-    title: "PeruGuitar",
+    title: "Peru Guitar",
     links: [
       { label: "Acerca de nosotros", href: "/acerca-de-nosotros" },
       { label: "Fret Quest", href: "https://fretquest.peruguitar.com" },
@@ -114,6 +114,15 @@ export const Footer = () => (
                 <Youtube size={19} aria-hidden="true" />
                 YouTube
                 <ArrowUpRight size={14} aria-hidden="true" />
+              </a>
+            </li>
+            <li>
+              <a
+                href={`mailto:${contactEmail}`}
+                className="inline-flex items-center gap-3 text-sm transition-colors hover:text-on-night"
+              >
+                <Mail size={19} aria-hidden="true" />
+                {contactEmail}
               </a>
             </li>
           </ul>

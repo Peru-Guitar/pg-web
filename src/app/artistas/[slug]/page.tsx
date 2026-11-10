@@ -19,7 +19,7 @@ import { ARTISTS, ARTISTS_HERO, ArtistSocial, getArtist } from "@/content/artist
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { ArtistAvatar } from "@/components/ui/ArtistAvatar";
-import { ArtistCard } from "@/components/ui/ArtistCard";
+import { ArtistRow } from "@/components/ui/ArtistRow";
 import { WHATSAPP_URL } from "@/content/community";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -79,6 +79,12 @@ export default async function ArtistPage({ params }: PageProps) {
   const listen = artist.socials.spotify;
   const others = ARTISTS.filter((other) => other.slug !== artist.slug);
   const [lead, ...rest] = artist.bio;
+  // Without Spotify, the featured video fills the right column next to the bio.
+  const sideVideo = spotifyEmbeds.length ? undefined : featured;
+  // The big player below only shows when the featured video isn't already beside the bio.
+  const mainVideo = sideVideo ? undefined : featured;
+  const gridVideos = videos;
+  const hasSide = spotifyEmbeds.length > 0 || Boolean(sideVideo);
 
   return (
     <article className="-mb-10 overflow-x-clip bg-night pb-10 text-on-night">
@@ -100,7 +106,7 @@ export default async function ArtistPage({ params }: PageProps) {
           aria-hidden="true"
           className="absolute inset-x-0 bottom-0 -z-10 h-48 bg-gradient-to-t from-night to-transparent"
         />
-        <Container className="grid gap-12 pb-16 pt-28 md:pb-24 md:pt-36 lg:grid-cols-[1.2fr_1fr] lg:items-center">
+        <Container className="grid gap-12 pb-10 pt-28 md:pb-12 md:pt-36 lg:grid-cols-[1.2fr_1fr] lg:items-center">
           <div className="order-2 lg:order-1">
             <Link
               href="/artistas"
@@ -110,11 +116,9 @@ export default async function ArtistPage({ params }: PageProps) {
             </Link>
             <p className="mb-4 text-xs font-bold uppercase tracking-[.23em] text-accent">
               Artista PG
-              {artist.location && (
-                <span className="ml-3 inline-flex items-center gap-1 text-on-night-muted">
-                  <MapPin size={12} /> {artist.location}
-                </span>
-              )}
+              <span className="ml-3 inline-flex items-center gap-1 text-on-night-muted">
+                <MapPin size={12} /> {artist.location ?? "Perú"}
+              </span>
             </p>
             <h1 className="text-6xl font-extrabold leading-[.95] tracking-[-.055em] sm:text-8xl">
               {artist.name}
@@ -172,13 +176,13 @@ export default async function ArtistPage({ params }: PageProps) {
       </section>
 
       {/* Bio + listen */}
-      <Container className="py-16 md:py-24">
+      <Container className="pb-16 pt-6 md:pb-24 md:pt-8">
         <div
-          className={`grid gap-12 ${spotifyEmbeds.length ? "lg:grid-cols-[1.1fr_1fr]" : "max-w-3xl"}`}
+          className={`grid gap-12 ${hasSide ? "lg:grid-cols-[1.1fr_1fr]" : "max-w-3xl"}`}
         >
           <div>
             <Heading eyebrow="Sobre el artista" title="Su historia" />
-            <p className="border-l-2 border-brand pl-5 text-2xl font-semibold leading-snug text-on-night">
+            <p className="text-xl leading-relaxed text-on-night">
               {lead}
             </p>
             <div className="mt-6 flex flex-col gap-4 text-lg leading-relaxed text-on-night-muted">
@@ -205,26 +209,49 @@ export default async function ArtistPage({ params }: PageProps) {
               </div>
             </div>
           )}
+          {sideVideo && (
+            <div>
+              <Heading eyebrow="YouTube" title="Míralo en video" />
+              <div className="aspect-video overflow-hidden rounded-card border border-night-line bg-night-surface shadow-2xl">
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${sideVideo.id}`}
+                  title={sideVideo.title}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="h-full w-full border-0"
+                />
+              </div>
+              <p className="mt-3 font-semibold">{sideVideo.title}</p>
+            </div>
+          )}
         </div>
       </Container>
 
       {/* Video */}
-      {featured && (
+      {(mainVideo || gridVideos.length > 0) && (
         <Container className="pb-16 md:pb-24">
-          <Heading eyebrow="YouTube" title="Míralo en video" />
-          <div className="aspect-video overflow-hidden rounded-3xl border border-night-line bg-night-surface shadow-2xl">
-            <iframe
-              src={`https://www.youtube-nocookie.com/embed/${featured.id}`}
-              title={featured.title}
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="h-full w-full border-0"
-            />
-          </div>
-          {videos.length > 0 && (
-            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {videos.map((video) => (
+          <Heading
+            eyebrow="YouTube"
+            title={mainVideo ? "Míralo en video" : "Más videos"}
+          />
+          {mainVideo && (
+            <div className="aspect-video overflow-hidden rounded-3xl border border-night-line bg-night-surface shadow-2xl">
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${mainVideo.id}`}
+                title={mainVideo.title}
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="h-full w-full border-0"
+              />
+            </div>
+          )}
+          {gridVideos.length > 0 && (
+            <div
+              className={`grid gap-6 sm:grid-cols-2 lg:grid-cols-3 ${mainVideo ? "mt-8" : ""}`}
+            >
+              {gridVideos.map((video) => (
                 <a
                   key={video.id}
                   href={`https://www.youtube.com/watch?v=${video.id}`}
@@ -250,29 +277,27 @@ export default async function ArtistPage({ params }: PageProps) {
 
       {/* Join */}
       <Container className="pb-16 md:pb-24">
-        <div className="relative isolate overflow-hidden rounded-3xl bg-gradient-to-br from-brand to-brand-strong p-8 sm:p-12">
-          <Music
-            aria-hidden="true"
-            size={220}
-            strokeWidth={1}
-            className="absolute -bottom-10 -right-6 -z-10 text-white/10"
-          />
-          <p className="text-xs font-bold uppercase tracking-[.23em] text-white/80">
-            Artistas PG
-          </p>
-          <h2 className="mt-3 max-w-xl text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-            ¿Eres guitarrista peruano? Queremos conocerte.
-          </h2>
-          <p className="mt-3 max-w-lg text-white/85">
-            Escríbenos en el grupo de la comunidad y comparte tu música.
-          </p>
+        <div className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-white/[.03] p-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+          <div className="flex items-center gap-4">
+            <span className="hidden size-10 shrink-0 items-center justify-center rounded-full bg-brand/15 text-accent sm:flex">
+              <Music size={18} />
+            </span>
+            <div>
+              <p className="font-bold text-on-night">
+                ¿Eres guitarrista peruano? Queremos conocerte.
+              </p>
+              <p className="text-sm text-on-night-muted">
+                Escríbenos en el grupo de la comunidad y comparte tu música.
+              </p>
+            </div>
+          </div>
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-7 inline-flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-bold text-brand-strong transition-colors hover:bg-white/90"
+            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-white/15 px-4 py-2 text-sm font-semibold text-on-night transition-colors hover:border-accent hover:text-accent"
           >
-            <MessageCircle size={18} /> Entrar al grupo
+            <MessageCircle size={16} /> Entrar al grupo
           </a>
         </div>
       </Container>
@@ -289,9 +314,9 @@ export default async function ArtistPage({ params }: PageProps) {
               Ver todos <ArrowRight size={16} />
             </Link>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {others.slice(0, 4).map((other) => (
-              <ArtistCard key={other.slug} artist={other} />
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {others.slice(0, 6).map((other) => (
+              <ArtistRow key={other.slug} artist={other} />
             ))}
           </div>
         </Container>

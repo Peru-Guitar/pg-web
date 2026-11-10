@@ -12,11 +12,11 @@ import {
 } from "lucide-react";
 import { getLatestPosts } from "@/lib/posts";
 import { BOOKS, RESOURCES } from "@/content/resources";
-import { VIDEOS } from "@/content/media";
+import { RandomCollab } from "@/components/ui/RandomCollab";
 import { CHALLENGES, getChallengeCover } from "@/content/challenges";
 import { WHATSAPP_URL } from "@/content/community";
 import { ARTISTS } from "@/content/artists";
-import { ArtistCard } from "@/components/ui/ArtistCard";
+import { ArtistRow } from "@/components/ui/ArtistRow";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -24,7 +24,6 @@ import { PostCard } from "@/components/ui/PostCard";
 
 export default function Home() {
   const [challenge] = CHALLENGES;
-  const [collab] = VIDEOS;
   return (
     <>
       <section className="home-hero relative isolate overflow-hidden bg-night text-on-night">
@@ -273,30 +272,7 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          <a
-            href={`https://www.youtube.com/watch?v=${collab.id}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group block overflow-hidden rounded-card bg-gradient-to-br from-brand to-brand-strong text-white shadow-2xl ring-1 ring-black/10 transition-transform hover:-translate-y-1"
-          >
-            <div className="relative aspect-video">
-              <img
-                src={`https://img.youtube.com/vi/${collab.id}/hqdefault.jpg`}
-                alt=""
-                loading="lazy"
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 flex items-center justify-center bg-night/30 transition-colors group-hover:bg-night/50">
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-brand">
-                  <Play size={20} fill="currentColor" />
-                </span>
-              </div>
-            </div>
-            <p className="px-5 py-4 text-sm">
-              <span className="font-bold">Último collab:</span>{" "}
-              {collab.title}
-            </p>
-          </a>
+          <RandomCollab />
         </div>
       </Container>
       <Container className="pt-16 md:pt-20">
@@ -305,9 +281,9 @@ export default function Home() {
           subtitle="Guitarristas peruanos que tienes que conocer."
           link={{ label: "Ver todos", href: "/artistas" }}
         />
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {ARTISTS.slice(0, 4).map((artist) => (
-            <ArtistCard key={artist.slug} artist={artist} />
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {ARTISTS.slice(0, 6).map((artist) => (
+            <ArtistRow key={artist.slug} artist={artist} />
           ))}
         </div>
       </Container>

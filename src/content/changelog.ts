@@ -2,6 +2,17 @@
 // `date` is the release day (YYYY-MM-DD): the page groups versions released the same day.
 export const changelog: { version: string; date: string; notes: string[] }[] = [
   {
+    version: "0.4.1",
+    date: "2026-11-10",
+    notes: [
+      "Nuevo artista: Brandon Murga.",
+      "Artistas PG ahora tiene un índice alfabético y tarjetas más compactas.",
+      "Los perfiles de artistas se ven más ordenados.",
+      "La página de inicio muestra un collab de la comunidad al azar.",
+      "Agregamos un correo de contacto en el pie de página.",
+    ],
+  },
+  {
     version: "0.4.0",
     date: "2026-11-10",
     notes: [
