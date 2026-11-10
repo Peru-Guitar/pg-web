@@ -222,7 +222,6 @@ export default async function ArtistPage({ params }: PageProps) {
                   className="h-full w-full border-0"
                 />
               </div>
-              <p className="mt-3 font-semibold">{sideVideo.title}</p>
             </div>
           )}
         </div>
