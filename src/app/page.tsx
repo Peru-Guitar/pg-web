@@ -275,20 +275,22 @@ export default function Home() {
             href="https://fighters.peruguitar.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="fighters-feature group mt-4 flex min-h-64 flex-col justify-end rounded-3xl border border-white/10 p-6 text-on-night sm:p-8"
+            className="fighters-feature group mt-4 flex min-h-64 flex-col justify-between gap-6 rounded-3xl border border-white/10 px-6 py-8 text-on-night sm:px-8 sm:py-12"
           >
-            <Gamepad2 className="mb-5 text-accent" size={28} />
-            <p className="text-xs font-bold uppercase tracking-widest text-accent">
-              PG Fighters · El rock peruano anda en peligro
-            </p>
-            <h3 className="mt-2 text-2xl font-extrabold tracking-tight">
-              Agárrate a guitarrazos.
-            </h3>
-            <p className="mt-2 text-sm text-zinc-300">
-              ¿Podrás ganarle a Acople? Baja a El Sótano y salva el rock a
-              punta de riffs.
-            </p>
-            <span className="mt-6 flex items-center gap-2 text-sm font-bold text-accent">
+            <div className="max-w-md">
+              <Gamepad2 className="mb-5 text-accent" size={30} />
+              <p className="text-xs font-bold uppercase tracking-widest text-accent">
+                PG Fighters · El rock peruano anda en peligro
+              </p>
+              <h3 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+                Agárrate a guitarrazos.
+              </h3>
+              <p className="mt-3 text-zinc-300">
+                ¿Podrás ganarle a Acople? Baja a El Sótano y salva el rock a
+                punta de riffs.
+              </p>
+            </div>
+            <span className="flex items-center gap-2 text-sm font-bold text-accent">
               Entrar a pelear{" "}
               <ArrowRight
                 size={16}

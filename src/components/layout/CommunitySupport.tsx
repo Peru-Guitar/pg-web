@@ -25,7 +25,7 @@ export const CommunitySupport = () => {
             <Heart size={25} className="text-accent" aria-hidden="true" />
             <button type="button" onClick={() => dialog.current?.close()} aria-label="Cerrar ventana de apoyo" className="-mr-2 -mt-2 flex size-11 items-center justify-center rounded-full text-zinc-400 hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-brand"><X size={20} /></button>
           </div>
-          <h2 id="community-support-title" className="mt-3 text-2xl font-extrabold tracking-tight">Gracias por apoyar a PeruGuitar.</h2>
+          <h2 id="community-support-title" className="mt-3 text-2xl font-extrabold tracking-tight">Gracias por apoyar a Peru Guitar.</h2>
           <p id="community-support-description" className="mt-3 text-sm leading-relaxed text-zinc-300">Tu aporte nos ayuda a seguir compartiendo recursos gratuitos para guitarristas. Elige Yape o Plin y escanea el QR desde tu aplicación.</p>
           <div className="mt-6 grid grid-cols-2 gap-1 rounded-xl border border-white/15 bg-white/5 p-1" role="group" aria-label="Método de apoyo">
             {(["Yape", "Plin"] as const).map((option) => (
@@ -33,7 +33,7 @@ export const CommunitySupport = () => {
             ))}
           </div>
           <div className="mx-auto mt-6 w-fit rounded-2xl bg-white p-4">
-            <Image src={`/qrs/${method.toLowerCase()}.jpg`} alt={`Código QR para apoyar a PeruGuitar con ${method}`} width={200} height={200} unoptimized className="size-[200px]" />
+            <Image src={`/qrs/${method.toLowerCase()}.jpg`} alt={`Código QR para apoyar a Peru Guitar con ${method}`} width={200} height={200} unoptimized className="size-[200px]" />
           </div>
           <p className="mt-4 text-center text-sm text-accent">Escanea con {method}</p>
         </div>

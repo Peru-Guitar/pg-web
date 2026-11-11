@@ -205,7 +205,7 @@ export function BookReader({
         </aside>
         <div className="min-w-0 max-w-3xl">
           <p className="text-xs font-bold uppercase tracking-widest text-brand">
-            Biblioteca PeruGuitar · Ebook gratuito
+            Biblioteca Peru Guitar · Ebook gratuito
           </p>
           <h1 className="mt-4 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
             {title}

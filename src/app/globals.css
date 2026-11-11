@@ -115,33 +115,10 @@ button:disabled {
   top: calc(10% - 16px);
   background: #5ab8ec;
 }
-.resource-feature,
-.resource-track {
-  background-size: cover;
-  background-position: center;
-  transition: border-color 180ms ease, box-shadow 180ms ease;
-}
-.resource-feature {
-  background-image:
-    linear-gradient(90deg, rgb(17 17 17 / 96%) 0%, rgb(17 17 17 / 82%) 48%, rgb(17 17 17 / 35%) 100%),
-    url("/resources/arpegios-guitarrista.webp");
-  background-color: #111111;
-}
-.resource-track[data-track="two-worlds-backing-track"] {
-  background-image:
-    linear-gradient(90deg, rgb(8 27 34 / 96%) 0%, rgb(8 27 34 / 85%) 55%, rgb(8 27 34 / 40%) 100%),
-    url("/resources/two-worlds.webp");
-  background-color: #081b22;
-}
-.resource-track[data-track="alone-backing-track"] {
-  background-image:
-    linear-gradient(90deg, rgb(36 15 25 / 96%) 0%, rgb(36 15 25 / 85%) 55%, rgb(36 15 25 / 40%) 100%),
-    url("/resources/alone.webp");
-  background-color: #240f19;
-}
 .fighters-feature {
   background-size: cover;
-  background-position: center;
+  /* Keep the PG Fighters logo (lower part of the art) in frame. */
+  background-position: center 85%;
   background-image:
     linear-gradient(90deg, rgb(17 17 17 / 96%) 0%, rgb(17 17 17 / 80%) 45%, rgb(17 17 17 / 20%) 100%),
     url("/content/home/pg-fighters.webp"),
@@ -149,14 +126,10 @@ button:disabled {
   background-color: #111111;
   transition: border-color 180ms ease, box-shadow 180ms ease;
 }
-.resource-feature:hover,
-.resource-track:hover,
 .fighters-feature:hover {
   border-color: var(--color-brand);
   box-shadow: 0 8px 24px rgb(17 17 17 / 12%);
 }
-.resource-feature:focus-visible,
-.resource-track:focus-visible,
 .fighters-feature:focus-visible {
   outline: 2px solid var(--color-brand);
   outline-offset: 4px;

@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
-import { Instagram, MessageCircle } from "lucide-react";
+import { MessageCircle } from "lucide-react";
+import { InstagramIcon } from "@/components/ui/BrandIcons";
 import { CHALLENGES, getChallenge, getChallengeCover } from "@/content/challenges";
 import settings from "@/content/settings.json";
 import { Container } from "@/components/layout/Container";
@@ -80,7 +81,7 @@ export default async function ChallengePage({ params }: PageProps) {
         <div className="flex flex-wrap gap-3">
           <CopyButton text={challenge.caption} />
           <Button href={settings.instagramUrl} variant="outline" external>
-            <Instagram size={16} /> Ir a Instagram
+            <InstagramIcon size={16} /> Ir a Instagram
           </Button>
         </div>
 

@@ -16,7 +16,7 @@ export default function BlogPage() {
         El lado musical de las ideas
       </p>
       <h1 className="mb-4 text-4xl font-extrabold tracking-tight sm:text-6xl">
-        El blog de PeruGuitar.
+        El blog de Peru Guitar.
       </h1>
       <p className="mb-10 max-w-xl text-lg text-ink-muted">
         Técnica, reflexiones y experiencias para seguir creciendo como

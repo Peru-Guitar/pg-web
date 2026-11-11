@@ -75,6 +75,8 @@ const ARTIST_LIST: Artist[] = [
     photo: "/content/artistas/erp-project/photo.webp",
     socials: {
       instagram: "https://www.instagram.com/erpprojectofficial/",
+      youtube: "https://www.youtube.com/@ERPProject",
+      tiktok: "https://www.tiktok.com/@erpprojectofficial",
       spotify: "https://open.spotify.com/artist/6xR1HRj6SzReee9R2EkOUo",
     },
     spotifyArtistId: "6xR1HRj6SzReee9R2EkOUo",

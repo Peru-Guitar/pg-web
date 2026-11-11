@@ -38,7 +38,7 @@ export const PostCard = ({
           >
             <Icon size={row ? 40 : 58} strokeWidth={1} aria-hidden="true" />
             <span className="absolute bottom-4 left-4 hidden sm:block text-[10px] font-bold uppercase tracking-[.2em] opacity-60">
-              PeruGuitar / Editorial
+              Peru Guitar / Editorial
             </span>
           </div>
         )}

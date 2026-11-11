@@ -41,10 +41,11 @@ export default function ArtistsPage() {
           fill
           priority
           sizes="100vw"
-          className="-z-20 object-cover object-[65%_center] md:object-center"
+          className="-z-20 object-cover object-[65%_center] opacity-70 brightness-75 saturate-75 md:object-center"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-night/95 via-night/70 to-night/20" />
-        <div className="absolute inset-x-0 bottom-0 -z-10 h-48 bg-gradient-to-t from-night to-transparent" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-night/95 via-night/60 to-night/40" />
+        <div className="absolute inset-x-0 top-0 -z-10 h-32 bg-gradient-to-b from-night to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 -z-10 h-3/4 bg-gradient-to-t from-night via-night/70 to-transparent" />
       <Container className="pb-20 pt-32 md:pb-28 md:pt-40">
         <p className="mb-2 text-xs font-bold uppercase tracking-[.2em] text-accent">
           Artistas PG

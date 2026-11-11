@@ -5,14 +5,10 @@ import {
   ArrowLeft,
   ArrowRight,
   Cake,
-  Facebook,
   Globe,
-  Instagram,
   LucideIcon,
   MapPin,
-  Music,
   Play,
-  Youtube,
 } from "lucide-react";
 import {
   ARTISTS,
@@ -24,6 +20,13 @@ import {
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { ArtistAvatar } from "@/components/ui/ArtistAvatar";
+import {
+  FacebookIcon,
+  InstagramIcon,
+  SpotifyIcon,
+  TikTokIcon,
+  YoutubeIcon,
+} from "@/components/ui/BrandIcons";
 import { ArtistRow } from "@/components/ui/ArtistRow";
 import { ArtistJoin } from "@/components/ui/ArtistJoin";
 import { pageMetadata } from "@/lib/metadata";
@@ -48,12 +51,15 @@ export async function generateMetadata({ params }: PageProps) {
   });
 }
 
-const SOCIALS: Record<ArtistSocial, { label: string; icon: LucideIcon }> = {
-  instagram: { label: "Instagram", icon: Instagram },
-  youtube: { label: "YouTube", icon: Youtube },
-  spotify: { label: "Spotify", icon: Music },
-  tiktok: { label: "TikTok", icon: Music },
-  facebook: { label: "Facebook", icon: Facebook },
+const SOCIALS: Record<
+  ArtistSocial,
+  { label: string; icon: LucideIcon | typeof SpotifyIcon }
+> = {
+  instagram: { label: "Instagram", icon: InstagramIcon },
+  youtube: { label: "YouTube", icon: YoutubeIcon },
+  spotify: { label: "Spotify", icon: SpotifyIcon },
+  tiktok: { label: "TikTok", icon: TikTokIcon },
+  facebook: { label: "Facebook", icon: FacebookIcon },
   website: { label: "Web", icon: Globe },
 };
 

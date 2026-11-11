@@ -15,6 +15,7 @@ import { concursoIResultados } from "./posts/14-concurso-i-resultados";
 import { fretQuest } from "./posts/15-fret-quest";
 import { losEjerciciosAburridosTeHacenCrecer } from "./posts/16-los-ejercicios-aburridos-te-hacen-crecer";
 import { pentatonicasModales } from "./posts/17-pentatonicas-modales";
+import { concursoIIResultados } from "./posts/18-concurso-ii-resultados";
 
 export const POSTS: Post[] = [
   pentatonicFusionLick01,
@@ -32,4 +33,5 @@ export const POSTS: Post[] = [
   fretQuest,
   losEjerciciosAburridosTeHacenCrecer,
   pentatonicasModales,
+  concursoIIResultados,
 ].sort((a, b) => b.date.getTime() - a.date.getTime());

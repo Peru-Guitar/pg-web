@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Instagram, Mail, Youtube } from "lucide-react";
+import { ArrowUpRight, Mail } from "lucide-react";
+import { InstagramIcon, YoutubeIcon } from "@/components/ui/BrandIcons";
 import { Container } from "./Container";
 import { CommunitySupport } from "./CommunitySupport";
 import { contactEmail, instagramUrl, youtubeUrl } from "@/content/settings.json";
@@ -36,12 +37,12 @@ export const Footer = () => (
         <div className="sm:col-span-2 lg:col-span-1">
           <Link
             href="/"
-            aria-label="PeruGuitar, inicio"
+            aria-label="Peru Guitar, inicio"
             className="inline-block"
           >
             <Image
               src="/logo-pg.webp"
-              alt="PeruGuitar"
+              alt="Peru Guitar"
               width={273}
               height={160}
               className="h-20 w-auto"
@@ -98,7 +99,7 @@ export const Footer = () => (
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 text-sm transition-colors hover:text-on-night"
               >
-                <Instagram size={19} aria-hidden="true" />
+                <InstagramIcon size={19} />
                 Instagram
                 <ArrowUpRight size={14} aria-hidden="true" />
               </a>
@@ -110,7 +111,7 @@ export const Footer = () => (
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 text-sm transition-colors hover:text-on-night"
               >
-                <Youtube size={19} aria-hidden="true" />
+                <YoutubeIcon size={19} />
                 YouTube
                 <ArrowUpRight size={14} aria-hidden="true" />
               </a>
@@ -133,7 +134,7 @@ export const Footer = () => (
           La primera comunidad de guitarristas en el Perú desde el 2003.
         </p>
         <p className="shrink-0 text-xs">
-          © {new Date().getFullYear()} PeruGuitar.{" "}
+          © {new Date().getFullYear()} Peru Guitar.{" "}
           <Link
             href="/novedades"
             className="font-mono transition-colors hover:text-on-night"

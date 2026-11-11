@@ -52,6 +52,12 @@ Add the entry anywhere in `ARTIST_LIST`. `ARTISTS` sorts it alphabetically by na
 
 Strip tracking params (`?si=...`) from Spotify and YouTube links.
 
+Complete the socials from what you're given:
+
+- From a YouTube video, get its channel (`https://www.youtube.com/oembed?url=<video url>&format=json` returns `author_url`) and use it as `socials.youtube`. Never use a video URL there.
+- From a Spotify track or album, get the artist profile and use it in `socials.spotify` and `spotifyArtistId`.
+- Before finishing, check that every artist with a video or Spotify embed also has that network in `socials`.
+
 ## 3. Images
 
 - The user provides the images. Don't generate or download one unless asked.

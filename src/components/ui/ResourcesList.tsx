@@ -5,7 +5,7 @@ import { BOOKS, RESOURCES } from "@/content/resources";
 import { toDirectDownloadUrl } from "@/lib/drive";
 
 const CARD =
-  "flex scroll-mt-24 items-center gap-4 rounded-card border border-line bg-surface p-3";
+  "flex scroll-mt-24 items-start gap-4 rounded-card border border-line bg-surface p-3";
 const THUMB = "aspect-square w-20 shrink-0 rounded-lg bg-night object-cover";
 const ACTION =
   "inline-flex items-center gap-1 text-sm font-semibold text-brand hover:text-brand-strong";
@@ -64,6 +64,22 @@ export const ResourcesList = () => (
               </a>
             ))}
           </div>
+          {track.practice.length > 0 && (
+            <details className="group mt-2 text-sm">
+              <summary className="cursor-pointer list-none text-xs font-semibold text-ink-muted hover:text-ink">
+                <span className="group-open:hidden">Ver tips de práctica</span>
+                <span className="hidden group-open:inline">Ocultar tips</span>
+              </summary>
+              <ul className="mt-2 flex flex-col gap-1.5">
+                {track.practice.map((item) => (
+                  <li key={item.title}>
+                    <strong>{item.title}:</strong>{" "}
+                    <span className="text-ink-muted">{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          )}
         </div>
       </article>
     ))}
