@@ -63,10 +63,10 @@ const ARTIST_LIST: Artist[] = [
     name: "ERP Project",
     tagline: "El proyecto del guitarrista Eduardo Rodríguez",
     bio: [
-      "ERP Project es el proyecto personal del guitarrista Eduardo Rodríguez, un espacio donde comparte ideas musicales y colaboraciones con otros artistas.",
+      "ERP Project es el proyecto personal del guitarrista Eduardo Rodríguez, un espacio donde comparte sus ideas musicales.",
       "Aunque su profesión principal no está ligada a la música, le dedica tiempo y disciplina para crear contenido de calidad. Esa misma constancia lo llevó a fundar Peru Guitar, la comunidad de la que luego nacieron Fret Quest y PG Fighters.",
-      "Su sonido se mueve entre la fusión, el rock instrumental y la música de videojuegos: en Spotify tiene sus versiones de los temas finales de Resident Evil 2 y 3, del tema Terran de StarCraft y de \"ゆずれない願い\", junto a Ingrid Castro.",
-      "Entre sus temas destacan \"Two Worlds\", que hoy también es un backing track gratuito para la comunidad, y \"Repression\", con guitarras de Koko Rengifo.",
+      "Su sonido se mueve entre la fusión, el rock instrumental y la música de videojuegos: en Spotify tiene sus versiones de los temas finales de Resident Evil 2 y 3, del tema Terran de StarCraft y de \"ゆずれない願い\".",
+      "Entre sus temas instrumentales destacan \"Two Worlds\", \"Alone\" y \"Nothing Is Left\", además de \"Repression\". \"Two Worlds\" y \"Alone\" también están disponibles como backing tracks gratuitos, para que la comunidad pueda tocar sobre ellos.",
       "Actualmente trabaja en composiciones propias, con la intención de presentarlas en vivo en un futuro.",
     ],
     location: "Perú",
@@ -79,25 +79,6 @@ const ARTIST_LIST: Artist[] = [
     },
     spotifyArtistId: "6xR1HRj6SzReee9R2EkOUo",
     youtubeVideo: { id: "xymcs9DrXk4", title: "Two Worlds (Definitive Edition)" },
-  },
-  {
-    slug: "koko-rengifo",
-    name: "Koko Rengifo",
-    tagline: "Guitarrista de rock, metal y fusión, y profesor de guitarra eléctrica",
-    bio: [
-      "Koko Rengifo es guitarrista eléctrico y profesor con base en Lima, con una trayectoria que va del metal en banda a la enseñanza personalizada de la guitarra.",
-      "Enseña guitarra eléctrica a alumnos de todas las edades, con foco en técnicas contemporáneas y lenguaje musical. Tiene un plan estructurado, pero se adapta a lo que cada alumno busca en el momento: si le pides un tema, a la semana ya lo tiene listo para enseñártelo. Más que un profesor, funciona como un coach personal.",
-      "Fue guitarrista de la banda de metal Estigma (2014–2016) y participó en \"Leading to Nowhere\" de Ancestral Dawn, junto a Fabio Lione y Nathalie Markoch. También ha hecho mezcla y guitarras para proyectos de rock y metal como \"Repression\" de ERP Project.",
-    ],
-    location: "Lima, Perú",
-    styles: ["Rock", "Metal", "Fusión"],
-    photo: "/content/artistas/koko-rengifo/photo.webp",
-    socials: {
-      youtube: "https://www.youtube.com/watch?v=bgttYMrqR68",
-      spotify: "https://open.spotify.com/artist/1bdgUTe0Rs6y3C3BzhUKqr",
-    },
-    spotifyArtistId: "1bdgUTe0Rs6y3C3BzhUKqr",
-    youtubeVideo: { id: "bgttYMrqR68", title: "Boogie Songs" },
   },
   {
     slug: "luis-fernando",
@@ -118,6 +99,32 @@ const ARTIST_LIST: Artist[] = [
       youtube: "https://www.youtube.com/@fernando9026",
     },
     youtubeVideo: { id: "E-A6GGdTjSQ", title: "City pop improv solo" },
+  },
+  {
+    slug: "carlos-caz",
+    name: "Carlos Caz",
+    tagline: "Guitarrista de rock y jazz",
+    bio: [
+      "Carlos Caz es un guitarrista peruano de rock y jazz, músico de profesión con estudios de posgrado en Producción y Composición Musical. Pasó por el heavy metal con la banda Clérigo y hoy desarrolla una carrera solista entre el rock y el jazz.",
+      "Su relación con la música comenzó desde niño, primero con el piano y luego con la guitarra eléctrica.",
+      "A lo largo de su trayectoria ha participado en diversos proyectos musicales. Destaca su paso por Clérigo, banda de heavy metal del sur peruano, con la que grabó los EP \"Volarás\" (2006) y \"Bajo las sombras\" (2023), además de algunos sencillos junto a Pacho Brea y Christian Bertoncelli.",
+      "Su discografía solista incluye el EP \"Guerreros del Metal\" (2010), el álbum \"Proyecto Lucaz\" (2015) y el álbum instrumental \"Entropía\" (2026), además de sencillos orientados al jazz.",
+      "Entre sus principales influencias están Walter Giardino, Felipe Staiti, Yngwie Malmsteen, Steve Vai, Joe Satriani, Luis Salinas y George Benson.",
+      "Para Carlos, la música representa su voz, su camino y su vida.",
+    ],
+    birthDate: "1983-07-23",
+    styles: ["Rock", "Jazz", "Heavy metal"],
+    photo: "/content/artistas/carlos-caz/photo.webp",
+    socials: {
+      instagram: "https://www.instagram.com/carloscazmusic",
+      youtube: "https://www.youtube.com/@CarlosCazMusic",
+      spotify: "https://open.spotify.com/artist/0AtaM8UxhVEjw8UTgktYPN",
+    },
+    spotifyArtistId: "0AtaM8UxhVEjw8UTgktYPN",
+    youtubeVideo: {
+      id: "nt3CPCLlh5A",
+      title: "Carlos Caz - Morning Star (Vinnie Moore) Guitar Performance",
+    },
   },
 ];
 
