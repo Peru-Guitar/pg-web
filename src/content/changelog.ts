@@ -2,6 +2,19 @@
 // `date` is the release day (YYYY-MM-DD): the page groups versions released the same day.
 export const changelog: { version: string; date: string; notes: string[] }[] = [
   {
+    version: "0.5.0",
+    date: "2026-11-11",
+    notes: [
+      "Nuevos artistas: Camilo Tellez, nuestro primer artista de Colombia, y Mario Quintana.",
+      "Nuevo reto: los sweeps de Trilogy Suite Opus 5 de Yngwie Malmsteen, con su ejercicio en Fret Quest.",
+      "Los retos ahora muestran su nivel de dificultad y el video se reproduce solo en el fragmento del reto.",
+      "Nuevo: el manga de MayinBlues, La historia de MAYINBLUES Vol. 1.",
+      "Nueva sección Comunidad en la página de inicio, con lo nuevo y todo lo que hacemos juntos.",
+      "Artistas PG ahora recibe guitarristas de cualquier país, con una nueva sección para postular.",
+      "Los retos, el manga y los recursos ahora viven dentro de Comunidad.",
+    ],
+  },
+  {
     version: "0.4.6",
     date: "2026-11-10",
     notes: [

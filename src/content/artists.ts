@@ -18,7 +18,7 @@ export interface Artist {
   tagline: string;
   /** Short bio, one string per paragraph. */
   bio: string[];
-  /** City, shown in the header. All artists are Peruvian, so it defaults to "Perú". */
+  /** "City, Country", shown in the header. Defaults to "Perú". */
   location?: string;
   /** Optional birth date, "YYYY-MM-DD". Shown in the header when present. */
   birthDate?: string;
@@ -44,7 +44,7 @@ const ARTIST_LIST: Artist[] = [
     bio: [
       "Brandon Murga es un guitarrista autodidacta que empezó en el black metal a los 13 años. Hoy desarrolla una propuesta propia entre el darkwave y el metal industrial, con cuatro producciones de estudio y destacados puestos en concursos internacionales.",
       "Empezó a tocar a los 13 años en el black metal, con agrupaciones locales y una disciplina que en sus primeros años lo llevó a practicar entre 6 y 10 horas diarias. Luego integró la banda de thrash metal Desidia y fundó por un breve tiempo el proyecto de metal alternativo Antiser.",
-      "Con los años ha construido una identidad musical propia, orientada al darkwave y al metal industrial, que se plasma en sus producciones de estudio: \"Aquí Descanso\" (2013), \"Mental Suicide\" (2016), \"Plastic Lives\" (2021) y el EP \"Nihil\" (2023).",
+      "Con los años ha construido una identidad musical propia, orientada al darkwave y al metal industrial, que se plasma en sus producciones de estudio: Aquí Descanso (2013), Mental Suicide (2016), Plastic Lives (2021) y el EP Nihil (2023).",
       "Ha competido en concursos internacionales como el Kiesel Contest y el JTC Jam of the Month, donde alcanzó el tercer puesto a nivel mundial en noviembre de 2024. En 2026 ganó el primer lugar en el concurso de solos de Peru Guitar.",
       "Entre sus principales influencias están John Petrucci, Marty Friedman, Per Nilsson, John 5, Robin Finck y Buckethead. También disfruta reinterpretar música de videojuegos íntegramente en la guitarra.",
       "Su competitividad también lo llevó a los videojuegos: entre 2016 y 2022 fue jugador profesional de Street Fighter V bajo el seudónimo BlackLava, con destacadas posiciones en torneos como la Liga Pro Gaming de Movistar, Collision 2017 y Lima Salty 4.",
@@ -65,8 +65,8 @@ const ARTIST_LIST: Artist[] = [
     bio: [
       "ERP Project es el proyecto personal del guitarrista Eduardo Rodríguez, un espacio donde comparte sus ideas musicales.",
       "Aunque su profesión principal no está ligada a la música, le dedica tiempo y disciplina para crear contenido de calidad. Esa misma constancia lo llevó a fundar Peru Guitar, la comunidad de la que luego nacieron Fret Quest y PG Fighters.",
-      "Su sonido se mueve entre la fusión, el rock instrumental y la música de videojuegos: en Spotify tiene sus versiones de los temas finales de Resident Evil 2 y 3, del tema Terran de StarCraft y de \"ゆずれない願い\".",
-      "Entre sus temas instrumentales destacan \"Two Worlds\", \"Alone\" y \"Nothing Is Left\", además de \"Repression\". \"Two Worlds\" y \"Alone\" también están disponibles como backing tracks gratuitos, para que la comunidad pueda tocar sobre ellos.",
+      "Su sonido se mueve entre la fusión, el rock instrumental y la música de videojuegos: en Spotify tiene sus versiones de los temas finales de Resident Evil 2 y 3, del tema Terran de StarCraft y de ゆずれない願い.",
+      "Entre sus temas instrumentales destacan Two Worlds, Alone y Nothing Is Left, además de Repression. Two Worlds y Alone también están disponibles como backing tracks gratuitos, para que la comunidad pueda tocar sobre ellos.",
       "Actualmente trabaja en composiciones propias, con la intención de presentarlas en vivo en un futuro.",
     ],
     location: "Perú",
@@ -109,8 +109,8 @@ const ARTIST_LIST: Artist[] = [
     bio: [
       "Carlos Caz es un guitarrista peruano de rock y jazz, músico de profesión con estudios de posgrado en Producción y Composición Musical. Pasó por el heavy metal con la banda Clérigo y hoy desarrolla una carrera solista entre el rock y el jazz.",
       "Su relación con la música comenzó desde niño, primero con el piano y luego con la guitarra eléctrica.",
-      "A lo largo de su trayectoria ha participado en diversos proyectos musicales. Destaca su paso por Clérigo, banda de heavy metal del sur peruano, con la que grabó los EP \"Volarás\" (2006) y \"Bajo las sombras\" (2023), además de algunos sencillos junto a Pacho Brea y Christian Bertoncelli.",
-      "Su discografía solista incluye el EP \"Guerreros del Metal\" (2010), el álbum \"Proyecto Lucaz\" (2015) y el álbum instrumental \"Entropía\" (2026), además de sencillos orientados al jazz.",
+      "A lo largo de su trayectoria ha participado en diversos proyectos musicales. Destaca su paso por Clérigo, banda de heavy metal del sur peruano, con la que grabó los EP Volarás (2006) y Bajo las sombras (2023), además de algunos sencillos junto a Pacho Brea y Christian Bertoncelli.",
+      "Su discografía solista incluye el EP Guerreros del Metal (2010), el álbum Proyecto Lucaz (2015) y el álbum instrumental Entropía (2026), además de sencillos orientados al jazz.",
       "Entre sus principales influencias están Walter Giardino, Felipe Staiti, Yngwie Malmsteen, Steve Vai, Joe Satriani, Luis Salinas y George Benson.",
       "Para Carlos, la música representa su voz, su camino y su vida.",
     ],
@@ -128,9 +128,53 @@ const ARTIST_LIST: Artist[] = [
       title: "Carlos Caz - Morning Star (Vinnie Moore) Guitar Performance",
     },
   },
+  {
+    slug: "camilo-tellez",
+    name: "Camilo Tellez",
+    tagline: "Guitarrista y compositor de metal progresivo",
+    bio: [
+      "Camilo Tellez es un guitarrista y compositor de Bogotá, Colombia. Ganó el concurso Guitar Universe 2026, ha publicado tres álbumes y forma parte de la escena del metal progresivo colombiano.",
+      "Su nombre completo es Hernán Camilo Téllez González. Empezó en la música en Crea de Idartes, tras replantearse su futuro cuando aún estaba en el colegio.",
+      "Sus influencias van desde Pink Floyd, Scorpions, Creedence Clearwater Revival y Eric Clapton hasta artistas más actuales como Jakub Zytecki, David Maxim Micic y Plini.",
+      "Ganó el concurso Guitar Universe 2026 y ha publicado tres álbumes. Junto a otros artistas colombianos, ha empezado a trazar un camino en el metal progresivo de su país.",
+    ],
+    location: "Bogotá, Colombia",
+    photo: "/content/artistas/camilo-tellez/photo.webp",
+    birthDate: "2006-09-01",
+    styles: ["Metal progresivo", "Rock"],
+    socials: {
+      instagram: "https://www.instagram.com/camilotellez_gtr",
+      youtube: "https://www.youtube.com/@CamiloTellez_GTR",
+      spotify: "https://open.spotify.com/artist/6PBfDI9TAtp8eKJ7RigS9q",
+    },
+    spotifyArtistId: "6PBfDI9TAtp8eKJ7RigS9q",
+    youtubeVideo: { id: "GJw0eBSx0ho", title: "Camilo Tellez - Fácil De Olvidar (Official Video)" },
+  },
+  {
+    slug: "mario-quintana",
+    name: "Mario Quintana",
+    tagline: "Guitarrista de metal y música instrumental",
+    bio: [
+      "Mario Quintana es un guitarrista peruano, exintegrante de la banda italiana de thrash metal Expired. Desde 2020 desarrolla una carrera solista de música instrumental.",
+      "Su nombre completo es Mario Bruno Quintana Vidal. Con Expired grabó dos discos entre 2009 y 2012.",
+      "Tras un receso musical, regresó en 2020 como solista de música instrumental, publicando sencillos y creando contenido musical en TikTok.",
+      "En 2024 lanzó su EP Naivety Ignorance and Nostalgia.",
+    ],
+    birthDate: "1988-03-17",
+    styles: ["Thrash metal", "Instrumental"],
+    photo: "/content/artistas/mario-quintana/photo.webp",
+    socials: {
+      instagram: "https://www.instagram.com/marioquintanav/",
+      youtube: "https://www.youtube.com/@MarioQuintanaGuitar",
+      spotify: "https://open.spotify.com/artist/2vUyks44jKINvtKpcD0zQk",
+      tiktok: "https://www.tiktok.com/@marioquintanaguitar",
+    },
+    spotifyArtistId: "2vUyks44jKINvtKpcD0zQk",
+    youtubeVideo: { id: "csVijm20YV0", title: "Mario Quintana - Party of Ignorance [Video Oficial]" },
+  },
 ];
 
-/** Peruvian guitarists featured on Peru Guitar, sorted alphabetically by name. Order = directory order. */
+/** Guitarists featured on Peru Guitar, sorted alphabetically by name. Order = directory order. */
 export const ARTISTS = [...ARTIST_LIST].sort((a, b) =>
   a.name.localeCompare(b.name, "es", { sensitivity: "base" }),
 );

@@ -39,14 +39,15 @@ const hasBanner = (pathname: string) =>
   pathname === "/" ||
   pathname === "/acerca-de-nosotros" ||
   pathname.startsWith("/artistas") ||
+  pathname.startsWith("/comunidad/manga") ||
   /^\/blog\/(?!categoria\/)[^/]+$/.test(pathname);
 
 export const Navbar = () => {
   const menu = useRef<HTMLDetailsElement>(null);
   const pathname = usePathname();
   const overlay = hasBanner(pathname);
-  // Artist pages blend the navbar into the hero: no divider line.
-  const seamless = pathname.startsWith("/artistas");
+  // Artist and manga pages blend the navbar into the hero: no divider line.
+  const seamless = pathname.startsWith("/artistas") || pathname.startsWith("/comunidad/manga");
   return (
     <header
       className={`z-50 border-b text-on-night ${overlay ? `absolute inset-x-0 top-0 bg-transparent ${seamless ? "border-transparent" : "border-white/10"}` : "relative border-night-line bg-night"}`}

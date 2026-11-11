@@ -25,7 +25,7 @@ export const ResourcesList = () => (
             Ebook
           </p>
           <h3 className="truncate font-bold">{book.name}</h3>
-          <Link href={`/recursos/${book.id}`} className={`mt-1 ${ACTION}`}>
+          <Link href={`/comunidad/recursos/${book.id}`} className={`mt-1 ${ACTION}`}>
             <BookOpen size={15} /> Leer gratis
           </Link>
         </div>
@@ -64,22 +64,6 @@ export const ResourcesList = () => (
               </a>
             ))}
           </div>
-          {track.practice.length > 0 && (
-            <details className="group mt-2 text-sm">
-              <summary className="cursor-pointer list-none text-xs font-semibold text-ink-muted hover:text-ink">
-                <span className="group-open:hidden">Ver tips de práctica</span>
-                <span className="hidden group-open:inline">Ocultar tips</span>
-              </summary>
-              <ul className="mt-2 flex flex-col gap-1.5">
-                {track.practice.map((item) => (
-                  <li key={item.title}>
-                    <strong>{item.title}:</strong>{" "}
-                    <span className="text-ink-muted">{item.text}</span>
-                  </li>
-                ))}
-              </ul>
-            </details>
-          )}
         </div>
       </article>
     ))}

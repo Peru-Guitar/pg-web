@@ -1,26 +1,10 @@
-import { pageMetadata } from "@/lib/metadata";
+import { LegacyRedirect } from "@/components/layout/LegacyRedirect";
 
-import {
-  CHAPTERS,
-  NoMasArpegiosAburridos,
-} from "@/content/books/no-mas-arpegios-aburridos";
-import { BookReader } from "@/components/reader/BookReader";
+// Resources now live under /comunidad/recursos.
+export const metadata = {
+  alternates: { canonical: "/comunidad/recursos/no-mas-arpegios-aburridos" },
+};
 
-export const metadata = pageMetadata({
-  title: "¡No Más Arpegios Aburridos!",
-  description: "Guía gratuita para expandir tus arpegios con tensiones: séptimas, oncenas y arpegios modales, con tablaturas.",
-  path: "/recursos/no-mas-arpegios-aburridos",
-  image: "/resources/arpegios-guitarrista.webp",
-});
-
-export default function ArpeggiosGuidePage() {
-  return (
-    <BookReader
-      bookId="no-mas-arpegios-aburridos"
-      title="¡No Más Arpegios Aburridos!"
-      chapters={CHAPTERS}
-    >
-      <NoMasArpegiosAburridos />
-    </BookReader>
-  );
+export default function LegacyEbookPage() {
+  return <LegacyRedirect to="/comunidad/recursos/no-mas-arpegios-aburridos" />;
 }

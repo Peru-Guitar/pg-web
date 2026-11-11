@@ -11,6 +11,10 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 6rem;
 }
+/* Manga reader: anchors land just under its sticky chapter bar (~54px), not under the site header. */
+html:has(#lector) {
+  scroll-padding-top: 3.375rem;
+}
 ::selection {
   background: #fbd3ce;
   color: #191512;

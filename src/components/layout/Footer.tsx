@@ -14,7 +14,7 @@ const columns = [
       { label: "Blog", href: "/blog" },
       { label: "Artistas PG", href: "/artistas" },
       { label: "Comunidad", href: "/comunidad" },
-      { label: "Retos", href: "/retos" },
+      { label: "Retos", href: "/comunidad/retos" },
     ],
   },
   {

@@ -5,7 +5,7 @@ description: Adds or edits a featured guitarist on peruguitar.com/artistas (Arti
 
 # Artistas PG
 
-Artistas PG features Peruvian guitarists with their bio, music, videos and socials. Each artist is one entry in `ARTISTS` in `src/content/artists.ts`. The directory `/artistas`, the artist page `/artistas/<slug>`, the home page section and the sitemap all pick it up automatically. Don't edit those pages to add an artist.
+Artistas PG features guitarists, mostly Peruvian, with their bio, music, videos and socials. Each artist is one entry in `ARTISTS` in `src/content/artists.ts`. The directory `/artistas`, the artist page `/artistas/<slug>`, the home page section and the sitemap all pick it up automatically. Don't edit those pages to add an artist.
 
 ## Rules
 
@@ -13,6 +13,7 @@ Artistas PG features Peruvian guitarists with their bio, music, videos and socia
 - Write user-facing text in Spanish, in the third person, warm but factual. No hype ("el mejor guitarrista del Perú").
 - When the user gives a bio, keep all of its original content: every fact, name, title, year and achievement. Don't add, drop or change facts. Rewrite it like a senior editor: third person, clear structure, tight sentences, consistent names and capitalization, fixed typos.
 - Write notes and keys in American notation (C, Eb, Em).
+- No quotation marks in bios: write album, song and band titles plainly (el EP Nihil, not el EP "Nihil").
 - Links must be real, full URLs the user gave you or that you confirmed. Never guess a handle.
 - `slug` must be unique in `ARTISTS`.
 
@@ -40,7 +41,7 @@ Add the entry anywhere in `ARTIST_LIST`. `ARTISTS` sorts it alphabetically by na
 | `name` | Artistic name |
 | `tagline` | One line under the name: what they play and what they do. `Guitarrista de metal, darkwave y metal industrial` |
 | `bio` | One string per paragraph. `bio[0]` is the intro, max 250 characters: a factual summary of who the artist is and what they do, starting with their name ("<Name> es ..."). It opens the story directly, so no poetic or quote-like lines. It is shown first on the page and used as the meta description. Every detail goes in the following paragraphs, so nothing from the original bio is lost. |
-| `location` | Optional. All artists are Peruvian: the header shows "Perú" by default. Set it only to add the city: `Lima, Perú` |
+| `location` | Optional. The header shows "Perú" by default. Set it to add the city (`Lima, Perú`), and always for non-Peruvian artists (`Bogotá, Colombia`). |
 | `birthDate` | Optional. `"YYYY-MM-DD"`. Shown in the header as "10 de julio de 1996". Leave it out if the user doesn't give it. |
 | `styles` | 2 to 4 short tags: `["Metal", "Darkwave", "Metal industrial"]` |
 | `photo` | Optional, see step 3 |
@@ -50,7 +51,7 @@ Add the entry anywhere in `ARTIST_LIST`. `ARTISTS` sorts it alphabetically by na
 | `youtubeVideo` | Optional. One video only: `{ id, title }`, id only (not the URL, also for Shorts), title as published. |
 | `contact` | Optional. `{ label: "Clases de guitarra", href: "https://wa.me/..." }` |
 
-Strip tracking params (`?si=...`) from Spotify and YouTube links.
+Clean every URL the user gives you (socials, contact, videos): drop the whole query string and fragment (`?si=`, `?igsh=`, `?rpxt=`, `utm_*`, etc.), leaving a plain URL like `https://www.instagram.com/handle`. The only exception is a query that identifies the resource, like `watch?v=<id>` on YouTube; keep just that parameter.
 
 Complete the socials from what you're given:
 

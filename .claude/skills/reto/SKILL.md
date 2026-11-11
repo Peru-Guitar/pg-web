@@ -1,6 +1,6 @@
 ---
 name: reto
-description: Creates or edits a Peru Guitar community challenge on peruguitar.com/retos. Use when the user asks for "nuevo reto", "agrega un reto", "el reto de esta semana", or names a lick or song fragment for the community to learn.
+description: Creates or edits a Peru Guitar community challenge on peruguitar.com/comunidad/retos. Use when the user asks for "nuevo reto", "agrega un reto", "el reto de esta semana", or names a lick or song fragment for the community to learn.
 ---
 
 # Peru Guitar challenge
@@ -30,7 +30,7 @@ You propose the rest.
 
 ## 2. Add the entry
 
-Add it at the **start** of `CHALLENGES` in `src/content/challenges.ts`. The list is newest first. `/retos`, the challenge page and the sitemap pick it up automatically.
+Add it at the **start** of `CHALLENGES` in `src/content/challenges.ts`. The list is newest first. `/comunidad/retos`, the challenge page and the sitemap pick it up automatically.
 
 | Field | Content |
 |---|---|
@@ -39,11 +39,13 @@ Add it at the **start** of `CHALLENGES` in `src/content/challenges.ts`. The list
 | `title` | Song or lick name only |
 | `artist` | Artist name |
 | `section` | The part to learn: `Solo el intro` |
+| `fretQuestUrl` | Optional. Full production URL of the Fret Quest exercise for this lick (`https://fretquest.peruguitar.com/...`), never localhost. Shown as a "Practícalo en Fret Quest" card under the video. |
+| `level` | Difficulty of the part: `1` principiante, `2` intermedio, `3` avanzado. Propose one and let the user confirm. |
 | `description` | Specific, 1 or 2 sentences: what to learn, what defines it, and that they should share it. It appears on the card and the hero, so never leave it vague. |
 | `cover` | Optional, see step 3 |
 | `youtubeId` | Video id only, not the full URL |
-| `range` | Where the part starts and ends in the video, shown below it: `{ start: "0:00", end: "0:33" }`. Never guess it. |
-| `tips` | 2 or 3 practical tips on how to work it out |
+| `range` | Where the part starts and ends in the video, shown below it: `{ start: "0:00", end: "0:33" }`. Mandatory: the embed uses it as start/end markers so the video plays only that part. Never guess it. |
+| `about` | Brief intro to the song, 1 or 2 sentences: album, year, what it is known for. Only facts you are sure of. No practice tips. |
 | `caption` | The Instagram text, in the format below |
 
 Caption format:
@@ -63,6 +65,6 @@ Never write `#N` loose (like "reto #1"): Instagram reads it as a hashtag. The on
 ## 4. When finished
 
 - Run `npm run lint` and `npm run build`.
-- Show the user the description, tips and caption to review.
+- Show the user the description, about and caption to review.
 - A new challenge is a patch version. Propose the version and wait for confirmation.
 - Don't commit unless asked. **Never push**: that only happens with the `push` skill and an explicit request.

@@ -25,6 +25,7 @@ Code, comments and docs are in English. User-facing content is in Spanish.
 - Use `.claude/skills/blog-post/SKILL.md` when adding or editing posts. Posts are TSX files in `src/content/posts/`, registered in `src/content/index.tsx`.
 - Use `.claude/skills/reto/SKILL.md` when adding or editing challenges. They live in `src/content/challenges.ts`.
 - Use `.claude/skills/artista/SKILL.md` when adding or editing artists. They live in `src/content/artists.ts`.
+- Use `.claude/skills/whatsapp-release/SKILL.md` for the WhatsApp announcement to the community group.
 - Write notes and keys in American notation (C, Eb, Em), never Do, Re, Mi. Spanish words like "mayor" and "armónica" stay.
 - Redesigns must not change post content.
 - Use the design tokens from `src/styles/theme.css` (`bg-brand`, `text-ink`) instead of raw colors.

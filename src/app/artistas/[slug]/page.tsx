@@ -236,9 +236,9 @@ export default async function ArtistPage({ params }: PageProps) {
       )}
 
       {/* Join */}
-      <Container className="pb-16 md:pb-24">
+      <div className="pb-10 md:pb-16">
         <ArtistJoin />
-      </Container>
+      </div>
 
       {/* More */}
       {others.length > 0 && (

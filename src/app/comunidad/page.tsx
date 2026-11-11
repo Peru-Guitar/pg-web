@@ -3,9 +3,11 @@ import Link from "next/link";
 import { ArrowRight, MessageCircle, Play, Users } from "lucide-react";
 import { pageMetadata } from "@/lib/metadata";
 import { CHALLENGES, getChallengeCover } from "@/content/challenges";
+import { ChallengeLevelBadge } from "@/components/ui/ChallengeLevelBadge";
 import { PODCAST_EPISODES, VIDEOS } from "@/content/media";
 import { youtubeUrl } from "@/content/settings.json";
 import { WHATSAPP_URL } from "@/content/community";
+import { MANGAS, mangaImage } from "@/content/manga";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -22,6 +24,7 @@ export const metadata = pageMetadata({
 const SECTIONS = [
   { id: "retos", label: "Retos" },
   { id: "collabs", label: "Collabs" },
+  { id: "manga", label: "Manga" },
   { id: "podcast", label: "Podcast" },
   { id: "recursos", label: "Recursos" },
   { id: "grupo", label: "Grupo" },
@@ -52,15 +55,15 @@ export default function CommunityPage() {
         <SectionHeader
           title="Retos"
           subtitle="Saca un lick o un pedazo de canción, grábate y compártelo."
-          link={{ label: "Todos los retos", href: "/retos" }}
+          link={{ label: "Todos los retos", href: "/comunidad/retos" }}
         />
       </div>
-      <div className="mb-16 grid gap-6 lg:grid-cols-2">
+      <div className="mb-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {CHALLENGES.slice(0, 2).map((challenge) => (
           <Link
             key={challenge.slug}
-            href={`/retos/${challenge.slug}`}
-            className="group flex flex-col overflow-hidden rounded-card border border-night-line bg-night text-on-night transition-colors hover:border-brand sm:flex-row"
+            href={`/comunidad/retos/${challenge.slug}`}
+            className="group flex flex-col overflow-hidden rounded-card border border-night-line bg-night text-on-night transition-colors hover:border-brand"
           >
             <img
               src={getChallengeCover(challenge)}
@@ -68,12 +71,15 @@ export default function CommunityPage() {
               width={1600}
               height={900}
               loading="lazy"
-              className="aspect-video w-full object-cover sm:aspect-auto sm:w-2/5 sm:shrink-0"
+              className="aspect-video w-full object-cover"
             />
             <div className="flex flex-1 flex-col gap-1 p-5">
-              <p className="text-xs font-bold uppercase tracking-widest text-accent">
-                Reto #{challenge.number}
-              </p>
+              <div className="flex items-center justify-between gap-3">
+                <p className="text-xs font-bold uppercase tracking-widest text-accent">
+                  Reto #{challenge.number}
+                </p>
+                <ChallengeLevelBadge level={challenge.level} className="text-on-night-muted" />
+              </div>
               <h3 className="text-xl font-bold">
                 {challenge.title} · {challenge.artist}
               </h3>
@@ -122,6 +128,120 @@ export default function CommunityPage() {
           </a>
         ))}
       </div>
+
+      {/* Manga */}
+      <div id="manga" className="scroll-mt-24">
+        <SectionHeader
+          title="Manga"
+          subtitle="Historias de la comunidad contadas en viñetas."
+        />
+      </div>
+      {MANGAS.map((manga) => (
+        <section
+          key={manga.slug}
+          aria-labelledby={`manga-${manga.slug}`}
+          className="relative isolate mb-16 overflow-hidden rounded-3xl bg-night text-on-night"
+        >
+          {/* Manga-style background: blurred cover, speed lines and halftone dots */}
+          <img
+            src={mangaImage(manga.slug, "cover", true)}
+            alt=""
+            aria-hidden
+            className="absolute inset-0 -z-30 h-full w-full scale-125 object-cover opacity-70 blur-xl saturate-150"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0 -z-[15] opacity-90 [background-image:repeating-conic-gradient(from_0deg_at_80%_50%,rgb(255_255_255/.14)_0deg_1.5deg,transparent_1.5deg_9deg)] [mask-image:radial-gradient(circle_at_80%_50%,transparent_15%,black_70%)]"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0 -z-10 bg-gradient-to-r from-night/10 via-night/55 to-night/70"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0 -z-10 [background-image:radial-gradient(rgb(255_255_255/.08)_1px,transparent_1.5px)] [background-size:10px_10px]"
+          />
+          <div className="grid md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
+            {/* Big cover on desktop only; mobile shows a small one next to the title */}
+            <Link
+              href={`/comunidad/manga/${manga.slug}`}
+              className="group hidden overflow-hidden md:block"
+            >
+              <img
+                src={mangaImage(manga.slug, "cover", true)}
+                alt={`Portada de ${manga.title}`}
+                width={400}
+                height={500}
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </Link>
+            <div className="flex min-w-0 flex-col justify-center gap-5 p-5 sm:p-8">
+              <div>
+                <div className="flex items-center gap-4">
+                  <Link
+                    href={`/comunidad/manga/${manga.slug}`}
+                    className="w-24 shrink-0 -rotate-3 overflow-hidden rounded-md shadow-xl ring-1 ring-white/20 md:hidden"
+                  >
+                    <img
+                      src={mangaImage(manga.slug, "cover", true)}
+                      alt={`Portada de ${manga.title}`}
+                      width={400}
+                      height={500}
+                      loading="lazy"
+                      className="w-full"
+                    />
+                  </Link>
+                  <div>
+                    <p className="mb-2 text-xs font-bold uppercase tracking-[.2em] text-accent">
+                      Manga · Vol. {manga.volume}
+                    </p>
+                    <h2
+                      id={`manga-${manga.slug}`}
+                      className="text-2xl font-extrabold leading-tight sm:text-3xl"
+                    >
+                      {manga.title}
+                    </h2>
+                  </div>
+                </div>
+                <p className="mt-4 text-on-night-muted">{manga.description}</p>
+              </div>
+              {/* Chapters: desktop only; mobile keeps just the cover and the button */}
+              <ol className="hidden grid-cols-5 gap-3 md:grid">
+                {manga.chapters.map((chapter) => (
+                  <li key={chapter.number}>
+                    <Link
+                      href={`/comunidad/manga/${manga.slug}#capitulo-${chapter.number}`}
+                      className="group block"
+                    >
+                      <img
+                        src={mangaImage(manga.slug, `capitulo-${chapter.number}`, true)}
+                        alt=""
+                        width={400}
+                        height={500}
+                        loading="lazy"
+                        className="aspect-[4/5] w-full rounded-lg object-cover ring-1 ring-white/10 transition-transform group-hover:-translate-y-1"
+                      />
+                      <span className="mt-2 block text-xs font-bold text-on-night-muted group-hover:text-accent">
+                        Cap. {chapter.number}
+                      </span>
+                      <span className="block text-xs leading-snug text-on-night">
+                        {chapter.title}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ol>
+              <Link
+                href={`/comunidad/manga/${manga.slug}`}
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-brand px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-brand-strong md:self-start md:py-2.5"
+              >
+                Leer el manga <ArrowRight size={16} />
+              </Link>
+            </div>
+          </div>
+        </section>
+      ))}
 
       <div id="podcast" className="scroll-mt-24">
         <SectionHeader

@@ -8,7 +8,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "Artistas PG",
   description:
-    "Guitarristas peruanos que tienes que conocer: su música, sus videos y dónde seguirlos.",
+    "Guitarristas que tienes que conocer: su música, sus videos y dónde seguirlos.",
   path: "/artistas",
   image: ARTISTS_HERO,
 });
@@ -50,9 +50,9 @@ export default function ArtistsPage() {
         <p className="mb-2 text-xs font-bold uppercase tracking-[.2em] text-accent">
           Artistas PG
         </p>
-        <h1 className="mb-2 text-4xl font-extrabold">Guitarristas peruanos</h1>
+        <h1 className="mb-2 text-4xl font-extrabold">Guitarristas que tienes que conocer</h1>
         <p className="mt-4 max-w-xl text-lg text-on-night-muted">
-          Músicos que mueven la escena de la guitarra en Perú. Escucha su
+          Músicos que mueven la escena de la guitarra. Escucha su
           música, mira sus videos y síguelos.
         </p>
       </Container>
@@ -105,8 +105,8 @@ export default function ArtistsPage() {
               </div>
             </section>
           ))}
-        <ArtistJoin />
       </Container>
+      <ArtistJoin />
     </div>
   );
 }
