@@ -2,7 +2,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, BookOpen } from "lucide-react";
-import { MANGAS, getManga, mangaImage, mangaOg } from "@/content/manga";
+import { DEFAULT_PAGE_SIZE, MANGAS, getManga, mangaImage, mangaOg } from "@/content/manga";
 import { Container } from "@/components/layout/Container";
 import { MangaChapterBar } from "@/components/ui/MangaChapterBar";
 import { pageMetadata } from "@/lib/metadata";
@@ -34,6 +34,7 @@ export default async function MangaPage({ params }: PageProps) {
   const manga = getManga((await params).slug);
   if (!manga) notFound();
   const cover = mangaImage(manga.slug, "cover");
+  const { width, height } = manga.pageSize ?? DEFAULT_PAGE_SIZE;
 
   return (
     // -mb-10 pb-10: cover the footer's top margin so no light strip shows between them.
@@ -51,8 +52,8 @@ export default async function MangaPage({ params }: PageProps) {
           <img
             src={cover}
             alt={`Portada de ${manga.title}, volumen ${manga.volume}`}
-            width={1122}
-            height={1402}
+            width={width}
+            height={height}
             className="mx-auto w-full max-w-sm -rotate-2 rounded-md shadow-[0_30px_80px_-20px_rgb(0_0_0/.9)] ring-1 ring-white/15 md:max-w-none"
           />
           <div>
@@ -123,8 +124,8 @@ export default async function MangaPage({ params }: PageProps) {
             <img
               src={mangaImage(manga.slug, `capitulo-${chapter.number}`)}
               alt={`Capítulo ${chapter.number}: ${chapter.title}`}
-              width={1122}
-              height={1402}
+              width={width}
+              height={height}
               loading="lazy"
               className="block h-auto w-full"
             />
@@ -135,10 +136,7 @@ export default async function MangaPage({ params }: PageProps) {
       {/* End of volume */}
       <footer className={`border-t border-white/10 ${HALFTONE}`}>
         <div className="mx-auto flex max-w-3xl flex-col items-center px-4 py-16 text-center">
-          <p className="-rotate-3 rounded-sm border-4 border-brand px-5 py-2 text-3xl font-black uppercase tracking-wider text-brand">
-            Fin del Vol. {manga.volume}
-          </p>
-          <p className="mt-6 text-on-night-muted">¿Te gustó? Compártelo con la comunidad.</p>
+          <p className="text-on-night-muted">¿Te gustó? Compártelo con la comunidad.</p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <a
               href="#capitulo-1"

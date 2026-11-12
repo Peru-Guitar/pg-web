@@ -29,7 +29,7 @@ It's for the **Peru Guitar community**, in the WhatsApp group, and it's written 
 
 WhatsApp format, not Markdown: `*bold*`, `_italics_`, lists with `- `. No `#` or bracket links. Deliver it in a code block so it can be copied as is.
 
-- Don't put the version number in the message: the community doesn't care about it.
+- Include the version in the title line, as `v<version>` (e.g. `v1.42.3`), and nowhere else.
 - Links always with full `https://` URLs to the exact page (artist, challenge, manga, post), so they're clickable.
 - Notes in American notation (C, Eb, Am), never Do Re Mi.
 - Warm and direct, second person, short sentences. Say why each thing is worth a look, using only facts from the content. Don't make anything up.
@@ -39,7 +39,7 @@ WhatsApp format, not Markdown: `*bold*`, `_italics_`, lists with `- `. No `#` or
 ## 4. Template
 
 ```
-🎸 *Novedades en Peru Guitar*
+🎸 *Novedades en Peru Guitar · v<version>*
 
 <Una o dos frases con lo más importante.>
 

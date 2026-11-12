@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import { getLatestPosts } from "@/lib/posts";
 import { BOOKS, RESOURCES } from "@/content/resources";
-import { MANGAS, mangaImage } from "@/content/manga";
+import { LATEST_MANGA, MANGAS, mangaImage } from "@/content/manga";
 import { TornBand } from "@/components/ui/TornBand";
 import { PODCAST_EPISODES, VIDEOS } from "@/content/media";
 import { CHALLENGE_LEVELS, CHALLENGES, getChallengeCover } from "@/content/challenges";
@@ -224,12 +224,12 @@ export default function Home() {
             <ul className="grid gap-4 md:grid-cols-3">
               {[
                 {
-                  href: `/comunidad/manga/${MANGAS[0].slug}`,
-                  image: mangaImage(MANGAS[0].slug, "cover", true),
+                  href: `/comunidad/manga/${LATEST_MANGA.slug}`,
+                  image: mangaImage(LATEST_MANGA.slug, "cover", true),
                   portrait: true,
                   tag: "Manga",
-                  title: `${MANGAS[0].title} · Vol. ${MANGAS[0].volume}`,
-                  meta: `${MANGAS[0].chapters.length} capítulos`,
+                  title: `${LATEST_MANGA.title} · Vol. ${LATEST_MANGA.volume}`,
+                  meta: `${LATEST_MANGA.chapters.length} capítulos`,
                 },
                 {
                   href: `/comunidad/retos/${CHALLENGES[0].slug}`,

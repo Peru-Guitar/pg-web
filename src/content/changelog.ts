@@ -2,6 +2,14 @@
 // `date` is the release day (YYYY-MM-DD): the page groups versions released the same day.
 export const changelog: { version: string; date: string; notes: string[] }[] = [
   {
+    version: "0.5.1",
+    date: "2026-11-11",
+    notes: [
+      "Nuevo: el manga de MayinBlues, La leyenda de MAYINBLUES Vol. 2, con seis capítulos.",
+      "El manga en Comunidad ahora se ordena por serie y volumen.",
+    ],
+  },
+  {
     version: "0.5.0",
     date: "2026-11-11",
     notes: [

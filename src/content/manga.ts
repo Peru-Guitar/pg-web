@@ -4,17 +4,41 @@ export interface MangaChapter {
   title: string;
 }
 
+/** A manga series; each volume points to it through `series`. */
+export interface MangaSeries {
+  id: string;
+  name: string;
+  description: string;
+}
+
+export const MANGA_SERIES: MangaSeries[] = [
+  {
+    id: "mayinblues",
+    name: "MayinBlues",
+    description:
+      "La saga del guitarrista comediante que inventó el Comedy Picking. Léela en orden, desde el Vol. 1.",
+  },
+];
+
 export interface Manga {
+  /** `MangaSeries.id` this volume belongs to. */
+  series: string;
   /** Route segment: `<title>_<volume>`, e.g. `mayinblues_1` → /manga/mayinblues_1. */
   slug: string;
   title: string;
   volume: number;
   description: string;
   chapters: MangaChapter[];
+  /** Pixel size of the cover and chapter pages. Defaults to 1122x1402. */
+  pageSize?: { width: number; height: number };
 }
 
+export const DEFAULT_PAGE_SIZE = { width: 1122, height: 1402 };
+
+/** Oldest first (ASC). The home page features the last one. */
 const MANGA_LIST: Manga[] = [
   {
+    series: "mayinblues",
     slug: "mayinblues_1",
     title: "La historia de MAYINBLUES",
     volume: 1,
@@ -28,9 +52,36 @@ const MANGA_LIST: Manga[] = [
       { number: 5, title: "El emperador del Comedy Picking" },
     ],
   },
+  {
+    series: "mayinblues",
+    slug: "mayinblues_2",
+    title: "La leyenda de MAYINBLUES",
+    volume: 2,
+    description:
+      "El origen de la escuela del Comedy Picking. Lima, comienzos de los 2000: videos bajados por Ares y eMule, licks que no salían y una gran idea.",
+    chapters: [
+      { number: 1, title: "El conocimiento prohibido" },
+      { number: 2, title: "El demonio de los parques" },
+      { number: 3, title: "El guerrero de los mil dojos" },
+      { number: 4, title: "El maestro que nunca existió" },
+      { number: 5, title: "Los últimos duelos" },
+      { number: 6, title: "La revelación espiritual" },
+    ],
+    pageSize: { width: 941, height: 1672 },
+  },
 ];
 
 export const MANGAS = MANGA_LIST;
+
+/** Each series with its volumes in reading order (Vol. 1 first). */
+export const mangaSeriesWithVolumes = () =>
+  MANGA_SERIES.map((series) => ({
+    ...series,
+    volumes: MANGAS.filter((m) => m.series === series.id).sort((a, b) => a.volume - b.volume),
+  })).filter(({ volumes }) => volumes.length > 0);
+
+/** The most recently added volume. */
+export const LATEST_MANGA = MANGAS[MANGAS.length - 1];
 
 export const getManga = (slug: string) => MANGAS.find((m) => m.slug === slug);
 
