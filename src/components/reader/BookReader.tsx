@@ -107,7 +107,7 @@ export function BookReader({
     <section className={`book-reader reader-${preferences.theme}`}>
       <div className="reader-toolbar sticky top-14 z-30 border-b px-4 py-3">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
-          <Link href="/comunidad#recursos" className="flex items-center gap-2 text-sm">
+          <Link href="/comunidad/recursos" className="flex items-center gap-2 text-sm">
             <ArrowLeft size={16} /> Biblioteca
           </Link>
           <details className="relative lg:hidden">
@@ -226,7 +226,7 @@ export function BookReader({
             {children}
           </div>
           <Link
-            href="/comunidad#recursos"
+            href="/comunidad/recursos"
             className="mt-12 inline-flex items-center gap-2 text-sm font-bold"
           >
             <ArrowLeft size={16} /> Volver a los recursos

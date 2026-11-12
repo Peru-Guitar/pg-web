@@ -14,6 +14,10 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
+  // Lets React's <ViewTransition> animate client-side navigations.
+  experimental: {
+    viewTransition: true,
+  },
 };
 
 export default nextConfig;

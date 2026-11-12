@@ -1,4 +1,4 @@
-import { AudioPlayer } from "../components/AudioPlayer";
+import { AudioPlayer } from "../components/lazy";
 import { Post, PostAuthor, PostCategory } from "../types";
 
 export const porqQueComponemosMalosSolos: Post = {

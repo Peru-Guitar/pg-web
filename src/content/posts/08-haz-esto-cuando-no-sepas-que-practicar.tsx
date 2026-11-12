@@ -1,4 +1,4 @@
-import { TabVisualizer } from "../components/TabVisualizer/TabVisualizer";
+import { TabVisualizer } from "../components/lazy";
 import { YouTubePlayer } from "../components/YouTubePlayer";
 import { Post, PostAuthor, PostCategory } from "../types";
 

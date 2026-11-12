@@ -2,6 +2,18 @@
 // `date` is the release day (YYYY-MM-DD): the page groups versions released the same day.
 export const changelog: { version: string; date: string; notes: string[] }[] = [
   {
+    version: "0.6.0",
+    date: "2026-11-12",
+    notes: [
+      "Comunidad estrena páginas propias para retos, collabs, manga, podcast y recursos, con todo su catálogo.",
+      "Nuevo: el manga de MayinBlues, Los alumnos a los que les desgració la vida Vol. 3.",
+      "Nuevo artista: Santiago Zumarán.",
+      "El podcast carga más rápido: el reproductor se abre al darle play.",
+      "Las páginas cargan más rápido y las portadas del manga se animan al abrirlas.",
+      "Nuevo fondo en la portada del inicio.",
+    ],
+  },
+  {
     version: "0.5.2",
     date: "2026-11-12",
     notes: ["Nuevo artículo: Peru Guitar, más de 20 años de guitarra."],

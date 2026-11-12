@@ -9,5 +9,5 @@ export const metadata = pageMetadata({
 });
 
 export default function ResourcesPage() {
-  return <LegacyRedirect to="/comunidad#recursos" />;
+  return <LegacyRedirect to="/comunidad/recursos" />;
 }

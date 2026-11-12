@@ -38,6 +38,27 @@ export interface Artist {
 
 const ARTIST_LIST: Artist[] = [
   {
+    slug: "santiago-zumaran",
+    name: "Santiago Zumarán",
+    tagline: "Guitarrista de blues, estudiante de ejecución y sesionista",
+    bio: [
+      "Santiago Zumarán es un guitarrista de blues que estudia música con especialidad en ejecución en la UPC. Trabaja como sesionista y ganó el concurso de la tienda MakeMusic, cuyo premio fue una Gibson SG Standard 61.",
+      "Empezó a tocar a los 9 años con la guitarra acústica. Desde el inicio sacó arreglos en fingerstyle, deslumbrado por guitarristas asiáticos que tocaban a la vez la armonía y la melodía de la voz. Eso fue lo que hizo principalmente hasta los 15 años.",
+      "A esa edad le compraron su primera guitarra eléctrica. Hasta entonces no la disfrutaba mucho, porque la asociaba con distorsiones y géneros pesados. Todo cambió cuando, por casualidad, llegó a un video de John Mayer y descubrió una forma de tocarla completamente distinta a la que había imaginado.",
+      "Al escuchar distintas versiones en vivo de una misma canción, notó que Mayer nunca tocaba el mismo solo: así descubrió la improvisación. También gracias a él llegó al blues y a guitarristas como B.B. King y Stevie Ray Vaughan, un género donde la guitarra suena visceral y humana. Ahí empezó de verdad su camino en la música.",
+      "Años después empezó la carrera de música en la UPC y entró a la especialidad de ejecución, porque tocar la guitarra es lo que más lo mueve. La guitarra lo ha llevado a tocar en escenarios y a trabajar como sesionista en distintos proyectos.",
+      "En 2025 participó en el concurso de la tienda MakeMusic, con alrededor de 250 participantes. Fue uno de los 10 finalistas que tocaron en vivo en la tienda y, para su sorpresa, ganó el gran premio: una Gibson SG Standard 61. En 2026 obtuvo el tercer puesto en el Segundo Concurso de Peru Guitar, donde 40 guitarristas crearon un solo sobre el mismo backing track.",
+      "Lo que más destaca de su forma de tocar, según le han dicho siempre, es el feeling. No se considera un guitarrista virtuoso ni de gran velocidad, algo que admira en otros y que siempre le ha costado. Por eso, y por la música que escucha, en su mayoría blues, lo que más ha desarrollado es hablar a través de la guitarra.",
+      "Hoy sigue buscando su camino en la música, abierto a los lugares y personas a los que la guitarra lo lleve. A todo el que toque guitarra le pide que la disfrute y que se sienta afortunado, porque probablemente es lo más cercano que tenemos a un superpoder.",
+    ],
+    birthDate: "2004-09-06",
+    styles: ["Blues", "Improvisación", "Fingerstyle"],
+    photo: "/content/artistas/santiago-zumaran/photo.webp",
+    socials: {
+      instagram: "https://www.instagram.com/santiagozumaran",
+    },
+  },
+  {
     slug: "brandon-murga",
     name: "Brandon Murga",
     tagline: "Guitarrista de metal, darkwave y metal industrial",

@@ -1,5 +1,5 @@
 import { Post, PostAuthor, PostCategory } from "../types";
-import { TabVisualizer } from "../components/TabVisualizer/TabVisualizer";
+import { TabVisualizer } from "../components/lazy";
 
 const FRET_QUEST_MODALES = "https://fretquest.peruguitar.com/ejercicios/pentatonica#modales";
 

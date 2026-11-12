@@ -17,7 +17,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/artistas`, lastModified: new Date() },
     ...ARTISTS.map(({ slug }) => ({ url: `${SITE_URL}/artistas/${slug}` })),
     ...MANGAS.map(({ slug }) => ({ url: `${SITE_URL}/comunidad/manga/${slug}` })),
-    { url: `${SITE_URL}/comunidad/retos`, lastModified: new Date() },
+    ...["retos", "collabs", "manga", "podcast", "recursos"].map((section) => ({
+      url: `${SITE_URL}/comunidad/${section}`,
+      lastModified: new Date(),
+    })),
     { url: `${SITE_URL}/tienda`, lastModified: new Date() },
     { url: `${SITE_URL}/acerca-de-nosotros` },
     { url: `${SITE_URL}/comunidad/recursos/no-mas-arpegios-aburridos` },

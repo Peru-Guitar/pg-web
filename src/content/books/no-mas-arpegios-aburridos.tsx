@@ -1,4 +1,4 @@
-import { TabVisualizer } from "../components/TabVisualizer/TabVisualizer";
+import { TabVisualizer } from "../components/lazy";
 import { TABS } from "./no-mas-arpegios-aburridos-tabs";
 
 export const CHAPTERS = [

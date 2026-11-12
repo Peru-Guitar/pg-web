@@ -29,6 +29,7 @@ const RANKING: {
   {
     name: "Santiago Zumarán",
     instagram: "santiagozumaran",
+    artist: "santiago-zumaran",
     feedback:
       "Precisión y feeling, con slides, vibratos y bends que realzan el clímax.",
   },

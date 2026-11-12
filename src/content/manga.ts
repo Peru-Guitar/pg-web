@@ -69,19 +69,35 @@ const MANGA_LIST: Manga[] = [
     ],
     pageSize: { width: 941, height: 1672 },
   },
+  {
+    series: "mayinblues",
+    slug: "mayinblues_3",
+    title: "Los alumnos a los que les desgració la vida",
+    volume: 3,
+    description:
+      "Un periodista de PG TV investiga qué fue de los antiguos alumnos de MayinBlues. Cuatro historias que explican por qué su nombre genera tanto temor.",
+    chapters: [
+      { number: 1, title: "La entrevista" },
+      { number: 2, title: "El primer alumno" },
+      { number: 3, title: "Sacrificios necesarios" },
+      { number: 4, title: "El gran legado" },
+    ],
+    pageSize: { width: 941, height: 1672 },
+  },
 ];
 
-export const MANGAS = MANGA_LIST;
+/** Newest first (DESC), like every other catalog on the site. */
+export const MANGAS = [...MANGA_LIST].reverse();
 
-/** Each series with its volumes in reading order (Vol. 1 first). */
+/** Each series with its volumes, newest first. */
 export const mangaSeriesWithVolumes = () =>
   MANGA_SERIES.map((series) => ({
     ...series,
-    volumes: MANGAS.filter((m) => m.series === series.id).sort((a, b) => a.volume - b.volume),
+    volumes: MANGAS.filter((m) => m.series === series.id).sort((a, b) => b.volume - a.volume),
   })).filter(({ volumes }) => volumes.length > 0);
 
 /** The most recently added volume. */
-export const LATEST_MANGA = MANGAS[MANGAS.length - 1];
+export const LATEST_MANGA = MANGAS[0];
 
 export const getManga = (slug: string) => MANGAS.find((m) => m.slug === slug);
 

@@ -31,11 +31,16 @@ export default function Home() {
   return (
     <>
       <section className="home-hero relative isolate overflow-hidden bg-night text-on-night">
-        <div className="hero-strings" aria-hidden="true">
-          {[0, 1, 2, 3, 4, 5].map((n) => (
-            <i key={n} />
-          ))}
-        </div>
+        <img
+          src="/content/artistas/hero.webp"
+          alt=""
+          aria-hidden="true"
+          width={1600}
+          height={900}
+          fetchPriority="high"
+          className="home-hero-image"
+        />
+        <div className="home-hero-shade" aria-hidden="true" />
         <Container className="relative grid gap-12 pb-16 pt-32 md:pb-24 md:pt-40 lg:grid-cols-[1.15fr_1fr] lg:items-center">
           <div>
             <p className="mb-6 text-xs font-bold uppercase tracking-[.23em] text-accent">
@@ -141,9 +146,9 @@ export default function Home() {
           subtitle="Escena, ideas y todo lo que pasa alrededor de la guitarra."
           link={{ label: "Explorar el blog", href: "/blog" }}
         />
-        <div className="grid gap-4 md:grid-cols-2">
-          {getLatestPosts(6).map((post) => (
-            <PostCard key={post.id} post={post} layout="row" />
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {getLatestPosts(8).map((post) => (
+            <PostCard key={post.id} post={post} />
           ))}
         </div>
       </Container>
@@ -186,21 +191,21 @@ export default function Home() {
             <ul className="mb-10 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
               {[
                 {
-                  href: "/comunidad#retos",
+                  href: "/comunidad/retos",
                   icon: Trophy,
                   name: "Retos",
                   meta: `${CHALLENGES.length} ${CHALLENGES.length === 1 ? "reto" : "retos"}`,
                 },
-                { href: "/comunidad#collabs", icon: Video, name: "Collabs", meta: `${VIDEOS.length} videos` },
+                { href: "/comunidad/collabs", icon: Video, name: "Collabs", meta: `${VIDEOS.length} videos` },
                 {
-                  href: "/comunidad#manga",
+                  href: "/comunidad/manga",
                   icon: BookOpenText,
                   name: "Manga",
                   meta: `${MANGAS.length} ${MANGAS.length === 1 ? "volumen" : "volúmenes"}`,
                 },
-                { href: "/comunidad#podcast", icon: Mic, name: "Podcast", meta: `${PODCAST_EPISODES.length} episodios` },
+                { href: "/comunidad/podcast", icon: Mic, name: "Podcast", meta: `${PODCAST_EPISODES.length} episodios` },
                 { href: `/comunidad/recursos/${BOOKS[0].id}`, icon: BookOpen, name: "Ebook", meta: "Gratis" },
-                { href: "/comunidad#recursos", icon: Music2, name: "Tracks", meta: `${RESOURCES.length} backing tracks` },
+                { href: "/comunidad/recursos", icon: Music2, name: "Tracks", meta: `${RESOURCES.length} backing tracks` },
               ].map(({ href, icon: Icon, name, meta }) => (
                 <li key={name}>
                   <Link
@@ -229,7 +234,6 @@ export default function Home() {
                   portrait: true,
                   tag: "Manga",
                   title: `${LATEST_MANGA.title} · Vol. ${LATEST_MANGA.volume}`,
-                  meta: `${LATEST_MANGA.chapters.length} capítulos`,
                 },
                 {
                   href: `/comunidad/retos/${CHALLENGES[0].slug}`,
@@ -246,7 +250,15 @@ export default function Home() {
                   title: VIDEOS[0].title,
                   meta: "Video en YouTube",
                 },
-              ].map(({ href, external, image, portrait, tag, title, meta }) => (
+              ].map(({ href, external, image, portrait, tag, title, meta }: {
+                href: string;
+                external?: boolean;
+                image: string;
+                portrait?: boolean;
+                tag: string;
+                title: string;
+                meta?: string;
+              }) => (
                 <li key={href}>
                   <a
                     href={href}
@@ -268,7 +280,7 @@ export default function Home() {
                       <span className="mt-1 font-bold leading-snug group-hover:text-brand">
                         {title}
                       </span>
-                      <span className="mt-1 text-sm text-ink-muted">{meta}</span>
+                      {meta && <span className="mt-1 text-sm text-ink-muted">{meta}</span>}
                     </span>
                   </a>
                 </li>
@@ -281,7 +293,7 @@ export default function Home() {
               <div>
                 <div className="mb-4 flex items-baseline justify-between gap-4">
                   <h3 className="text-xl font-extrabold">Collabs</h3>
-                  <Link href="/comunidad#collabs" className="text-sm font-semibold text-brand hover:underline">
+                  <Link href="/comunidad/collabs" className="text-sm font-semibold text-brand hover:underline">
                     Ver todos
                   </Link>
                 </div>
@@ -321,7 +333,7 @@ export default function Home() {
                 <div>
                   <h3 className="mb-4 text-xl font-extrabold">Podcast</h3>
                   <Link
-                    href="/comunidad#podcast"
+                    href="/comunidad/podcast"
                     className="group flex items-center gap-4 rounded-xl bg-night p-4 text-on-night transition-transform hover:-translate-y-0.5"
                   >
                     <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-brand text-white">
@@ -346,7 +358,7 @@ export default function Home() {
                     {[
                       { href: `/comunidad/recursos/${BOOKS[0].id}`, icon: BookOpen, name: BOOKS[0].name, meta: "Ebook" },
                       ...RESOURCES.map((track) => ({
-                        href: `/comunidad#${track.id}`,
+                        href: `/comunidad/recursos#${track.id}`,
                         icon: Music2,
                         name: track.name,
                         meta: "Backing track",

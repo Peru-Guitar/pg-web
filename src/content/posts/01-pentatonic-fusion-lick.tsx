@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Post, PostAuthor, PostCategory } from "../types";
-import { TabVisualizer } from "../components/TabVisualizer/TabVisualizer";
+import { TabVisualizer } from "../components/lazy";
 import { YouTubePlayer } from "../components/YouTubePlayer";
 
 export const pentatonicFusionLick01: Post = {

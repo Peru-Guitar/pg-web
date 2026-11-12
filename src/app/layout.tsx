@@ -16,6 +16,21 @@ const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
 });
 
+const SPECULATION_RULES = {
+  prefetch: [
+    {
+      where: {
+        and: [
+          { href_matches: "/*" },
+          { not: { href_matches: "/*.(pdf|mp3|zip|jpg|png|webp)" } },
+          { not: { selector_matches: "[download], [target=_blank]" } },
+        ],
+      },
+      eagerness: "moderate",
+    },
+  ],
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
@@ -63,6 +78,12 @@ export default function RootLayout({
         <Footer />
         <CopyGuard />
         <ServiceWorker />
+        {/* Speculation Rules: prefetch internal pages on hover/press so plain
+            <a> links (and full page loads) open instantly. Chromium only. */}
+        <script
+          type="speculationrules"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(SPECULATION_RULES) }}
+        />
         <Script src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: cloudflareAnalyticsToken })} strategy="afterInteractive" />
       </body>
     </html>

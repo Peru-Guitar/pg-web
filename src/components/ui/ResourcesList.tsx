@@ -10,10 +10,16 @@ const THUMB = "aspect-square w-20 shrink-0 rounded-lg bg-night object-cover";
 const ACTION =
   "inline-flex items-center gap-1 text-sm font-semibold text-brand hover:text-brand-strong";
 
-/** Free ebooks and backing tracks as compact rows, shown inside the community page. */
-export const ResourcesList = () => (
+/**
+ * Free ebooks and backing tracks as compact rows. `limit` caps the total
+ * (ebooks first), used for the preview on the community hub.
+ */
+export const ResourcesList = ({ limit }: { limit?: number }) => {
+  const books = BOOKS.slice(0, limit);
+  const tracks = RESOURCES.slice(0, limit === undefined ? undefined : Math.max(0, limit - books.length));
+  return (
   <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-    {BOOKS.map((book) => (
+    {books.map((book) => (
       <article key={book.id} id={book.id} className={CARD}>
         {book.cover ? (
           <img src={book.cover} alt="" loading="lazy" className={THUMB} />
@@ -31,7 +37,7 @@ export const ResourcesList = () => (
         </div>
       </article>
     ))}
-    {RESOURCES.map((track) => (
+    {tracks.map((track) => (
       <article key={track.id} id={track.id} className={CARD}>
         <img
           src={`https://img.youtube.com/vi/${track.youtubeId}/hqdefault.jpg`}
@@ -69,3 +75,4 @@ export const ResourcesList = () => (
     ))}
   </div>
 );
+};

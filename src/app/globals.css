@@ -33,22 +33,43 @@ button:disabled {
   opacity: 0.35;
 }
 .home-hero {
-  background:
-    radial-gradient(ellipse at 90% 0%, #5ab8ec1f, transparent 55%), #111111;
+  background: var(--color-night);
 }
-.hero-strings {
+/* Mobile/tablet: the hero is tall (headline + Fret Quest card), so the photo
+   only covers the top band, where the headline sits, and fades into night.
+   Stretching it over the whole hero zoomed it into a dark blur. */
+.home-hero-image {
   position: absolute;
-  inset: 0;
-  overflow: hidden;
+  inset: 0 0 auto;
+  width: 100%;
+  height: min(42rem, 100%);
+  object-fit: cover;
+  object-position: 68% top;
   pointer-events: none;
-  opacity: 0.17;
-  transform: rotate(-24deg) scale(1.6);
 }
-.hero-strings i {
-  display: block;
-  height: 1px;
-  margin-top: 48px;
-  background: linear-gradient(90deg, transparent, #5ab8ec);
+.home-hero-shade {
+  position: absolute;
+  inset: 0 0 auto;
+  height: min(42rem, 100%);
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgb(17 17 17 / 35%), rgb(17 17 17 / 70%) 55%, var(--color-night)),
+    linear-gradient(90deg, rgb(17 17 17 / 80%), rgb(17 17 17 / 20%));
+}
+@media (min-width: 1024px) {
+  .home-hero-image,
+  .home-hero-shade {
+    inset: 0;
+    height: 100%;
+  }
+  .home-hero-image {
+    object-position: center;
+  }
+  .home-hero-shade {
+    background:
+      linear-gradient(0deg, var(--color-night), transparent 40%),
+      linear-gradient(90deg, rgb(17 17 17 / 92%), rgb(17 17 17 / 25%));
+  }
 }
 .quest-feature {
   background:
@@ -265,4 +286,33 @@ body:has(.book-reader) .reader-toolbar {
 .community-strings i:nth-child(odd) {
   height: 2px;
   opacity: 0.6;
+}
+
+/* View transitions (React <ViewTransition>, enabled in next.config.ts) */
+/* Only the manga covers animate; the rest of the page swaps instantly. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+}
+
+::view-transition-group(*) {
+  animation-duration: 260ms;
+  animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* Manga covers: the cropped thumbnail and the full cover differ in shape,
+   so crop both snapshots from the top instead of stretching them. */
+::view-transition-old(.manga-cover),
+::view-transition-new(.manga-cover) {
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
 }

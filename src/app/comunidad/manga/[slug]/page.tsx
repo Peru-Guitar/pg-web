@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { notFound } from "next/navigation";
+import { ViewTransition } from "react";
 import Link from "next/link";
 import { ArrowLeft, BookOpen } from "lucide-react";
 import { DEFAULT_PAGE_SIZE, MANGAS, getManga, mangaImage, mangaOg } from "@/content/manga";
@@ -49,16 +50,18 @@ export default async function MangaPage({ params }: PageProps) {
         />
         <div className={`absolute inset-0 -z-10 bg-gradient-to-b from-black/60 via-black/70 to-black ${HALFTONE}`} />
         <Container className="grid items-center gap-10 pb-14 pt-24 md:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] md:gap-14 md:pb-20 md:pt-32">
-          <img
-            src={cover}
-            alt={`Portada de ${manga.title}, volumen ${manga.volume}`}
-            width={width}
-            height={height}
-            className="mx-auto w-full max-w-sm -rotate-2 rounded-md shadow-[0_30px_80px_-20px_rgb(0_0_0/.9)] ring-1 ring-white/15 md:max-w-none"
-          />
+          <ViewTransition name={`manga-cover-${manga.slug}`} share="manga-cover">
+            <img
+              src={cover}
+              alt={`Portada de ${manga.title}, volumen ${manga.volume}`}
+              width={width}
+              height={height}
+              className="mx-auto w-full max-w-sm -rotate-2 rounded-md shadow-[0_30px_80px_-20px_rgb(0_0_0/.9)] ring-1 ring-white/15 md:max-w-none"
+            />
+          </ViewTransition>
           <div>
             <Link
-              href="/comunidad#manga"
+              href="/comunidad/manga"
               className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-on-night-muted transition-colors hover:text-accent"
             >
               <ArrowLeft size={16} /> Comunidad
@@ -145,7 +148,7 @@ export default async function MangaPage({ params }: PageProps) {
               Volver al capítulo 1
             </a>
             <Link
-              href="/comunidad#manga"
+              href="/comunidad/manga"
               className="rounded-pill bg-brand px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-brand-strong"
             >
               Ir a la comunidad

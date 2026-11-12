@@ -8,7 +8,7 @@ import { TabVisualizerChordName } from "./components/TabVisualizerChordName";
 import { TabVisualizerControls } from "./components/TabVisualizerControls";
 import { TabStep, TabStepNote, useTabPlayback } from "./useTabPlayback";
 
-interface TabVisualizerProps {
+export interface TabVisualizerProps {
   notes: string[];
   title?: string;
   maxNotesPerLine?: number;
