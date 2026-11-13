@@ -36,11 +36,7 @@ export const ChallengeCard = ({
         </div>
         <h3 className="text-xl font-bold">{challenge.title}</h3>
         <p className="text-sm font-medium">{challenge.artist}</p>
-        {row ? (
-          <p className="mt-2 text-sm text-on-night-muted">{challenge.description}</p>
-        ) : (
-          <p className="text-sm text-on-night-muted">{challenge.section}</p>
-        )}
+        <p className="mt-2 text-sm text-on-night-muted">{challenge.description}</p>
         <span className="mt-auto flex items-center gap-1 pt-4 text-sm font-semibold text-accent">
           Ver reto
           <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />

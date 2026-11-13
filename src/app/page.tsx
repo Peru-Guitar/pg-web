@@ -16,10 +16,11 @@ import {
 } from "lucide-react";
 import { getLatestPosts } from "@/lib/posts";
 import { BOOKS, RESOURCES } from "@/content/resources";
-import { LATEST_MANGA, MANGAS, mangaImage } from "@/content/manga";
+import { MANGAS, mangaImage } from "@/content/manga";
 import { TornBand } from "@/components/ui/TornBand";
 import { PODCAST_EPISODES, VIDEOS } from "@/content/media";
-import { CHALLENGE_LEVELS, CHALLENGES, getChallengeCover } from "@/content/challenges";
+import { CHALLENGES } from "@/content/challenges";
+import { ChallengeCard } from "@/components/community/ChallengeCard";
 import { WHATSAPP_URL } from "@/content/community";
 import { RandomArtists } from "@/components/ui/RandomArtists";
 import { Container } from "@/components/layout/Container";
@@ -222,71 +223,56 @@ export default function Home() {
               ))}
             </ul>
 
-            {/* What's new: the latest item of each kind */}
-            <p className="mb-4 flex items-center gap-2 text-xs font-bold uppercase tracking-widest">
-              <span className="size-2 animate-pulse rounded-full bg-brand" /> Lo nuevo
-            </p>
-            <ul className="grid gap-4 md:grid-cols-3">
-              {[
-                {
-                  href: `/comunidad/manga/${LATEST_MANGA.slug}`,
-                  image: mangaImage(LATEST_MANGA.slug, "cover", true),
-                  portrait: true,
-                  tag: "Manga",
-                  title: `${LATEST_MANGA.title} · Vol. ${LATEST_MANGA.volume}`,
-                },
-                {
-                  href: `/comunidad/retos/${CHALLENGES[0].slug}`,
-                  image: getChallengeCover(CHALLENGES[0]),
-                  tag: `Reto #${CHALLENGES[0].number}`,
-                  title: `${CHALLENGES[0].title} · ${CHALLENGES[0].artist}`,
-                  meta: `${CHALLENGES[0].section} · ${CHALLENGE_LEVELS[CHALLENGES[0].level]}`,
-                },
-                {
-                  href: `https://www.youtube.com/watch?v=${VIDEOS[0].id}`,
-                  external: true,
-                  image: `https://img.youtube.com/vi/${VIDEOS[0].id}/mqdefault.jpg`,
-                  tag: "Collab",
-                  title: VIDEOS[0].title,
-                  meta: "Video en YouTube",
-                },
-              ].map(({ href, external, image, portrait, tag, title, meta }: {
-                href: string;
-                external?: boolean;
-                image: string;
-                portrait?: boolean;
-                tag: string;
-                title: string;
-                meta?: string;
-              }) => (
-                <li key={href}>
-                  <a
-                    href={href}
-                    {...(external && { target: "_blank", rel: "noopener noreferrer" })}
-                    className="group flex h-full flex-col overflow-hidden rounded-card bg-surface shadow-sm ring-1 ring-ink/5 transition-transform hover:-translate-y-1"
-                  >
-                    <span className="block aspect-video overflow-hidden bg-night">
-                      <img
-                        src={image}
-                        alt=""
-                        loading="lazy"
-                        className={`h-full w-full object-cover ${portrait ? "object-top" : ""} transition-transform duration-500 group-hover:scale-105`}
-                      />
-                    </span>
-                    <span className="flex flex-1 flex-col p-4">
-                      <span className="text-xs font-bold uppercase tracking-wider text-brand">
-                        {tag}
-                      </span>
-                      <span className="mt-1 font-bold leading-snug group-hover:text-brand">
-                        {title}
-                      </span>
-                      {meta && <span className="mt-1 text-sm text-ink-muted">{meta}</span>}
-                    </span>
-                  </a>
+            {/* Retos: the three latest challenges */}
+            <div className="mb-4 flex items-baseline justify-between gap-4">
+              <h3 className="text-xl font-extrabold">Retos</h3>
+              <Link href="/comunidad/retos" className="text-sm font-semibold text-brand hover:underline">
+                Ver todos
+              </Link>
+            </div>
+            {/* Two per row while there are only two challenges */}
+            <ul className={`grid gap-6 ${CHALLENGES.length === 2 ? "md:grid-cols-2" : "md:grid-cols-3"}`}>
+              {CHALLENGES.slice(0, 3).map((challenge) => (
+                <li key={challenge.slug} className="grid">
+                  <ChallengeCard challenge={challenge} />
                 </li>
               ))}
             </ul>
 
+            {/* Manga: the three latest volumes */}
+            <div className="mb-4 mt-14 flex items-baseline justify-between gap-4">
+              <h3 className="text-xl font-extrabold">Manga</h3>
+              <Link href="/comunidad/manga" className="text-sm font-semibold text-brand hover:underline">
+                Ver todos
+              </Link>
+            </div>
+            <ul className="grid grid-cols-3 gap-3 sm:gap-6">
+              {MANGAS.slice(0, 3).map((manga, i) => (
+                <li key={manga.slug}>
+                  <Link href={`/comunidad/manga/${manga.slug}`} className="group block">
+                    <span className="relative block aspect-[1122/1402] overflow-hidden rounded-lg bg-night shadow-md ring-1 ring-ink/10">
+                      <img
+                        src={mangaImage(manga.slug, "cover", true)}
+                        alt={`${manga.title} Vol. ${manga.volume}`}
+                        loading="lazy"
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      {i === 0 && (
+                        <span className="absolute left-2 top-2 rounded-pill bg-brand px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
+                          Nuevo
+                        </span>
+                      )}
+                    </span>
+                    <span className="mt-2 block text-xs font-bold uppercase tracking-wider text-brand">
+                      Vol. {manga.volume}
+                    </span>
+                    <span className="block text-sm font-semibold leading-snug group-hover:text-brand sm:text-base">
+                      {manga.title}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
 
             {/* Collabs + podcast and free resources */}
             <div className="mt-14 grid gap-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
