@@ -46,9 +46,11 @@ export default async function ProductPage({ params }: Props) {
   if (!product) notFound();
 
   return (
-    <Container className="py-10 sm:py-16">
-      <Link href="/tienda" className="mb-6 inline-flex text-sm font-semibold text-ink-muted hover:text-brand">← Volver a la tienda</Link>
-      <div className="grid overflow-hidden rounded-3xl border border-white/10 bg-night text-on-night lg:grid-cols-2">
+    <section className="relative -mb-10 overflow-hidden bg-night text-on-night">
+      <div aria-hidden className="pointer-events-none absolute -top-40 left-1/2 h-[480px] w-[900px] -translate-x-1/2 rounded-full bg-brand/15 blur-[120px]" />
+      <Container className="relative pb-10 pt-24 sm:pb-16 sm:pt-28">
+      <Link href="/tienda" className="mb-6 inline-flex text-sm font-semibold text-on-night-muted hover:text-brand">← Volver a la tienda</Link>
+      <div className="grid overflow-hidden rounded-3xl border border-night-line bg-night-surface text-on-night shadow-2xl shadow-black/50 lg:grid-cols-2">
       <div className="overflow-hidden bg-[#151b12]">
         {product.cover && (
           <img
@@ -104,6 +106,7 @@ export default async function ProductPage({ params }: Props) {
         </div>
       </div>
       </div>
-    </Container>
+      </Container>
+    </section>
   );
 }

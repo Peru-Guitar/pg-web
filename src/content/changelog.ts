@@ -2,6 +2,15 @@
 // `date` is the release day (YYYY-MM-DD): the page groups versions released the same day.
 export const changelog: { version: string; date: string; notes: string[] }[] = [
   {
+    version: "0.6.1",
+    date: "2026-11-13",
+    notes: [
+      "Nuevo: el manga de MayinBlues, ERP cae redondito Vol. 4.",
+      "La tienda estrena diseño oscuro para que los productos resalten.",
+      "Se actualizaron dos artículos del blog.",
+    ],
+  },
+  {
     version: "0.6.0",
     date: "2026-11-12",
     notes: [

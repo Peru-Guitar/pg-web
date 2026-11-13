@@ -6,7 +6,7 @@ import { salesWhatsApp } from "@/content/settings.json";
 import { SITE_URL } from "@/lib/posts";
 
 export const ProductCard = ({ product }: { product: Product }) => (
-  <article className="group grid overflow-hidden rounded-3xl border border-white/10 bg-night text-on-night transition-shadow hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand md:grid-cols-2">
+  <article className="group grid overflow-hidden rounded-3xl border border-night-line bg-night-surface text-on-night shadow-2xl shadow-black/40 transition-[border-color,box-shadow] hover:border-brand/40 hover:shadow-brand/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand md:grid-cols-2">
     <Link href={`/tienda/${product.id}`} aria-label={`Ver ${product.name}`} className="overflow-hidden bg-[#151b12] focus-visible:outline-2 focus-visible:outline-brand">
       {product.cover && <img src={product.cover} alt={`${product.name}: dos púas verdes translúcidas con el logo PG`} width={960} height={1174} className="aspect-[1/1] h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] md:aspect-[5/4]" />}
     </Link>

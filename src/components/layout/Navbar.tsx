@@ -39,6 +39,7 @@ const hasBanner = (pathname: string) =>
   pathname === "/" ||
   pathname === "/acerca-de-nosotros" ||
   pathname.startsWith("/artistas") ||
+  pathname.startsWith("/tienda") ||
   pathname.startsWith("/comunidad/manga") ||
   /^\/blog\/(?!categoria\/)[^/]+$/.test(pathname);
 

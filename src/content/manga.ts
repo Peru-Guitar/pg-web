@@ -84,6 +84,22 @@ const MANGA_LIST: Manga[] = [
     ],
     pageSize: { width: 941, height: 1672 },
   },
+  {
+    series: "mayinblues",
+    slug: "mayinblues_4",
+    title: "ERP cae redondito",
+    volume: 4,
+    description:
+      "ERP ve en MayinBlues una mina de oro y lo invita a una noche en el Perú Guitar Bar. Chelas, un banquete, un préstamo y un puchito que nadie olvidará.",
+    chapters: [
+      { number: 1, title: "La mina de oro" },
+      { number: 2, title: "El banquete del miserable" },
+      { number: 3, title: "El amor prohibido" },
+      { number: 4, title: "El préstamo millonario" },
+      { number: 5, title: "El puchito de la traición" },
+    ],
+    pageSize: { width: 1024, height: 1536 },
+  },
 ];
 
 /** Newest first (DESC), like every other catalog on the site. */
