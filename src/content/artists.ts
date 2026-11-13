@@ -193,6 +193,31 @@ const ARTIST_LIST: Artist[] = [
     spotifyArtistId: "2vUyks44jKINvtKpcD0zQk",
     youtubeVideo: { id: "csVijm20YV0", title: "Mario Quintana - Party of Ignorance [Video Oficial]" },
   },
+  {
+    slug: "eduardo-jbp",
+    name: "Eduardo JBP",
+    tagline: "Guitarrista solista, compositor y productor de metal",
+    bio: [
+      "Eduardo JBP es un guitarrista, compositor y productor de Bogotá, Colombia. Ganó el Sibelius Fest Colombia 2014 como guitarrista solista y publicó su primer disco solista, POWER OF UNIVERSE: The Secrets Of My Life.",
+      "Su nombre completo es Eduardo José Barrios Prado. Estudió música con énfasis en guitarra eléctrica en la escuela de música Fernando Sor y un programa de audioperceptiva en la Facultad de Bellas Artes de la Universidad Pedagógica Nacional. Entre sus maestros están Tom Abella y Sergio Solano.",
+      "Como músico autogestionado ha lanzado trabajos con Doomsayer (EP Falling Skyes), Psychomorphosis (EP Enajenación Mental) y su proyecto solista. También ha sido parte de Animus, Opensight, All The Hatred, Latinoamerican Power Guitar Jam y Jan Murtry Band.",
+      "En vivo ha tocado en el teatro La Media Torta en festivales de la alcaldía de Suba, el Teatro La Mama y eventos dentro y fuera de Bogotá como Rock Cup, True Fest, Rock Bajo la Séptima, Rock al Tunjo (Facatativá), Metal Injection, La Hamburguesería y Ozzy Bar.",
+      "Ganó el primer lugar en vivo como guitarrista solista del Sibelius Fest Colombia 2014, con el que representó a Colombia en México en 2015, año en el que también fue jurado. Además ganó el festival virtual MyOrganicRiff 2016 y el concurso Sonoro/MXR DD11.",
+      "Es artista de Tension Picks y Foundry_Col, y forma parte del sello Miltoneladas Records, donde presenta su disco POWER OF UNIVERSE. También es arquitecto graduado de la Universidad de La Salle: se dedica a tiempo completo a la música y a la arquitectura, da clases de guitarra de forma independiente y trabaja como arquitecto freelance.",
+    ],
+    location: "Bogotá, Colombia",
+    birthDate: "1985-05-13",
+    styles: ["Metal", "Instrumental"],
+    photo: "/content/artistas/eduardo-jbp/photo.webp",
+    socials: {
+      instagram: "https://www.instagram.com/eduardo_jbp/",
+      youtube: "https://www.youtube.com/@Eduardo_JBP",
+      spotify: "https://open.spotify.com/artist/4SzoP3LqnMWOLJzm91AW2I",
+      tiktok: "https://www.tiktok.com/@eduardo_jbp",
+    },
+    spotifyArtistId: "4SzoP3LqnMWOLJzm91AW2I",
+    youtubeVideo: { id: "dt_MhvX7ruY", title: "Eduardo JBP - Every Day We Die A Little (POWER OF UNIVERSE)" },
+  },
 ];
 
 /** Guitarists featured on Peru Guitar, sorted alphabetically by name. Order = directory order. */

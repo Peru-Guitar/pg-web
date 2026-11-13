@@ -1,5 +1,6 @@
 import { Post, PostAuthor, PostCategory } from "../types";
 import { ImageVisualizer } from "../components/ImageVisualizer";
+import { YouTubePlayer } from "../components/YouTubePlayer";
 
 const link = (href: string, text: string) => (
   <a href={href} target="_blank" rel="noopener noreferrer">
@@ -64,6 +65,13 @@ export const historiaDePeruGuitar: Post = {
         . Una auténtica <strong>cápsula del tiempo</strong> que preferimos
         conservar tal como quedó.
       </p>
+
+      <p>
+        De esa misma época es también nuestro primer spot, un video
+        promocional de la primera versión de Peru Guitar:
+      </p>
+
+      <YouTubePlayer id="Y9W_uUWChWY" />
 
       <h2>2004: la etapa de MSN Groups</h2>
 
