@@ -38,6 +38,33 @@ export interface Artist {
 
 const ARTIST_LIST: Artist[] = [
   {
+    slug: "carlos-rodriguez",
+    name: "Carlos Rodriguez",
+    tagline: "Guitarrista de rock instrumental y creador de Always Tomorrow",
+    bio: [
+      "Carlos Rodriguez es un guitarrista y músico chiclayano radicado en Lima. Formó parte de Boost y Emeral, y hoy crea música instrumental con su proyecto Always Tomorrow, con singles en las principales plataformas de streaming.",
+      "Su interés por la música nació a los 9 o 10 años, cuando empezó a sentir una especial atracción por el piano. Alrededor de los 15 descubrió la guitarra eléctrica, el instrumento que despertó su verdadera pasión y que se convirtió en su principal medio de expresión musical.",
+      "Inició su formación en Chiclayo, donde estudió durante unos dos años con Martín Reyna. Luego, por motivos laborales y personales, se trasladó a Lima, donde vive desde hace más de una década. Allí estudió durante más de cinco años con el reconocido guitarrista VH Glenny y profundizó en los aspectos técnicos, armónicos e interpretativos del instrumento.",
+      "Ha formado parte de distintos proyectos musicales, entre ellos Boost y Emeral, experiencias que contribuyeron a su desarrollo como guitarrista. Es creador de Always Tomorrow, su proyecto de música instrumental, con el que busca plasmar sus principales influencias, explorar distintas sonoridades y desarrollar una identidad musical propia. Con él ha publicado diversos singles, disponibles en las principales plataformas de streaming.",
+      "Sus influencias abarcan distintos estilos y generaciones. Joe Satriani, Steve Vai, Jason Becker y Marty Friedman marcaron su interés por el virtuosismo y el rock instrumental. Steve Lukather, Michael Landau y Dann Huff lo influyeron por su versatilidad, sensibilidad melódica, fraseo y sofisticación sonora. A ellos se suman Stevie Ray Vaughan, Frank Gambale y Aaron Marshall, entre otros, que ampliaron su perspectiva hacia el blues, el jazz fusion, el rock progresivo y la guitarra moderna.",
+      "Su estilo busca integrar la energía del rock, la expresividad del blues, la riqueza armónica de la fusión y la sensibilidad melódica de los grandes guitarristas de sesión. Le apasiona la exploración del sonido, el tono y las posibilidades expresivas de la guitarra eléctrica, con la idea de que la técnica debe estar al servicio de la música y de las emociones.",
+      "Tras más de dos décadas ligado a la guitarra, considera que uno de sus principales logros ha sido mantener viva la pasión que nació en su adolescencia y convertirla en proyectos propios que hoy comparte a través de sus composiciones.",
+      "Su objetivo es seguir evolucionando como músico, crear y publicar música instrumental, y consolidar una identidad artística que refleje sus influencias, experiencias y visión personal de la guitarra eléctrica.",
+    ],
+    location: "Lima, Perú",
+    birthDate: "1987-01-06",
+    styles: ["Rock instrumental", "Blues", "Fusión"],
+    photo: "/content/artistas/carlos-rodriguez/photo.webp",
+    socials: {
+      instagram: "https://www.instagram.com/carlos.rodriguezg/",
+      youtube: "https://www.youtube.com/@carlos.rodriguezg",
+      spotify: "https://open.spotify.com/artist/2Jt4r6gjda050IlPX1CTfL",
+      tiktok: "https://www.tiktok.com/@carlosrodriguezgastelo",
+    },
+    spotifyArtistId: "2Jt4r6gjda050IlPX1CTfL",
+    youtubeVideo: { id: "-0jjDlv97Gw", title: "Catarsis - Carlos Rodriguez ( Playthrough )" },
+  },
+  {
     slug: "santiago-zumaran",
     name: "Santiago Zumarán",
     tagline: "Guitarrista de blues, estudiante de ejecución y sesionista",
