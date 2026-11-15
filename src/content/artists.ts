@@ -12,6 +12,8 @@ export const ARTISTS_FORM_URL = "https://forms.gle/jndRQNKtH4mt61ZM7";
 export const ARTISTS_HERO = "/content/artistas/hero.webp";
 
 export interface Artist {
+  /** Stable unique id (UUID v4). Never change it once set. */
+  id: string;
   slug: string;
   name: string;
   /** One line under the name in the hero. */
@@ -38,6 +40,7 @@ export interface Artist {
 
 const ARTIST_LIST: Artist[] = [
   {
+    id: "d23b1d4c-3312-40ab-ba5c-0648dbed3260",
     slug: "carlos-rodriguez",
     name: "Carlos Rodriguez",
     tagline: "Guitarrista de rock instrumental y creador de Always Tomorrow",
@@ -65,6 +68,7 @@ const ARTIST_LIST: Artist[] = [
     youtubeVideo: { id: "-0jjDlv97Gw", title: "Catarsis - Carlos Rodriguez ( Playthrough )" },
   },
   {
+    id: "66b579ae-3a0f-4c1f-b875-fb896781b994",
     slug: "santiago-zumaran",
     name: "Santiago Zumarán",
     tagline: "Guitarrista de blues, estudiante de ejecución y sesionista",
@@ -86,6 +90,7 @@ const ARTIST_LIST: Artist[] = [
     },
   },
   {
+    id: "ce387269-cb3c-461d-824a-ad118a4ee408",
     slug: "brandon-murga",
     name: "Brandon Murga",
     tagline: "Guitarrista de metal, darkwave y metal industrial",
@@ -107,6 +112,7 @@ const ARTIST_LIST: Artist[] = [
     youtubeVideo: { id: "DjwPu1w_zqw", title: "Neuromancers (Scar Symmetry Cover Solo)" },
   },
   {
+    id: "26cd9bee-bf4c-4b22-9109-2edf6be0f989",
     slug: "erp-project",
     name: "ERP Project",
     tagline: "El proyecto del guitarrista Eduardo Rodríguez",
@@ -131,6 +137,7 @@ const ARTIST_LIST: Artist[] = [
     youtubeVideo: { id: "xymcs9DrXk4", title: "Two Worlds (Definitive Edition)" },
   },
   {
+    id: "6209b3da-58f6-4133-b20f-037d915b9ff7",
     slug: "luis-fernando",
     name: "Luis Fernando",
     tagline: "Guitarrista y compositor de fusión",
@@ -151,6 +158,7 @@ const ARTIST_LIST: Artist[] = [
     youtubeVideo: { id: "E-A6GGdTjSQ", title: "City pop improv solo" },
   },
   {
+    id: "0da39cae-53ce-47df-93d7-2b2775673062",
     slug: "carlos-caz",
     name: "Carlos Caz",
     tagline: "Guitarrista de rock y jazz",
@@ -177,6 +185,7 @@ const ARTIST_LIST: Artist[] = [
     },
   },
   {
+    id: "20a8097e-b68e-44a1-9652-de8ca4212756",
     slug: "camilo-tellez",
     name: "Camilo Tellez",
     tagline: "Guitarrista y compositor de metal progresivo",
@@ -199,6 +208,7 @@ const ARTIST_LIST: Artist[] = [
     youtubeVideo: { id: "GJw0eBSx0ho", title: "Camilo Tellez - Fácil De Olvidar (Official Video)" },
   },
   {
+    id: "ada33306-90bb-4ce5-ba95-f1de608c5614",
     slug: "mario-quintana",
     name: "Mario Quintana",
     tagline: "Guitarrista de metal y música instrumental",
@@ -221,6 +231,7 @@ const ARTIST_LIST: Artist[] = [
     youtubeVideo: { id: "csVijm20YV0", title: "Mario Quintana - Party of Ignorance [Video Oficial]" },
   },
   {
+    id: "d90d7215-d744-4efb-a15b-4dd7c6d7ad09",
     slug: "eduardo-jbp",
     name: "Eduardo JBP",
     tagline: "Guitarrista solista, compositor y productor de metal",

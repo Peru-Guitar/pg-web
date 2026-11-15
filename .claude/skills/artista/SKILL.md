@@ -16,6 +16,7 @@ Artistas PG features guitarists, mostly Peruvian, with their bio, music, videos 
 - No quotation marks in bios: write album, song and band titles plainly (el EP Nihil, not el EP "Nihil").
 - Links must be real, full URLs the user gave you or that you confirmed. Never guess a handle.
 - `slug` must be unique in `ARTISTS`.
+- `id` is a new UUID v4 (`uuidgen | tr A-Z a-z`), unique, and never changes once set.
 
 ## 1. Ask for what's missing
 
@@ -37,6 +38,7 @@ Add the entry anywhere in `ARTIST_LIST`. `ARTISTS` sorts it alphabetically by na
 
 | Field | Content |
 |---|---|
+| `id` | New lowercase UUID v4 |
 | `slug` | Kebab-case name: `brandon-murga` |
 | `name` | Artistic name |
 | `tagline` | One line under the name: what they play and what they do. `Guitarrista de metal, darkwave y metal industrial` |
