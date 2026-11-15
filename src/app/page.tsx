@@ -57,8 +57,8 @@ export default function Home() {
               artistas y una comunidad que toca, comparte y crea junta.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Button href="https://fretquest.peruguitar.com" external>
-                Entrena en Fret Quest <ArrowRight size={18} />
+              <Button href="/artistas">
+                Conoce a los artistas <ArrowRight size={18} />
               </Button>
               <Button href="/comunidad" variant="outline">
                 Únete a la comunidad
