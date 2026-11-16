@@ -100,6 +100,22 @@ const MANGA_LIST: Manga[] = [
     ],
     pageSize: { width: 1024, height: 1536 },
   },
+  {
+    series: "mayinblues",
+    slug: "mayinblues_5",
+    title: "MayinBlues el ingenuo",
+    volume: 5,
+    description:
+      "Un concierto, un rechazo y una trampa perfecta. Tres patas de Los Olivos le ofrecen a MayinBlues su gran oportunidad de tocar en vivo.",
+    chapters: [
+      { number: 1, title: "La gran oportunidad" },
+      { number: 2, title: "Aquí no se ensaya" },
+      { number: 3, title: "El concierto de Los Olivos" },
+      { number: 4, title: "No hablo con cholos" },
+      { number: 5, title: "Robo en la municipalidad" },
+    ],
+    pageSize: { width: 941, height: 1672 },
+  },
 ];
 
 /** Newest first (DESC), like every other catalog on the site. */

@@ -33,7 +33,7 @@ export default function Home() {
     <>
       <section className="home-hero relative isolate overflow-hidden bg-night text-on-night">
         <img
-          src="/content/artistas/hero.webp"
+          src="/content/artistas/hero-christmas.webp"
           alt=""
           aria-hidden="true"
           width={1600}
@@ -42,6 +42,7 @@ export default function Home() {
           className="home-hero-image"
         />
         <div className="home-hero-shade" aria-hidden="true" />
+        <div className="hero-snow" aria-hidden="true" />
         <Container className="relative grid gap-12 pb-16 pt-32 md:pb-24 md:pt-40 lg:grid-cols-[1.15fr_1fr] lg:items-center">
           <div>
             <p className="mb-6 text-xs font-bold uppercase tracking-[.23em] text-accent">

@@ -1,0 +1,82 @@
+/* Temporary Christmas photo alternate. The original image stays available. */
+.community-footer {
+  --xmas-red: #e74c3e;
+  --xmas-green: #2f9e62;
+  --xmas-gold: #f4c04f;
+}
+.community-footer .community-footer-art {
+  background-image:
+    linear-gradient(to bottom, rgb(17 17 17 / 12%) 0%, rgb(17 17 17 / 8%) 25%, rgb(17 17 17 / 78%) 72%, var(--color-night) 100%),
+    url("/footer-community-christmas.webp");
+}
+.community-footer .grid {
+  padding-top: 24px;
+}
+/* Mobile: show the photo at its natural size, centered; the sides crop. */
+@media (max-width: 767px) {
+  .community-footer .community-footer-art {
+    height: 640px;
+    background-size: auto;
+    background-position: center top;
+  }
+}
+
+
+/* Static red, gold and green ribbon along the bottom edge of the home hero. */
+.home-hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  height: 2px;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    90deg,
+    #e74c3e 0 24px,
+    #f4c04f 24px 48px,
+    #2f9e62 48px 72px
+  );
+}
+
+/*
+ * Subtle snowfall in the home hero and footer: two sparse layers of tiny
+ * flakes. Each layer is a tile taller than the box, moved with transform so
+ * the compositor animates it without repainting every frame.
+ */
+.hero-snow {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.hero-snow::before,
+.hero-snow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+.hero-snow::before {
+  top: -220px;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgb(255 255 255 / 45%) 1px, transparent 1.5px),
+    radial-gradient(circle at 70% 80%, rgb(255 255 255 / 35%) 1px, transparent 1.5px);
+  background-size: 220px 220px;
+  animation: hero-snow 10s linear infinite;
+}
+.hero-snow::after {
+  top: -340px;
+  background-image:
+    radial-gradient(circle at 50% 50%, rgb(255 255 255 / 30%) 1.5px, transparent 2px),
+    radial-gradient(circle at 10% 90%, rgb(255 255 255 / 25%) 1px, transparent 1.5px);
+  background-size: 340px 340px;
+  animation: hero-snow-far 18s linear infinite;
+}
+@keyframes hero-snow {
+  to { transform: translateY(220px); }
+}
+@keyframes hero-snow-far {
+  to { transform: translateY(340px); }
+}

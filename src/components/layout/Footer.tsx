@@ -31,6 +31,7 @@ const columns = [
 export const Footer = () => (
   <footer className="community-footer relative isolate mt-10 overflow-hidden bg-night text-on-night-muted">
     <div className="community-footer-art pointer-events-none absolute inset-x-0 top-0 -z-10" aria-hidden="true" />
+    <div className="hero-snow -z-10" aria-hidden="true" />
     <Container className="relative pb-10 pt-10 md:pb-14 md:pt-14">
       <CommunitySupport />
       <div className="grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
@@ -38,7 +39,7 @@ export const Footer = () => (
           <Link
             href="/"
             aria-label="Peru Guitar, inicio"
-            className="inline-block"
+            className="relative inline-block"
           >
             <Image
               src="/logo-pg.webp"
@@ -47,6 +48,29 @@ export const Footer = () => (
               height={160}
               className="h-20 w-auto"
             />
+            <svg
+              className="footer-christmas-hat pointer-events-none absolute left-[40%] -top-10 h-[4.5rem] w-24"
+              viewBox="0 0 96 72"
+              fill="none"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                d="M17 53C23 34 35 10 55 10c16 0 25 13 26 30L69 43c-1-9-5-14-11-14 1 11 4 19 7 25Z"
+                fill="var(--xmas-red)"
+                stroke="#a62b27"
+                strokeWidth="2"
+                strokeLinejoin="round"
+              />
+              <path d="M29 45c6-16 13-26 23-30-5 8-9 19-10 31Z" fill="#fff" opacity=".15" />
+              <path
+                d="M16 48c14-4 35-3 49 2 5 2 4 13-1 15-15-5-34-6-49-2-5-2-4-13 1-15Z"
+                fill="#fffaf1"
+                stroke="#ded8ce"
+                strokeWidth="2"
+              />
+              <circle cx="78" cy="44" r="10" fill="#fffaf1" stroke="#ded8ce" strokeWidth="2" />
+            </svg>
           </Link>
           <p className="mt-6 max-w-xs text-2xl font-bold leading-snug tracking-tight text-on-night">
             La guitarra
