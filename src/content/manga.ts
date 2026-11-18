@@ -116,6 +116,23 @@ const MANGA_LIST: Manga[] = [
     ],
     pageSize: { width: 941, height: 1672 },
   },
+  {
+    series: "mayinblues",
+    slug: "mayinblues_6",
+    title: "El maestro de las leyendas",
+    volume: 6,
+    description:
+      "MayinBlues jura que entrenó a los más grandes de la guitarra. Kiko Loureiro, Frank Gambale, Greg Howe, Brett Garsed, Guthrie Govan e Yngwie Malmsteen: lo que él imagina y lo que pasó en realidad.",
+    chapters: [
+      { number: 1, title: "Mi hermanito brasileño" },
+      { number: 2, title: "La púa de Gambale" },
+      { number: 3, title: "Cinco soles para Greg" },
+      { number: 4, title: "La pollada de Brett" },
+      { number: 5, title: "Great playing, bro" },
+      { number: 6, title: "Los Aceleradores de las Escalas Tántricas" },
+    ],
+    pageSize: { width: 941, height: 1672 },
+  },
 ];
 
 /** Newest first (DESC), like every other catalog on the site. */
