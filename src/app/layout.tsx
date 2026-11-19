@@ -9,7 +9,7 @@ import { Footer } from "@/components/layout/Footer";
 import ServiceWorker from "@/components/layout/ServiceWorker";
 import CopyGuard from "@/components/layout/CopyGuard";
 import { SITE_URL } from "@/lib/posts";
-import { cloudflareAnalyticsToken } from "@/content/settings.json";
+import { gaMeasurementId } from "@/content/settings.json";
 
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
@@ -84,7 +84,14 @@ export default function RootLayout({
           type="speculationrules"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(SPECULATION_RULES) }}
         />
-        <Script src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: cloudflareAnalyticsToken })} strategy="afterInteractive" />
+        {process.env.NODE_ENV === "production" && (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`} strategy="afterInteractive" />
+            <Script id="ga4" strategy="afterInteractive">
+              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaMeasurementId}');`}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );
