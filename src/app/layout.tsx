@@ -8,8 +8,9 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import ServiceWorker from "@/components/layout/ServiceWorker";
 import CopyGuard from "@/components/layout/CopyGuard";
+import LinkTracker from "@/components/layout/LinkTracker";
 import { SITE_URL } from "@/lib/posts";
-import { gaMeasurementId } from "@/content/settings.json";
+import { clarityProjectId, gaMeasurementId } from "@/content/settings.json";
 
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
@@ -77,6 +78,7 @@ export default function RootLayout({
         <main id="contenido">{children}</main>
         <Footer />
         <CopyGuard />
+        <LinkTracker />
         <ServiceWorker />
         {/* Speculation Rules: prefetch internal pages on hover/press so plain
             <a> links (and full page loads) open instantly. Chromium only. */}
@@ -89,6 +91,9 @@ export default function RootLayout({
             <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`} strategy="afterInteractive" />
             <Script id="ga4" strategy="afterInteractive">
               {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaMeasurementId}');`}
+            </Script>
+            <Script id="clarity" strategy="afterInteractive">
+              {`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${clarityProjectId}");`}
             </Script>
           </>
         )}
