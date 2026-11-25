@@ -86,7 +86,7 @@ export default function CommunityPage() {
             }}
           />
         </div>
-        <ResourcesList limit={3} />
+        <ResourcesList limit={4} />
 
         <div
           id="grupo"

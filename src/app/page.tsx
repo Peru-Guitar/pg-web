@@ -15,7 +15,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { getLatestPosts } from "@/lib/posts";
-import { BOOKS, RESOURCES } from "@/content/resources";
+import { ALL_RESOURCES, BOOKS, RESOURCES } from "@/content/resources";
 import { MANGAS, mangaImage } from "@/content/manga";
 import { TornBand } from "@/components/ui/TornBand";
 import { PODCAST_EPISODES, VIDEOS } from "@/content/media";
@@ -343,13 +343,11 @@ export default function Home() {
                   <h3 className="mb-4 text-xl font-extrabold">Recursos gratis</h3>
                   <ul className="flex flex-1 flex-col divide-y divide-ink/10 rounded-xl bg-surface ring-1 ring-ink/5">
                     {[
-                      { href: `/comunidad/recursos/${BOOKS[0].id}`, icon: BookOpen, name: BOOKS[0].name, meta: "Ebook" },
-                      ...RESOURCES.map((track) => ({
-                        href: `/comunidad/recursos#${track.id}`,
-                        icon: Music2,
-                        name: track.name,
-                        meta: "Backing track",
-                      })),
+                      ...ALL_RESOURCES.map((item) =>
+                        item.kind === "book"
+                          ? { href: `/comunidad/recursos/${item.id}`, icon: BookOpen, name: item.name, meta: "Ebook" }
+                          : { href: `/comunidad/recursos#${item.id}`, icon: Music2, name: item.name, meta: "Backing track" },
+                      ),
                     ].map(({ href, icon: Icon, name, meta }) => (
                       <li key={href} className="flex flex-1">
                         <Link

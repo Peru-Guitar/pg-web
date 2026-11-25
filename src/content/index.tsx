@@ -17,6 +17,7 @@ import { losEjerciciosAburridosTeHacenCrecer } from "./posts/16-los-ejercicios-a
 import { pentatonicasModales } from "./posts/17-pentatonicas-modales";
 import { concursoIIResultados } from "./posts/18-concurso-ii-resultados";
 import { historiaDePeruGuitar } from "./posts/19-historia-de-peru-guitar";
+import { tiposDeDistorsion } from "./posts/20-tipos-de-distorsion";
 
 export const POSTS: Post[] = [
   pentatonicFusionLick01,
@@ -36,4 +37,5 @@ export const POSTS: Post[] = [
   pentatonicasModales,
   concursoIIResultados,
   historiaDePeruGuitar,
+  tiposDeDistorsion,
 ].sort((a, b) => b.date.getTime() - a.date.getTime());

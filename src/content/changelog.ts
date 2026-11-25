@@ -2,6 +2,15 @@
 // `date` is the release day (YYYY-MM-DD): the page groups versions released the same day.
 export const changelog: { version: string; date: string; notes: string[] }[] = [
   {
+    version: "0.6.11",
+    date: "2026-11-24",
+    notes: [
+      "Nuevo backing track: Peru Guitar (Versión 2026), por Carlos Rodriguez.",
+      "Los recursos gratis se ven mejor y aparecen del más nuevo al más antiguo.",
+      "Nuevo artículo: Tipos de distorsión en guitarra y cómo suena cada uno.",
+    ],
+  },
+  {
     version: "0.6.10",
     date: "2026-11-18",
     notes: ["Mejoras y arreglos."],
